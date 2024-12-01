@@ -1,0 +1,242 @@
+[2024-12-01 18:44:20 INF] HTTP GET / responded 302 in 264.5901 ms
+[2024-12-01 18:44:20 INF] HTTP GET /api responded 302 in 9.0462 ms
+[2024-12-01 18:44:20 INF] HTTP GET /api/index.html responded 200 in 188.7314 ms
+[2024-12-01 18:48:09 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 27.2023 ms
+[2024-12-01 18:48:22 INF] Starting to process CreateOperationCommand for user: 616284b7-017e-4157-b495-7d33200bca17
+[2024-12-01 18:48:53 ERR] An error occurred during CreateOperationCommand processing.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Buffer.Memmove(Byte& dest, Byte& src, UIntPtr len)
+   at NejPortalBackend.Application.Operations.Commands.CreateOperation.CreateOperationCommandHandler.Handle(CreateOperationCommand request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Commands/CreateOperation/CreateOperation.cs:line 114
+[2024-12-01 18:48:53 ERR] NejPortalBackend Request: Unhandled Exception for Request CreateOperationCommand {"ClientId":"616284b7-017e-4157-b495-7d33200bca17","AgentId":"","TypeOperationId":0,"Commentaire":"","Files":[],"$type":"CreateOperationCommand"}
+System.ApplicationException: An unexpected error occurred. Please try again later.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Buffer.Memmove(Byte& dest, Byte& src, UIntPtr len)
+   at NejPortalBackend.Application.Operations.Commands.CreateOperation.CreateOperationCommandHandler.Handle(CreateOperationCommand request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Commands/CreateOperation/CreateOperation.cs:line 114
+   --- End of inner exception stack trace ---
+   at NejPortalBackend.Application.Operations.Commands.CreateOperation.CreateOperationCommandHandler.Handle(CreateOperationCommand request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Commands/CreateOperation/CreateOperation.cs:line 173
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 18:48:53 ERR] HTTP POST /api/EntrepriseOperations/create responded 500 in 43609.2285 ms
+[2024-12-01 18:52:06 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 26.4939 ms
+[2024-12-01 18:52:14 INF] Starting to process CreateOperationCommand for user: 616284b7-017e-4157-b495-7d33200bca17
+[2024-12-01 18:54:09 INF] Operation created successfully with Id: 9
+[2024-12-01 18:54:09 WRN] NejPortalBackend Long Running Request: CreateOperationCommand (122869 milliseconds) 070e14de-15c8-4e8a-a3db-ca1a1bab47b0 administrator@localhost {"ClientId":"616284b7-017e-4157-b495-7d33200bca17","AgentId":"","TypeOperationId":0,"Commentaire":"","Files":[],"$type":"CreateOperationCommand"}
+[2024-12-01 18:54:09 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 123058.4271 ms
+[2024-12-01 18:56:13 INF] HTTP GET / responded 302 in 214.7981 ms
+[2024-12-01 18:56:13 INF] HTTP GET /api responded 302 in 13.8324 ms
+[2024-12-01 18:56:14 INF] HTTP GET /api/index.html responded 200 in 214.4228 ms
+[2024-12-01 18:56:14 INF] HTTP GET /api/specification.json responded 304 in 9.8688 ms
+[2024-12-01 18:57:07 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 2.4046 ms
+[2024-12-01 18:57:13 INF] Starting to process CreateOperationCommand for user: 616284b7-017e-4157-b495-7d33200bca17
+[2024-12-01 18:57:33 INF] Operation created successfully with Id: 10
+[2024-12-01 18:57:33 WRN] NejPortalBackend Long Running Request: CreateOperationCommand (23340 milliseconds) 070e14de-15c8-4e8a-a3db-ca1a1bab47b0 administrator@localhost {"ClientId":"616284b7-017e-4157-b495-7d33200bca17","AgentId":"","TypeOperationId":0,"Commentaire":"","Files":[],"$type":"CreateOperationCommand"}
+[2024-12-01 18:57:33 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 26074.6233 ms
+[2024-12-01 19:01:33 INF] HTTP GET / responded 302 in 253.9759 ms
+[2024-12-01 19:01:33 INF] HTTP GET /api responded 302 in 6.2593 ms
+[2024-12-01 19:01:33 INF] HTTP GET /api/index.html responded 200 in 129.8732 ms
+[2024-12-01 19:01:41 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 66.6618 ms
+[2024-12-01 19:01:42 ERR] NejPortalBackend Request: Unhandled Exception for Request CreateOperationCommand {"ClientId":"616284b7-017e-4157-b495-7d33200bca17","AgentId":"","TypeOperationId":0,"Commentaire":"","Files":[],"$type":"CreateOperationCommand"}
+NejPortalBackend.Application.Common.Exceptions.ForbiddenAccessException: Exception of type 'NejPortalBackend.Application.Common.Exceptions.ForbiddenAccessException' was thrown.
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 56
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 19:01:42 ERR] HTTP POST /api/EntrepriseOperations/create responded 500 in 747.9951 ms
+[2024-12-01 19:01:54 INF] HTTP OPTIONS /api/Authentification/login responded 204 in 55.3950 ms
+[2024-12-01 19:02:00 WRN] Login attempt failed: Email not confirmed for email administrator@localhost
+[2024-12-01 19:02:00 WRN] NejPortalBackend Long Running Request: AuthenticateCommand (5960 milliseconds)   {"Email":"administrator@localhost","Password":"Administrator1!","AppIdentifier":"EntrepriseApp","$type":"AuthenticateCommand"}
+[2024-12-01 19:02:00 INF] HTTP POST /api/Authentification/login responded 200 in 6048.5122 ms
+[2024-12-01 19:02:47 INF] HTTP OPTIONS /api/Authentification/login responded 204 in 0.9406 ms
+[2024-12-01 19:02:50 INF] JWT token generated for user administrator@localhost with roles Administrator
+[2024-12-01 19:02:50 INF] Refresh token saved for user a7cb8818-7cb3-4b34-a2a1-d2f43e3c16b9.
+[2024-12-01 19:02:50 WRN] NejPortalBackend Long Running Request: AuthenticateCommand (3201 milliseconds)   {"Email":"administrator@localhost","Password":"Administrator1!","AppIdentifier":"EntrepriseApp","$type":"AuthenticateCommand"}
+[2024-12-01 19:02:50 INF] HTTP POST /api/Authentification/login responded 200 in 3222.6691 ms
+[2024-12-01 19:03:02 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.1271 ms
+[2024-12-01 19:03:03 INF] Successfully retrieved operation filters.
+[2024-12-01 19:03:03 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (660 milliseconds) a7cb8818-7cb3-4b34-a2a1-d2f43e3c16b9 administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 19:03:03 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 839.2899 ms
+[2024-12-01 19:03:07 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 0.1234 ms
+[2024-12-01 19:03:12 INF] Starting to process CreateOperationCommand for user: 82415d60-3cdd-4d1c-836f-9378ba3f4a38
+[2024-12-01 19:08:09 INF] HTTP GET / responded 302 in 205.1478 ms
+[2024-12-01 19:08:09 INF] HTTP GET /api responded 302 in 7.6277 ms
+[2024-12-01 19:08:10 INF] HTTP GET /api/index.html responded 200 in 127.2250 ms
+[2024-12-01 19:09:45 ERR] Failed executing DbCommand (28ms) [Parameters=[@__administratorRole_Name_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN NOT EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]
+        WHERE [a].[Name] = @__administratorRole_Name_0 AND [a].[Name] IS NOT NULL) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2024-12-01 19:09:45 ERR] An exception occurred while iterating over the results of a query for context type 'NejPortalBackend.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetRoles'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:6e2acd2d-0e7c-49bf-afee-4e874493610e
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetRoles'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:6e2acd2d-0e7c-49bf-afee-4e874493610e
+Error Number:208,State:1,Class:16
+[2024-12-01 19:09:45 ERR] An error occurred while seeding the database.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetRoles'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method22(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at NejPortalBackend.Infrastructure.Data.ApplicationDbContextInitialiser.TrySeedAsync() in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs:line 75
+   at NejPortalBackend.Infrastructure.Data.ApplicationDbContextInitialiser.SeedAsync() in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs:line 59
+ClientConnectionId:6e2acd2d-0e7c-49bf-afee-4e874493610e
+Error Number:208,State:1,Class:16
+[2024-12-01 19:14:33 ERR] Failed executing DbCommand (20,117ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [PortailNejDB];
+[2024-12-01 19:19:28 INF] HTTP GET / responded 302 in 161.8334 ms
+[2024-12-01 19:19:28 INF] HTTP GET /api responded 302 in 8.7181 ms
+[2024-12-01 19:19:28 INF] HTTP GET /api/index.html responded 200 in 167.8612 ms
+[2024-12-01 19:19:28 INF] HTTP GET /api/specification.json responded 304 in 6.4037 ms
+[2024-12-01 19:19:45 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 6.3323 ms
+[2024-12-01 19:19:48 ERR] NejPortalBackend Request: Unhandled Exception for Request CreateOperationCommand {"ClientId":"82415d60-3cdd-4d1c-836f-9378ba3f4a38","AgentId":"","TypeOperationId":0,"Commentaire":"","Files":[],"$type":"CreateOperationCommand"}
+NejPortalBackend.Application.Common.Exceptions.ForbiddenAccessException: Exception of type 'NejPortalBackend.Application.Common.Exceptions.ForbiddenAccessException' was thrown.
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 56
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 19:19:48 ERR] HTTP POST /api/EntrepriseOperations/create responded 500 in 3243.3144 ms
+[2024-12-01 19:26:04 INF] HTTP GET / responded 302 in 267.2226 ms
+[2024-12-01 19:26:04 INF] HTTP GET /api responded 302 in 8.1775 ms
+[2024-12-01 19:26:04 INF] HTTP GET /api/index.html responded 200 in 131.6582 ms
+[2024-12-01 19:26:14 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 3.4166 ms
+[2024-12-01 19:26:15 ERR] NejPortalBackend Request: Unhandled Exception for Request GetOperationFiltersQuery {"$type":"GetOperationFiltersQuery"}
+NejPortalBackend.Application.Common.Exceptions.ForbiddenAccessException: Exception of type 'NejPortalBackend.Application.Common.Exceptions.ForbiddenAccessException' was thrown.
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 56
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 19:26:15 ERR] An unhandled exception has occurred while executing the request.
+NejPortalBackend.Application.Common.Exceptions.ForbiddenAccessException: Exception of type 'NejPortalBackend.Application.Common.Exceptions.ForbiddenAccessException' was thrown.
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 56
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.GetEntrepriseAllFilters(ISender sender) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 38
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTaskOfT>g__ExecuteAwaited|133_0[T](Task`1 task, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 19:26:15 INF] HTTP GET /api/EntrepriseOperations/filters responded 403 in 1341.7568 ms
+[2024-12-01 19:26:39 INF] HTTP OPTIONS /api/Authentification/login responded 204 in 0.2669 ms
+[2024-12-01 19:26:47 WRN] Login attempt failed: Email not confirmed for email administrator@localhost
+[2024-12-01 19:26:47 WRN] NejPortalBackend Long Running Request: AuthenticateCommand (7833 milliseconds)   {"Email":"administrator@localhost","Password":"Administrator1!","AppIdentifier":"EntrepriseApp","$type":"AuthenticateCommand"}
+[2024-12-01 19:26:47 INF] HTTP POST /api/Authentification/login responded 200 in 8014.8586 ms
+[2024-12-01 19:27:26 INF] HTTP OPTIONS /api/Authentification/login responded 204 in 25.4128 ms
+[2024-12-01 19:27:27 INF] JWT token generated for user administrator@localhost with roles Administrator
+[2024-12-01 19:27:27 INF] Refresh token saved for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 19:27:27 WRN] NejPortalBackend Long Running Request: AuthenticateCommand (815 milliseconds)   {"Email":"administrator@localhost","Password":"Administrator1!","AppIdentifier":"EntrepriseApp","$type":"AuthenticateCommand"}
+[2024-12-01 19:27:27 INF] HTTP POST /api/Authentification/login responded 200 in 850.0928 ms
+[2024-12-01 19:27:44 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.1500 ms
+[2024-12-01 19:27:45 INF] Successfully retrieved operation filters.
+[2024-12-01 19:27:45 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (583 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 19:27:45 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 794.0945 ms
+[2024-12-01 19:27:50 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 0.1124 ms
+[2024-12-01 19:27:58 INF] Starting to process CreateOperationCommand for user: e3cc9d91-3b9d-418b-af24-1887499d843a
+[2024-12-01 19:28:17 INF] Operation created successfully with Id: 1
+[2024-12-01 19:28:22 WRN] NejPortalBackend Long Running Request: CreateOperationCommand (32197 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"ClientId":"e3cc9d91-3b9d-418b-af24-1887499d843a","AgentId":"","TypeOperationId":0,"Commentaire":"","Files":[],"$type":"CreateOperationCommand"}
+[2024-12-01 19:28:22 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 32325.6224 ms
+[2024-12-01 19:34:40 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 73.2616 ms
+[2024-12-01 19:34:40 INF] Starting to process CreateOperationCommand for user: e3cc9d91-3b9d-418b-af24-1887499d843a
+[2024-12-01 19:34:41 INF] Operation created successfully with Id: 2
+[2024-12-01 19:34:41 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 753.5866 ms
+[2024-12-01 19:37:48 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 320.9278 ms
+[2024-12-01 19:37:50 INF] Successfully retrieved operation filters.
+[2024-12-01 19:37:50 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1312.2058 ms
+[2024-12-01 19:37:58 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 4.8287 ms
+[2024-12-01 19:37:58 INF] Starting to process CreateOperationCommand for user: e3cc9d91-3b9d-418b-af24-1887499d843a
+[2024-12-01 19:37:59 INF] Operation created successfully with Id: 3
+[2024-12-01 19:37:59 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 1008.1217 ms
+[2024-12-01 19:37:59 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 1.8033 ms
+[2024-12-01 19:38:00 INF] Successfully retrieved operation filters.
+[2024-12-01 19:38:00 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (732 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 19:38:00 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 805.4806 ms
+[2024-12-01 19:39:06 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 69.2209 ms
+[2024-12-01 19:39:06 INF] Successfully retrieved operation filters.
+[2024-12-01 19:39:06 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 596.3379 ms
+[2024-12-01 19:41:33 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 75.4320 ms
+[2024-12-01 19:41:33 INF] HTTP OPTIONS /api/EntrepriseOperations responded 204 in 50.7994 ms
+[2024-12-01 19:41:34 INF] HTTP POST /api/EntrepriseOperations responded 404 in 92.6265 ms
+[2024-12-01 19:41:34 INF] Successfully retrieved operation filters.
+[2024-12-01 19:41:34 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 190.7321 ms
+[2024-12-01 19:42:20 INF] HTTP POST /api/EntrepriseOperations/all responded 401 in 217.1078 ms
+[2024-12-01 19:43:01 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 55.4728 ms
+[2024-12-01 19:43:01 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 55.8465 ms
+[2024-12-01 19:43:02 INF] Successfully retrieved operation filters.
+[2024-12-01 19:43:02 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 922.8119 ms
+[2024-12-01 19:43:03 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 19:43:04 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 19:43:04 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1535 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 19:43:04 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 3040.8026 ms
+[2024-12-01 19:47:53 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 4.6347 ms
+[2024-12-01 19:47:53 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.8721 ms
+[2024-12-01 19:47:56 INF] Successfully retrieved operation filters.
+[2024-12-01 19:47:56 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (639 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 19:47:56 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1685.2399 ms
+[2024-12-01 19:47:57 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 19:47:57 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 19:47:57 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2060.7030 ms
+[2024-12-01 19:49:15 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 8.6463 ms
+[2024-12-01 19:49:15 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 8.4459 ms
+[2024-12-01 19:49:16 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 19:49:16 INF] Successfully retrieved operation filters.
+[2024-12-01 19:49:16 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (667 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 19:49:16 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1384.4771 ms
+[2024-12-01 19:49:16 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 19:49:16 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (667 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 19:49:16 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1554.0045 ms
+[2024-12-01 19:49:42 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 23.8084 ms
+[2024-12-01 19:49:42 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 27.5235 ms
+[2024-12-01 19:49:44 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 19:49:45 INF] Successfully retrieved operation filters.
+[2024-12-01 19:49:45 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (802 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 19:49:45 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1804.2667 ms
+[2024-12-01 19:49:45 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 19:49:45 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1093 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 19:49:45 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2022.6958 ms
