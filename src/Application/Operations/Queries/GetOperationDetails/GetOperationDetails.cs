@@ -78,7 +78,7 @@ public class GetOperationDetailsQueryHandler : IRequestHandler<GetOperationDetai
 
             // Fetch operation details
             var operation = await _context.Operations
-                .Where(o => o.Id == request.OperationId && o.UserId == _currentUserService.Id)
+                .Where(o => o.Id == request.OperationId)
                 .ProjectTo<OperationDto>(_mapper.ConfigurationProvider)
                 .FirstAsync(cancellationToken);
 

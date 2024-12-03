@@ -54,7 +54,7 @@ public class UpdateOperationDocumentsCommandHandler : IRequestHandler<UpdateOper
                 throw new UnauthorizedAccessException();
 
             var entity = await _context.Operations
-                    .FindAsync([request.OperationId], cancellationToken) ?? throw new NotFoundException(nameof(Operations), request.OperationId.ToString());
+                    .FindAsync(new object[] { request.OperationId }, cancellationToken) ?? throw new NotFoundException(nameof(Operations), request.OperationId.ToString());
 
             if (request.Files?.Count() > 0 || request.DocumentIds?.Count() > 0)
             {
@@ -94,7 +94,7 @@ public class UpdateOperationDocumentsCommandHandler : IRequestHandler<UpdateOper
                         foreach (var documentId in request.DocumentIds)
                         {
                             var doc = await _context.Documents
-                            .FindAsync([documentId], cancellationToken) ?? throw new NotFoundException(nameof(DocumentDto), documentId.ToString());
+                            .FindAsync(new object[] { documentId }, cancellationToken) ?? throw new NotFoundException(nameof(DocumentDto), documentId.ToString());
 
                             doc.EstAccepte = !doc.EstAccepte;
 
@@ -108,10 +108,11 @@ public class UpdateOperationDocumentsCommandHandler : IRequestHandler<UpdateOper
                     }
                     if(isUpdated)
                     {
+                        var userName = await _identityService.GetUserNameAsync(_currentUserService.Id);
                         // Create and log the historical record for the modification
                         var historique = new Historique
                         {
-                            Action = $"L'opération numéro : {entity.Id} a été modifiée par l'equipe' {_currentUserService.Id}: Documents Operation a été modifié avec succès.",
+                            Action = $"L'opération numéro : {entity.Id} a été modifiée par l'equipe' {userName}: Documents Operation a été modifié avec succès.",
                             UserId = _currentUserService.Id,
                             OperationId = entity.Id
                         };
@@ -122,7 +123,7 @@ public class UpdateOperationDocumentsCommandHandler : IRequestHandler<UpdateOper
                         // Save changes to the database
                         await _context.SaveChangesAsync(cancellationToken);
 
-                        _logger.LogInformation("Operation {OperationId} modified successfully : Details Operation a été modifié avec succès.", entity.Id);
+                        _logger.LogInformation("Operation {OperationId} modified successfully : Documents Operation a été modifié avec succès.", entity.Id);
                     }
                 }
                 else

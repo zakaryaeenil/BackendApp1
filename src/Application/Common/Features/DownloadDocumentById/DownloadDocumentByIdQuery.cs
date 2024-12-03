@@ -66,10 +66,13 @@ public class DownloadDocumentByIdQueryHandler : IRequestHandler<DownloadDocument
         try
         {
             _logger.LogInformation("Reading file from path: {FilePath}", filePath);
+
+            // Read the file content
             byte[] fileContent = await File.ReadAllBytesAsync(filePath, cancellationToken);
 
             _logger.LogInformation("Successfully read file for DocumentId: {DocumentId}", request.DocumentId);
 
+            // Return the file content and other details in the DownloadDocumentVm object
             return new DownloadDocumentVm
             {
                 FileContent = fileContent,
@@ -77,10 +80,21 @@ public class DownloadDocumentByIdQueryHandler : IRequestHandler<DownloadDocument
                 ContentType = document.TypeFichier,
             };
         }
+        catch (FileNotFoundException ex)
+        {
+            _logger.LogError(ex, "File not found for DocumentId: {DocumentId} at path: {FilePath}", request.DocumentId, filePath);
+            throw new NotFoundException("File not found", ex.Message);
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            _logger.LogError(ex, "Access denied to file for DocumentId: {DocumentId} at path: {FilePath}", request.DocumentId, filePath);
+            throw new Exception("Access denied to the file", ex);
+        }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error occurred while reading file for DocumentId: {DocumentId} at path: {FilePath}", request.DocumentId, filePath);
             throw new Exception("An error occurred while reading the file.", ex);
         }
     }
+
 }

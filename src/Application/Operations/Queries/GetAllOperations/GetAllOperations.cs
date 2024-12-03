@@ -4,6 +4,8 @@ using NejPortalBackend.Application.Common.Mappings;
 using NejPortalBackend.Application.Common.Models;
 using NejPortalBackend.Application.Common.Security;
 using NejPortalBackend.Domain.Constants;
+using NejPortalBackend.Domain.Entities;
+using NejPortalBackend.Domain.Enums;
 
 namespace NejPortalBackend.Application.Operations.Queries.GetAllOperations;
 
@@ -82,7 +84,7 @@ public class GetAllOperationsQueryHandler : IRequestHandler<GetAllOperationsQuer
             bool isAgent = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Agent);
             bool isAdmin = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Administrator);
 
-            IQueryable<Domain.Entities.Operation> operationsQuery = _context.Operations.AsNoTracking();
+            IQueryable<Operation> operationsQuery = _context.Operations.AsNoTracking();
             // Filter operations by user and criteria
             if (!string.IsNullOrWhiteSpace(request.RechercheId))
             {
@@ -131,15 +133,16 @@ public class GetAllOperationsQueryHandler : IRequestHandler<GetAllOperationsQuer
             if (totalCount == 0)
             {
                 _logger.LogInformation("No operations found for user {UserId} with the given filters.", _currentUserService.Id);
-                return new PaginatedList<OperationDto>([], 0, request.PageNumber, request.PageSize);
+            
             }
 
             // Paginate and project to DTO
             PaginatedList<OperationDto> paginatedList = await operationsQuery
                   .OrderByDescending(t => t.LastModified)
-            .ThenBy(t => !t.EstReserver)
-                .ProjectTo<OperationDto>(_mapper.ConfigurationProvider)
-                .PaginatedListAsync(request.PageNumber, request.PageSize);
+                    .ThenBy(t => !t.EstReserver)
+                     .ThenBy(t => t.EtatOperation != EtatOperation.cloture)
+                     .ProjectTo<OperationDto>(_mapper.ConfigurationProvider)
+                    .PaginatedListAsync(request.PageNumber, request.PageSize);
 
             _logger.LogInformation("Successfully retrieved {Count} operations for user {UserId}.", paginatedList.Items.Count, _currentUserService.Id);
 

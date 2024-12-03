@@ -43,11 +43,17 @@ public class IdentityService : IIdentityService
 
         return user?.UserName;
     }
+    public async Task<string?> GetUserNameByCodeClientAsync(string codeRef)
+    {
+        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.CodeRef == codeRef);
+
+        return user?.UserName;
+    }
     public async Task<string?> GetCodeClientAsync(string userId)
     {
         var user = await _userManager.FindByIdAsync(userId);
 
-        return user?.UserName;
+        return user?.CodeRef;
     }
     public async Task<string?> GetUserIdAsync(string userId)
     {

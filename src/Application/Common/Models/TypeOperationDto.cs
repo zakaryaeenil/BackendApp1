@@ -11,7 +11,7 @@ public class TypeOperationDto
     {
         public Mapping()
         {
-            CreateMap<TypeOperationDto, TypeOperation>();
+            CreateMap<TypeOperation, TypeOperationDto>();
         }
     }
 }

@@ -22,3 +22,4 @@ C:/Users/zaenil/Desktop/T&T/NejPortalBackend/src/Domain/obj/Debug/net8.0/ref/Nej
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Domain/obj/Debug/net8.0/refint/NejPortalBackend.Domain.dll
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Domain/obj/Debug/net8.0/NejPortalBackend.Domain.pdb
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Domain/obj/Debug/net8.0/ref/NejPortalBackend.Domain.dll
+/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Domain/obj/Debug/net8.0/Domain.sourcelink.json

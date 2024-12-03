@@ -118,5 +118,10 @@ public class ApplicationDbContextInitialiser
                 await _userManager.AddToRolesAsync(agent, new[] { agentRole.Name });
             }
         }
+
+        Dossier dossier = new Dossier { CodeClient = "112111", CodeDossier = "111111"};
+        await _context.Dossiers.AddAsync(dossier);
+
+        await _context.SaveChangesAsync();
     }
 }

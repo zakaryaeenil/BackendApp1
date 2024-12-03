@@ -460,11 +460,130 @@
         ],
         "responses": {
           "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseDossiers/filters": {
+      "get": {
+        "tags": [
+          "EntrepriseDossiers"
+        ],
+        "operationId": "GetEntrepriseAllDossiersFilters",
+        "responses": {
+          "200": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DownloadDocumentVm"
+                  "$ref": "#/components/schemas/DossierFiltersVm"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseDossiers/details/{id}": {
+      "get": {
+        "tags": [
+          "EntrepriseDossiers"
+        ],
+        "operationId": "GetEntrepriseDossierDetails",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DossierDetailVm"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseDossiers/all": {
+      "post": {
+        "tags": [
+          "EntrepriseDossiers"
+        ],
+        "operationId": "GetEntrepriseDossiersWithPagination",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetDossiersQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedListOfDossierDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseHistoriques/all": {
+      "get": {
+        "tags": [
+          "EntrepriseHistoriques"
+        ],
+        "operationId": "GetHistoriques",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HistoriqueDto"
+                  }
                 }
               }
             }
@@ -1378,6 +1497,12 @@
             "items": {
               "$ref": "#/components/schemas/UserDto"
             }
+          },
+          "listDossierHelpersDto": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DossierHelpersDto"
+            }
           }
         }
       },
@@ -1453,6 +1578,20 @@
           }
         }
       },
+      "DossierHelpersDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "codeDossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "nom": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
       "OperationDetailVm": {
         "type": "object",
         "additionalProperties": false,
@@ -1469,7 +1608,12 @@
               "$ref": "#/components/schemas/DocumentDto"
             }
           },
-          "operation": {}
+          "operation": {
+            "$ref": "#/components/schemas/OperationDto"
+          },
+          "clientOperation": {
+            "$ref": "#/components/schemas/ClientOperationDto"
+          }
         }
       },
       "CommentaireDto": {
@@ -1532,33 +1676,61 @@
           }
         }
       },
-      "PaginatedListOfClientOperationDto": {
+      "OperationDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ClientOperationDto"
-            }
-          },
-          "pageNumber": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
-          "totalPages": {
-            "type": "integer",
-            "format": "int32"
+          "userId": {
+            "type": "string",
+            "nullable": true
           },
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
+          "bureau": {
+            "type": "string",
+            "nullable": true
           },
-          "hasPreviousPage": {
+          "codeDossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "regime": {
+            "type": "string",
+            "nullable": true
+          },
+          "estReserver": {
             "type": "boolean"
           },
-          "hasNextPage": {
+          "reserverPar": {
+            "type": "string",
+            "nullable": true
+          },
+          "typeOperation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "etatOperation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isLocked": {
             "type": "boolean"
+          },
+          "nbrDocs": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -1605,6 +1777,36 @@
             "nullable": true
           },
           "isLocked": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PaginatedListOfClientOperationDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientOperationDto"
+            }
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasPreviousPage": {
+            "type": "boolean"
+          },
+          "hasNextPage": {
             "type": "boolean"
           }
         }
@@ -1688,6 +1890,299 @@
           }
         }
       },
+      "DossierFiltersVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "etatPayments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EtatPaymentDto"
+            }
+          },
+          "listAgents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserDto"
+            }
+          },
+          "listClients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserDto"
+            }
+          }
+        }
+      },
+      "EtatPaymentDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "DossierDetailVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "factureDtos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FactureDto"
+            }
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OperationDto"
+            }
+          },
+          "dossier": {
+            "$ref": "#/components/schemas/DossierDto"
+          }
+        }
+      },
+      "FactureDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "codeFacture": {
+            "type": "string",
+            "nullable": true
+          },
+          "codeDossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateEcheance": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dateEmission": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "montantTotal": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "montantRestant": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "montantPaye": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "devise": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "cheminFichier": {
+            "type": "string",
+            "nullable": true
+          },
+          "methodePaiement": {
+            "type": "string",
+            "nullable": true
+          },
+          "instructionsPaiement": {
+            "type": "string",
+            "nullable": true
+          },
+          "codeClient": {
+            "type": "string",
+            "nullable": true
+          },
+          "etatPayement": {
+            "$ref": "#/components/schemas/EtatPayement"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "EtatPayement": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Impayée",
+          "PayementIncomplet",
+          "Payée"
+        ],
+        "enum": [
+          1,
+          2,
+          3
+        ]
+      },
+      "DossierDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "codeDossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreFactures": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "nombreOperations": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "desription": {
+            "type": "string",
+            "nullable": true
+          },
+          "montantTotal": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "montantPaye": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "montantReste": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "client": {
+            "type": "string",
+            "nullable": true
+          },
+          "agents": {
+            "type": "string",
+            "nullable": true
+          },
+          "etatPayement": {
+            "$ref": "#/components/schemas/EtatPayement"
+          }
+        }
+      },
+      "PaginatedListOfDossierDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DossierDto"
+            }
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hasPreviousPage": {
+            "type": "boolean"
+          },
+          "hasNextPage": {
+            "type": "boolean"
+          }
+        }
+      },
+      "GetDossiersQuery": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "etatPayment": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "clients": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "agents": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "codeDossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "HistoriqueDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string",
+            "nullable": true
+          },
+          "operationId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
       "PaginatedListOfOperationDto": {
         "type": "object",
         "additionalProperties": false,
@@ -1714,60 +2209,6 @@
             "type": "boolean"
           },
           "hasNextPage": {
-            "type": "boolean"
-          }
-        }
-      },
-      "OperationDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userId": {
-            "type": "string",
-            "nullable": true
-          },
-          "bureau": {
-            "type": "string",
-            "nullable": true
-          },
-          "codeDossier": {
-            "type": "string",
-            "nullable": true
-          },
-          "regime": {
-            "type": "string",
-            "nullable": true
-          },
-          "estReserver": {
-            "type": "boolean"
-          },
-          "reserverPar": {
-            "type": "string",
-            "nullable": true
-          },
-          "typeOperation": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "etatOperation": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lastModified": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "isLocked": {
             "type": "boolean"
           }
         }

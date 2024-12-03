@@ -24,11 +24,11 @@ public class UpdateOperationDetailsCommandValidator : AbstractValidator<UpdateOp
 {
     public UpdateOperationDetailsCommandValidator()
     {
-        RuleFor(v => v.EtatOperationId).NotEmpty()
+        RuleFor(v => v.EtatOperationId)
               .NotNull().WithMessage("Etat is required.");
-        RuleFor(v => v.TypeOperationId).NotEmpty()
+        RuleFor(v => v.TypeOperationId)
               .NotNull().WithMessage("Type is required.");
-        RuleFor(v => v.OperationId).NotEmpty()
+        RuleFor(v => v.OperationId)
               .NotNull().WithMessage("Operation is required.");
     }
 }
@@ -85,47 +85,51 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
 
             bool isEtatOperationCloture = request.EtatOperationId == (int)EtatOperation.cloture;
             bool isCodeDossierValid = !string.IsNullOrWhiteSpace(request.CodeDossier) && _context.Dossiers.Any(d => d.CodeDossier == request.CodeDossier);
-            bool validerUpdate = (isAgent && (!isEtatOperationCloture || (isEtatOperationCloture && isCodeDossierValid))) || (isAdmin && isCodeDossierValid);
-
+            
             if (isEtatOperationCloture && !isCodeDossierValid)
             {
                 throw new InvalidOperationException("Impossile de cloturer une opération sans unn code dossier valid");
             }
-            if (validerUpdate)
+            else
             {
                 // Get the client's username
                 var membreUsername = await _identityService.GetUserNameAsync(_currentUserService.Id);
                 if (!string.IsNullOrWhiteSpace(membreUsername))
                 {
-                    // Update TypeOperation, Bureau, and Regime if necessary
+                    
                     bool isUpdated = false;
 
-                    if (entity.TypeOperation != (TypeOperation)request.TypeOperationId)
+                    if (entity.TypeOperation != (TypeOperation)request.TypeOperationId && ((isAgent && !isEtatOperationCloture ) || isAdmin))
                     {
                         entity.TypeOperation = (TypeOperation)request.TypeOperationId;
                         isUpdated = true;
                     }
-                    if (entity.EtatOperation != (EtatOperation)request.EtatOperationId)
+                    if (entity.EtatOperation != (EtatOperation)request.EtatOperationId && ((isAgent && !isEtatOperationCloture) || isAdmin))
                     {
                         entity.EtatOperation = (EtatOperation)request.EtatOperationId;
                         isUpdated = true;
                     }
-                    if (entity.Bureau != request.Bureau)
+                    if (entity.Bureau != request.Bureau && ((isAgent && !isEtatOperationCloture) || isAdmin))
                     {
                         entity.Bureau = request.Bureau;
                         isUpdated = true;
                     }
-                    if (entity.Regime != request.Regime)
+                    if (entity.Regime != request.Regime && ((isAgent && !isEtatOperationCloture) || isAdmin))
                     {
                         entity.Regime = request.Regime;
                         isUpdated = true;
                     }
-                    if (entity.ReserverPar != request.ReserverPar)
+                    if (entity.ReserverPar != request.ReserverPar && ((isAgent && !isEtatOperationCloture) || isAdmin))
                     {
                         entity.ReserverPar = request.ReserverPar;
                         entity.EstReserver = true;
+                        isUpdated = true;
                     }
-
+                    if ((entity.CodeDossier != request.CodeDossier && isCodeDossierValid && ((isAgent && !isEtatOperationCloture ) || isAdmin)) || (request.CodeDossier == null && ((isAgent && !isEtatOperationCloture) || isAdmin)))
+                    {
+                        entity.CodeDossier = request.CodeDossier;
+                        isUpdated = true;
+                    }
                     // Only update if there were changes
                     if (isUpdated)
                     {
@@ -134,7 +138,7 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                         // Create and log the historical record for the modification
                         var historique = new Historique
                         {
-                            Action = $"L'opération numéro : {entity.Id} a été modifiée par l'equipe' {_currentUserService.Id}: Details Operation a été modifié avec succès.",
+                            Action = "L'opération numéro : "+ entity.Id+" a été modifiée par l'equipe : "+ membreUsername + " : Details Operation a été modifié avec succès.",
                             UserId = _currentUserService.Id,
                             OperationId = entity.Id
                         };
@@ -148,6 +152,11 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                         _logger.LogInformation("Operation {OperationId} modified successfully : Details Operation a été modifié avec succès.", entity.Id);
 
                     }
+                    else
+                    {
+                        _logger.LogWarning("Operation {OperationId}  not be updated.", entity.Id);
+                        throw new InvalidOperationException("operation  not be updated");
+                    }
                 }
                 else
                 {
@@ -155,11 +164,7 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                     throw new InvalidOperationException("Invalid membre equipe Id value.");
                 }
             }
-            else
-            {
-                _logger.LogWarning("Operation {OperationId}  cannot be updated.", entity.Id);
-                throw new InvalidOperationException("Operation cannot be updated.");
-            }
+       
         }
         catch (Exception ex)
         {

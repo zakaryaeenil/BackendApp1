@@ -240,3 +240,1091 @@ NejPortalBackend.Application.Common.Exceptions.ForbiddenAccessException: Excepti
 [2024-12-01 19:49:45 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
 [2024-12-01 19:49:45 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1093 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
 [2024-12-01 19:49:45 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2022.6958 ms
+[2024-12-01 19:59:57 INF] HTTP GET / responded 302 in 207.6123 ms
+[2024-12-01 19:59:57 INF] HTTP GET /api responded 302 in 7.1853 ms
+[2024-12-01 19:59:57 INF] HTTP GET /api/index.html responded 200 in 195.1283 ms
+[2024-12-01 19:59:58 INF] HTTP GET /api/specification.json responded 200 in 51.6855 ms
+[2024-12-01 20:00:09 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 2.6630 ms
+[2024-12-01 20:00:09 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 3.1396 ms
+[2024-12-01 20:00:14 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:00:15 INF] Successfully retrieved operation filters.
+[2024-12-01 20:00:15 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (950 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 20:00:15 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 5571.9341 ms
+[2024-12-01 20:00:15 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:00:15 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1245 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:00:15 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 5873.1073 ms
+[2024-12-01 20:37:00 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 61.8981 ms
+[2024-12-01 20:37:00 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 61.9000 ms
+[2024-12-01 20:37:02 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:37:03 INF] Successfully retrieved operation filters.
+[2024-12-01 20:37:03 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (628 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 20:37:03 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 2467.8392 ms
+[2024-12-01 20:37:03 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:37:03 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1043 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:37:03 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2706.1686 ms
+[2024-12-01 20:37:18 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 1.5584 ms
+[2024-12-01 20:37:18 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 1.6624 ms
+[2024-12-01 20:37:19 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:37:19 INF] Successfully retrieved operation filters.
+[2024-12-01 20:37:19 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 931.3297 ms
+[2024-12-01 20:37:19 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:37:19 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 988.7657 ms
+[2024-12-01 20:37:32 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 66.2305 ms
+[2024-12-01 20:37:32 INF] Successfully retrieved operation filters.
+[2024-12-01 20:37:32 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 198.2243 ms
+[2024-12-01 20:38:12 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 27.9848 ms
+[2024-12-01 20:38:13 INF] Starting to process CreateOperationCommand for user: e3cc9d91-3b9d-418b-af24-1887499d843a
+[2024-12-01 20:38:14 INF] Operation created successfully with Id: 4
+[2024-12-01 20:38:14 WRN] NejPortalBackend Long Running Request: CreateOperationCommand (1032 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"ClientId":"e3cc9d91-3b9d-418b-af24-1887499d843a","AgentId":"e2374887-c185-45e3-b76c-03311cca8703","TypeOperationId":0,"Commentaire":"aaaaa","Files":[{"ContentDisposition":"form-data; name=\"files\"; filename=\"Enil_Zakaryae_CV (3) (1) (1).pdf\"","ContentType":"application/pdf","Headers":[{"Key":"Content-Disposition","Value":["form-data; name=\"files\"; filename=\"Enil_Zakaryae_CV (3) (1) (1).pdf\""],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/pdf"],"$type":"KeyValuePair`2"}],"Length":107044,"Name":"files","FileName":"Enil_Zakaryae_CV (3) (1) (1).pdf","$type":"FormFile"},{"ContentDisposition":"form-data; name=\"files\"; filename=\"Enil_Zakaryae_CV (3) (1) (1).pdf\"","ContentType":"application/pdf","Headers":[{"Key":"Content-Disposition","Value":["form-data; name=\"files\"; filename=\"Enil_Zakaryae_CV (3) (1) (1).pdf\""],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/pdf"],"$type":"KeyValuePair`2"}],"Length":107044,"Name":"files","FileName":"Enil_Zakaryae_CV (3) (1) (1).pdf","$type":"FormFile"}],"$type":"CreateOperationCommand"}
+[2024-12-01 20:38:14 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 1633.5443 ms
+[2024-12-01 20:38:14 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0841 ms
+[2024-12-01 20:38:14 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0830 ms
+[2024-12-01 20:38:14 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:38:15 INF] Successfully retrieved operation filters.
+[2024-12-01 20:38:15 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 477.1468 ms
+[2024-12-01 20:38:15 INF] Successfully retrieved 4 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:38:15 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 593.5057 ms
+[2024-12-01 20:38:56 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 5.1280 ms
+[2024-12-01 20:38:56 INF] Successfully retrieved operation filters.
+[2024-12-01 20:38:56 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 195.5811 ms
+[2024-12-01 20:38:59 INF] Successfully retrieved operation filters.
+[2024-12-01 20:38:59 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 156.9466 ms
+[2024-12-01 20:39:33 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 21.5571 ms
+[2024-12-01 20:39:34 INF] Starting to process CreateOperationCommand for user: e3cc9d91-3b9d-418b-af24-1887499d843a
+[2024-12-01 20:39:34 INF] Operation created successfully with Id: 5
+[2024-12-01 20:39:34 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 451.8308 ms
+[2024-12-01 20:39:34 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.2241 ms
+[2024-12-01 20:39:34 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 5.9036 ms
+[2024-12-01 20:39:35 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:39:35 INF] Successfully retrieved operation filters.
+[2024-12-01 20:39:35 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 396.4043 ms
+[2024-12-01 20:39:35 INF] Successfully retrieved 5 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:39:35 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 627.8634 ms
+[2024-12-01 20:44:57 INF] HTTP GET / responded 302 in 475.6536 ms
+[2024-12-01 20:44:57 INF] HTTP GET /api responded 302 in 7.1982 ms
+[2024-12-01 20:44:57 INF] HTTP GET /api/index.html responded 200 in 248.6642 ms
+[2024-12-01 20:44:58 INF] HTTP GET /api/specification.json responded 304 in 3.9549 ms
+[2024-12-01 20:45:19 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 29.3714 ms
+[2024-12-01 20:45:19 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 33.2096 ms
+[2024-12-01 20:45:24 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:45:25 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:45:25 INF] Successfully retrieved operation filters.
+[2024-12-01 20:45:25 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (735 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 20:45:25 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (646 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:45:25 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 6169.7755 ms
+[2024-12-01 20:45:25 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 6169.7523 ms
+[2024-12-01 20:45:30 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.3255 ms
+[2024-12-01 20:45:31 INF] Successfully retrieved operation filters.
+[2024-12-01 20:45:31 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 591.4742 ms
+[2024-12-01 20:45:53 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 1.6923 ms
+[2024-12-01 20:45:53 INF] Starting to process CreateOperationCommand for user: e3cc9d91-3b9d-418b-af24-1887499d843a
+[2024-12-01 20:45:54 INF] Operation created successfully with Id: 6
+[2024-12-01 20:45:54 WRN] NejPortalBackend Long Running Request: CreateOperationCommand (1022 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"ClientId":"e3cc9d91-3b9d-418b-af24-1887499d843a","AgentId":"e2374887-c185-45e3-b76c-03311cca8703","TypeOperationId":0,"Commentaire":"aaaaa","Files":[{"ContentDisposition":"form-data; name=\"files\"; filename=\"اعلان حراس الجمارك.pdf\"","ContentType":"application/pdf","Headers":[{"Key":"Content-Disposition","Value":["form-data; name=\"files\"; filename=\"اعلان حراس الجمارك.pdf\""],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/pdf"],"$type":"KeyValuePair`2"}],"Length":1009902,"Name":"files","FileName":"اعلان حراس الجمارك.pdf","$type":"FormFile"},{"ContentDisposition":"form-data; name=\"files\"; filename=\"اعلان حراس الجمارك.pdf\"","ContentType":"application/pdf","Headers":[{"Key":"Content-Disposition","Value":["form-data; name=\"files\"; filename=\"اعلان حراس الجمارك.pdf\""],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/pdf"],"$type":"KeyValuePair`2"}],"Length":1009902,"Name":"files","FileName":"اعلان حراس الجمارك.pdf","$type":"FormFile"}],"$type":"CreateOperationCommand"}
+[2024-12-01 20:45:54 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 1303.8199 ms
+[2024-12-01 20:45:54 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0769 ms
+[2024-12-01 20:45:54 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.6086 ms
+[2024-12-01 20:45:54 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:45:55 INF] Successfully retrieved operation filters.
+[2024-12-01 20:45:55 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 520.7999 ms
+[2024-12-01 20:45:55 INF] Successfully retrieved 1 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:45:55 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 608.9071 ms
+[2024-12-01 20:47:11 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.3808 ms
+[2024-12-01 20:47:11 INF] Successfully retrieved operation filters.
+[2024-12-01 20:47:11 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 193.8147 ms
+[2024-12-01 20:47:25 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 0.1266 ms
+[2024-12-01 20:47:25 INF] Starting to process CreateOperationCommand for user: e3cc9d91-3b9d-418b-af24-1887499d843a
+[2024-12-01 20:48:21 INF] Operation created successfully with Id: 7
+[2024-12-01 20:48:21 WRN] NejPortalBackend Long Running Request: CreateOperationCommand (56108 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"ClientId":"e3cc9d91-3b9d-418b-af24-1887499d843a","AgentId":"","TypeOperationId":0,"Commentaire":"zzz","Files":[{"ContentDisposition":"form-data; name=\"files\"; filename=\"export_19_09_2024.pdf\"","ContentType":"application/pdf","Headers":[{"Key":"Content-Disposition","Value":["form-data; name=\"files\"; filename=\"export_19_09_2024.pdf\""],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/pdf"],"$type":"KeyValuePair`2"}],"Length":1214,"Name":"files","FileName":"export_19_09_2024.pdf","$type":"FormFile"},{"ContentDisposition":"form-data; name=\"files\"; filename=\"export_19_09_2024.pdf\"","ContentType":"application/pdf","Headers":[{"Key":"Content-Disposition","Value":["form-data; name=\"files\"; filename=\"export_19_09_2024.pdf\""],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/pdf"],"$type":"KeyValuePair`2"}],"Length":1214,"Name":"files","FileName":"export_19_09_2024.pdf","$type":"FormFile"}],"$type":"CreateOperationCommand"}
+[2024-12-01 20:48:21 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 56354.7900 ms
+[2024-12-01 20:48:22 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.8421 ms
+[2024-12-01 20:48:22 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.8509 ms
+[2024-12-01 20:48:23 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:48:23 INF] Successfully retrieved operation filters.
+[2024-12-01 20:48:23 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 949.9803 ms
+[2024-12-01 20:48:23 INF] Successfully retrieved 2 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:48:23 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (574 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:48:23 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1084.7381 ms
+[2024-12-01 20:48:30 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 47.9376 ms
+[2024-12-01 20:48:30 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 48.1124 ms
+[2024-12-01 20:48:30 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:48:30 INF] Successfully retrieved operation filters.
+[2024-12-01 20:48:30 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 805.3476 ms
+[2024-12-01 20:48:30 INF] Successfully retrieved 2 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:48:30 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 849.6536 ms
+[2024-12-01 20:48:59 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 25.1799 ms
+[2024-12-01 20:48:59 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 36038, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:48:59 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:48:59 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 247.0237 ms
+[2024-12-01 20:49:16 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0853 ms
+[2024-12-01 20:49:16 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 1, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:49:16 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:49:16 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 157.0542 ms
+[2024-12-01 20:49:19 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 1, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:49:19 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:49:19 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 155.7329 ms
+[2024-12-01 20:50:05 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 12.0956 ms
+[2024-12-01 20:50:11 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 1, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:51:39 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:51:39 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (93461 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"1","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:51:39 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 93587.4563 ms
+[2024-12-01 20:52:26 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 64.4077 ms
+[2024-12-01 20:52:29 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:52:30 INF] Successfully retrieved 2 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:52:30 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2759 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:52:30 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 3083.4091 ms
+[2024-12-01 20:52:42 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 30.2767 ms
+[2024-12-01 20:52:45 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:52:45 INF] Successfully retrieved 1 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:52:45 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (3345 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:52:45 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 3399.2793 ms
+[2024-12-01 20:53:43 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.4571 ms
+[2024-12-01 20:53:46 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 0, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:54:23 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:54:23 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (39633 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":0,"EtatOprations":[0],"Clients":["e3cc9d91-3b9d-418b-af24-1887499d843a"],"Agents":["e2374887-c185-45e3-b76c-03311cca8703"],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:54:23 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 39730.7036 ms
+[2024-12-01 20:54:28 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 1.0551 ms
+[2024-12-01 20:54:30 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 0, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:54:30 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:54:30 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2216 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":0,"EtatOprations":[0],"Clients":["e3cc9d91-3b9d-418b-af24-1887499d843a"],"Agents":[],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:54:30 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2324.2293 ms
+[2024-12-01 20:54:36 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.1838 ms
+[2024-12-01 20:54:38 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 0, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:54:39 INF] Successfully retrieved 1 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:54:39 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2388 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":0,"EtatOprations":[],"Clients":["e3cc9d91-3b9d-418b-af24-1887499d843a"],"Agents":[],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:54:39 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2422.9260 ms
+[2024-12-01 20:54:43 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.4839 ms
+[2024-12-01 20:54:45 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 0, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = False, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:54:46 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:54:46 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2336 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":0,"EtatOprations":[],"Clients":["e3cc9d91-3b9d-418b-af24-1887499d843a"],"Agents":[],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":false,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:54:46 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2442.7022 ms
+[2024-12-01 20:54:55 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0795 ms
+[2024-12-01 20:54:57 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 0, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = False, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:54:57 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:54:57 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2000 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":0,"EtatOprations":[],"Clients":["e3cc9d91-3b9d-418b-af24-1887499d843a"],"Agents":["e2374887-c185-45e3-b76c-03311cca8703"],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":false,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:54:57 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2145.9047 ms
+[2024-12-01 20:55:10 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.6070 ms
+[2024-12-01 20:55:12 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 0, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:55:13 INF] Successfully retrieved 1 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:55:13 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2082 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":0,"EtatOprations":[],"Clients":["e3cc9d91-3b9d-418b-af24-1887499d843a"],"Agents":["e2374887-c185-45e3-b76c-03311cca8703"],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:55:13 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2157.4250 ms
+[2024-12-01 20:55:20 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.3028 ms
+[2024-12-01 20:55:22 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 0, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = False, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:55:22 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:55:23 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1855 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":0,"EtatOprations":[],"Clients":["e3cc9d91-3b9d-418b-af24-1887499d843a"],"Agents":["e2374887-c185-45e3-b76c-03311cca8703"],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":false,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:55:23 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2001.5951 ms
+[2024-12-01 20:55:30 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 24.7232 ms
+[2024-12-01 20:55:32 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 0, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = False, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:55:32 INF] Successfully retrieved 1 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:55:32 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1928 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":0,"EtatOprations":[0],"Clients":["e3cc9d91-3b9d-418b-af24-1887499d843a"],"Agents":["e2374887-c185-45e3-b76c-03311cca8703"],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":false,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:55:32 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2071.5162 ms
+[2024-12-01 20:55:44 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.4319 ms
+[2024-12-01 20:55:46 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 1, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = False, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:55:46 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:55:46 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1934 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":1,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":false,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:55:46 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2064.9825 ms
+[2024-12-01 20:55:58 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.2355 ms
+[2024-12-01 20:56:07 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 1, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = False, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:56:07 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:56:07 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (8811 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":1,"EtatOprations":[1],"Clients":[],"Agents":[],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":false,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:56:07 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 8860.9587 ms
+[2024-12-01 20:56:18 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 28.6226 ms
+[2024-12-01 20:56:20 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 1, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:56:20 INF] No operations found for user bc0336ab-c201-4b49-9501-267d68febf0e with the given filters.
+[2024-12-01 20:56:20 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2075 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":1,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:56:20 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2245.6071 ms
+[2024-12-01 20:56:29 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0858 ms
+[2024-12-01 20:56:31 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = 0, EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:56:31 INF] Successfully retrieved 1 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:56:31 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2311 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":0,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:56:31 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2467.7155 ms
+[2024-12-01 20:56:37 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 1.5397 ms
+[2024-12-01 20:56:39 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = 6, FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:56:39 INF] Successfully retrieved 1 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:56:39 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2243 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"6","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:56:39 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2307.2071 ms
+[2024-12-01 20:56:47 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.1927 ms
+[2024-12-01 20:56:50 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 20:56:50 INF] Successfully retrieved 2 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 20:56:50 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2138 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 20:56:50 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2244.5982 ms
+[2024-12-01 21:23:28 INF] HTTP GET / responded 302 in 361.5767 ms
+[2024-12-01 21:23:28 INF] HTTP GET /api responded 302 in 16.2249 ms
+[2024-12-01 21:23:28 INF] HTTP GET /api/index.html responded 200 in 217.0552 ms
+[2024-12-01 21:23:29 INF] HTTP GET /api/specification.json responded 200 in 131.0095 ms
+[2024-12-01 21:23:39 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 3.6178 ms
+[2024-12-01 21:23:42 INF] Successfully retrieved operation filters.
+[2024-12-01 21:23:42 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 3458.3416 ms
+[2024-12-01 21:24:00 INF] HTTP OPTIONS /api/EntrepriseOperations/create responded 204 in 28.8847 ms
+[2024-12-01 21:24:00 INF] Starting to process CreateOperationCommand for user: e3cc9d91-3b9d-418b-af24-1887499d843a
+[2024-12-01 21:24:07 INF] Operation created successfully with Id: 8
+[2024-12-01 21:24:07 WRN] NejPortalBackend Long Running Request: CreateOperationCommand (6662 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"ClientId":"e3cc9d91-3b9d-418b-af24-1887499d843a","AgentId":"","TypeOperationId":0,"Commentaire":"zazaza","Files":[{"ContentDisposition":"form-data; name=\"files\"; filename=\"Table Client (3).txt\"","ContentType":"text/plain","Headers":[{"Key":"Content-Disposition","Value":["form-data; name=\"files\"; filename=\"Table Client (3).txt\""],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["text/plain"],"$type":"KeyValuePair`2"}],"Length":3505,"Name":"files","FileName":"Table Client (3).txt","$type":"FormFile"}],"$type":"CreateOperationCommand"}
+[2024-12-01 21:24:07 INF] HTTP POST /api/EntrepriseOperations/create responded 200 in 7132.7241 ms
+[2024-12-01 21:24:07 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.2195 ms
+[2024-12-01 21:24:07 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0422 ms
+[2024-12-01 21:24:14 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 21:24:14 INF] Successfully retrieved operation filters.
+[2024-12-01 21:24:14 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 6785.8642 ms
+[2024-12-01 21:24:15 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:24:15 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (6545 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 21:24:15 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 7155.5480 ms
+[2024-12-01 21:24:19 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 25.1780 ms
+[2024-12-01 21:24:19 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:24:20 ERR] An error occurred while processing GetOperationDetailsQuery for user bc0336ab-c201-4b49-9501-267d68febf0e.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+[2024-12-01 21:24:20 ERR] NejPortalBackend Request: Unhandled Exception for Request GetOperationDetailsQuery {"OperationId":8,"$type":"GetOperationDetailsQuery"}
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 21:24:20 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.GetEntrepriseOperationDetails(ISender sender, Int32 id) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 115
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTaskOfT>g__ExecuteAwaited|133_0[T](Task`1 task, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 21:24:20 ERR] HTTP GET /api/EntrepriseOperations/details/8 responded 500 in 646.1261 ms
+[2024-12-01 21:26:04 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 118.4060 ms
+[2024-12-01 21:26:04 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 22.0686 ms
+[2024-12-01 21:26:55 INF] HTTP GET / responded 302 in 176.8063 ms
+[2024-12-01 21:26:55 INF] HTTP GET /api responded 302 in 8.0865 ms
+[2024-12-01 21:26:56 INF] HTTP GET /api/index.html responded 200 in 173.3125 ms
+[2024-12-01 21:26:56 INF] HTTP GET /api/specification.json responded 304 in 24.3477 ms
+[2024-12-01 21:27:52 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 88.7734 ms
+[2024-12-01 21:27:52 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 59.8710 ms
+[2024-12-01 21:27:57 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 21:27:57 INF] Successfully retrieved operation filters.
+[2024-12-01 21:27:57 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (602 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 21:27:57 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 4746.2164 ms
+[2024-12-01 21:27:57 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:27:57 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (709 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 21:27:57 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 4875.9313 ms
+[2024-12-01 21:28:08 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 25.2012 ms
+[2024-12-01 21:28:08 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:28:08 ERR] An error occurred while processing GetOperationDetailsQuery for user bc0336ab-c201-4b49-9501-267d68febf0e.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+[2024-12-01 21:28:08 ERR] NejPortalBackend Request: Unhandled Exception for Request GetOperationDetailsQuery {"OperationId":8,"$type":"GetOperationDetailsQuery"}
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 21:28:09 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.GetEntrepriseOperationDetails(ISender sender, Int32 id) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 115
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTaskOfT>g__ExecuteAwaited|133_0[T](Task`1 task, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 21:28:09 ERR] HTTP GET /api/EntrepriseOperations/details/8 responded 500 in 864.8626 ms
+[2024-12-01 21:29:28 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 21.7925 ms
+[2024-12-01 21:29:28 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 85.5541 ms
+[2024-12-01 21:29:29 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 21:29:29 INF] Successfully retrieved operation filters.
+[2024-12-01 21:29:29 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (524 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 21:29:29 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1590.8442 ms
+[2024-12-01 21:29:29 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:29:29 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (834 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 21:29:29 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1521.1968 ms
+[2024-12-01 21:29:31 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.0986 ms
+[2024-12-01 21:29:31 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:29:32 ERR] An error occurred while processing GetOperationDetailsQuery for user bc0336ab-c201-4b49-9501-267d68febf0e.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+[2024-12-01 21:29:34 ERR] NejPortalBackend Request: Unhandled Exception for Request GetOperationDetailsQuery {"OperationId":8,"$type":"GetOperationDetailsQuery"}
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 21:29:35 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.GetEntrepriseOperationDetails(ISender sender, Int32 id) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 115
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTaskOfT>g__ExecuteAwaited|133_0[T](Task`1 task, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 21:29:35 ERR] HTTP GET /api/EntrepriseOperations/details/8 responded 500 in 3936.2649 ms
+[2024-12-01 21:29:35 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:29:35 ERR] An error occurred while processing GetOperationDetailsQuery for user bc0336ab-c201-4b49-9501-267d68febf0e.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+[2024-12-01 21:29:38 ERR] NejPortalBackend Request: Unhandled Exception for Request GetOperationDetailsQuery {"OperationId":8,"$type":"GetOperationDetailsQuery"}
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 21:29:39 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.GetEntrepriseOperationDetails(ISender sender, Int32 id) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 115
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTaskOfT>g__ExecuteAwaited|133_0[T](Task`1 task, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 21:29:39 ERR] HTTP GET /api/EntrepriseOperations/details/8 responded 500 in 3890.2397 ms
+[2024-12-01 21:30:06 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 26.6634 ms
+[2024-12-01 21:30:06 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:30:06 ERR] An error occurred while processing GetOperationDetailsQuery for user bc0336ab-c201-4b49-9501-267d68febf0e.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+[2024-12-01 21:30:07 ERR] NejPortalBackend Request: Unhandled Exception for Request GetOperationDetailsQuery {"OperationId":8,"$type":"GetOperationDetailsQuery"}
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 21:30:07 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.GetEntrepriseOperationDetails(ISender sender, Int32 id) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 115
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTaskOfT>g__ExecuteAwaited|133_0[T](Task`1 task, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 21:30:07 ERR] HTTP GET /api/EntrepriseOperations/details/8 responded 500 in 1108.9325 ms
+[2024-12-01 21:30:37 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 55.9278 ms
+[2024-12-01 21:32:32 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:33:28 ERR] An error occurred while processing GetOperationDetailsQuery for user bc0336ab-c201-4b49-9501-267d68febf0e.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+[2024-12-01 21:33:28 ERR] NejPortalBackend Request: Unhandled Exception for Request GetOperationDetailsQuery {"OperationId":8,"$type":"GetOperationDetailsQuery"}
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 21:33:28 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at NejPortalBackend.Application.Operations.Queries.GetOperationDetails.GetOperationDetailsQueryHandler.Handle(GetOperationDetailsQuery request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Queries/GetOperationDetails/GetOperationDetails.cs:line 80
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.GetEntrepriseOperationDetails(ISender sender, Int32 id) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 115
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTaskOfT>g__ExecuteAwaited|133_0[T](Task`1 task, HttpContext httpContext, JsonTypeInfo`1 jsonTypeInfo)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 21:33:28 ERR] HTTP GET /api/EntrepriseOperations/details/8 responded 500 in 170701.6514 ms
+[2024-12-01 21:34:52 INF] HTTP GET / responded 302 in 193.8447 ms
+[2024-12-01 21:34:52 INF] HTTP GET /api responded 302 in 10.3123 ms
+[2024-12-01 21:34:52 INF] HTTP GET /api/index.html responded 200 in 178.1492 ms
+[2024-12-01 21:34:52 INF] HTTP GET /api/specification.json responded 304 in 7.4517 ms
+[2024-12-01 21:35:03 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 3.6008 ms
+[2024-12-01 21:35:11 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:35:11 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:35:11 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 8154.9012 ms
+[2024-12-01 21:44:05 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 66.4327 ms
+[2024-12-01 21:44:05 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 1.4922 ms
+[2024-12-01 21:44:07 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 21:44:07 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:44:07 INF] Successfully retrieved operation filters.
+[2024-12-01 21:44:07 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (574 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 21:44:07 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (960 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 21:44:07 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1765.7538 ms
+[2024-12-01 21:44:07 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1831.9264 ms
+[2024-12-01 21:44:09 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.0806 ms
+[2024-12-01 21:44:24 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 26.2352 ms
+[2024-12-01 21:44:24 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:44:25 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:44:25 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 14991.4665 ms
+[2024-12-01 21:44:25 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:44:25 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:44:25 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 387.5035 ms
+[2024-12-01 21:44:37 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 3.0036 ms
+[2024-12-01 21:44:38 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:44:38 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:44:38 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 477.7620 ms
+[2024-12-01 21:53:24 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 3.4304 ms
+[2024-12-01 21:53:24 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 167.3744 ms
+[2024-12-01 21:53:25 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 21:53:26 INF] Successfully retrieved operation filters.
+[2024-12-01 21:53:26 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (621 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 21:53:26 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 2409.7012 ms
+[2024-12-01 21:53:27 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:53:27 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1325 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 21:53:27 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2631.7219 ms
+[2024-12-01 21:53:29 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.3260 ms
+[2024-12-01 21:53:29 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:53:29 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:53:29 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 103.9076 ms
+[2024-12-01 21:53:33 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 24.7312 ms
+[2024-12-01 21:53:33 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 21:53:33 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 21:53:33 INF] Successfully read file for DocumentId: 5
+[2024-12-01 21:53:34 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 415.8460 ms
+[2024-12-01 21:53:59 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 24.5753 ms
+[2024-12-01 21:54:09 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 21:54:09 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 21:54:09 INF] Successfully read file for DocumentId: 5
+[2024-12-01 21:54:28 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 28896.7423 ms
+[2024-12-01 21:56:32 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 205.7024 ms
+[2024-12-01 21:56:32 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 163.6037 ms
+[2024-12-01 21:56:33 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 21:56:34 INF] Successfully retrieved operation filters.
+[2024-12-01 21:56:34 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1292.4398 ms
+[2024-12-01 21:56:34 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:56:34 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (591 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 21:56:34 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1170.3074 ms
+[2024-12-01 21:56:36 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.0699 ms
+[2024-12-01 21:56:36 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:56:36 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:56:36 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 89.1716 ms
+[2024-12-01 21:56:40 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 0.1454 ms
+[2024-12-01 21:56:48 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 21:56:48 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 21:56:48 INF] Successfully read file for DocumentId: 5
+[2024-12-01 21:56:48 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 7475.7229 ms
+[2024-12-01 21:57:04 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 1.5628 ms
+[2024-12-01 21:57:08 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 21:57:08 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 21:57:08 INF] Successfully read file for DocumentId: 5
+[2024-12-01 21:57:19 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 14223.9971 ms
+[2024-12-01 21:57:48 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 33.5471 ms
+[2024-12-01 21:57:48 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0831 ms
+[2024-12-01 21:57:48 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 21:57:48 INF] Successfully retrieved operation filters.
+[2024-12-01 21:57:48 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 755.8162 ms
+[2024-12-01 21:57:49 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:57:49 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 861.9244 ms
+[2024-12-01 21:57:50 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.5183 ms
+[2024-12-01 21:57:50 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 21:57:50 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:57:50 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 127.7916 ms
+[2024-12-01 21:57:52 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 20.7263 ms
+[2024-12-01 21:57:54 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 21:57:55 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 21:57:55 INF] Successfully read file for DocumentId: 5
+[2024-12-01 21:57:55 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 2239.0525 ms
+[2024-12-01 21:58:49 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 26.1399 ms
+[2024-12-01 21:58:49 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 50.8911 ms
+[2024-12-01 21:58:50 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 21:58:50 INF] Successfully retrieved operation filters.
+[2024-12-01 21:58:50 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (861 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 21:58:50 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1621.3892 ms
+[2024-12-01 21:58:51 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 21:58:51 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1112 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 21:58:51 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1785.8631 ms
+[2024-12-01 22:02:17 INF] HTTP GET / responded 302 in 217.0078 ms
+[2024-12-01 22:02:17 INF] HTTP GET /api responded 302 in 8.7202 ms
+[2024-12-01 22:02:17 INF] HTTP GET /api/index.html responded 200 in 300.5464 ms
+[2024-12-01 22:02:18 INF] HTTP GET /api/specification.json responded 200 in 214.3723 ms
+[2024-12-01 22:06:29 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 21.1468 ms
+[2024-12-01 22:06:29 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 22.3345 ms
+[2024-12-01 22:06:36 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:06:36 INF] Successfully retrieved operation filters.
+[2024-12-01 22:06:36 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (657 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:06:36 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 6871.4082 ms
+[2024-12-01 22:06:36 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:06:36 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (861 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:06:36 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 7061.6252 ms
+[2024-12-01 22:07:17 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 39.4969 ms
+[2024-12-01 22:07:17 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 39.9037 ms
+[2024-12-01 22:07:18 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:07:18 INF] Successfully retrieved operation filters.
+[2024-12-01 22:07:18 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (751 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:07:18 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1552.5113 ms
+[2024-12-01 22:07:19 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:07:19 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1035 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:07:19 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1932.5019 ms
+[2024-12-01 22:07:21 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.1060 ms
+[2024-12-01 22:07:21 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 22:07:21 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:07:21 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 222.0628 ms
+[2024-12-01 22:07:24 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 0.0765 ms
+[2024-12-01 22:07:45 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 22.8325 ms
+[2024-12-01 22:07:45 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 22:07:45 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 22:07:45 INF] Successfully read file for DocumentId: 5
+[2024-12-01 22:07:51 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 26956.5651 ms
+[2024-12-01 22:09:21 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 22:09:22 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 22:09:22 INF] Successfully read file for DocumentId: 5
+[2024-12-01 22:09:22 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 90589.3706 ms
+[2024-12-01 22:11:15 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 28.3605 ms
+[2024-12-01 22:11:15 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 54.4491 ms
+[2024-12-01 22:11:16 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:11:17 INF] Successfully retrieved operation filters.
+[2024-12-01 22:11:17 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1137.7506 ms
+[2024-12-01 22:11:17 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:11:17 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (632 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:11:17 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1379.8419 ms
+[2024-12-01 22:11:29 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 1.0568 ms
+[2024-12-01 22:11:29 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 2.9725 ms
+[2024-12-01 22:11:29 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:11:29 INF] Successfully retrieved operation filters.
+[2024-12-01 22:11:29 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 486.7606 ms
+[2024-12-01 22:11:29 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:11:29 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 477.7181 ms
+[2024-12-01 22:11:31 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.1093 ms
+[2024-12-01 22:11:32 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 22:11:32 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:11:32 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 218.4554 ms
+[2024-12-01 22:11:41 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 0.1060 ms
+[2024-12-01 22:11:47 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 22:11:47 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 22:11:47 INF] Successfully read file for DocumentId: 5
+[2024-12-01 22:12:52 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 71294.1538 ms
+[2024-12-01 22:13:34 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 27.3997 ms
+[2024-12-01 22:13:34 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 66.3361 ms
+[2024-12-01 22:13:35 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:13:36 INF] Successfully retrieved operation filters.
+[2024-12-01 22:13:36 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (709 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:13:36 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1413.7189 ms
+[2024-12-01 22:13:36 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:13:36 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1054 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:13:36 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1584.8866 ms
+[2024-12-01 22:13:37 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.8695 ms
+[2024-12-01 22:13:37 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 22:13:37 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:13:37 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 152.1394 ms
+[2024-12-01 22:13:40 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 0.1083 ms
+[2024-12-01 22:13:44 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 22:13:44 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 22:13:44 INF] Successfully read file for DocumentId: 5
+[2024-12-01 22:13:44 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 3872.1708 ms
+[2024-12-01 22:14:07 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 24.1827 ms
+[2024-12-01 22:14:10 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 22:14:10 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 22:14:10 INF] Successfully read file for DocumentId: 5
+[2024-12-01 22:14:10 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 2560.0702 ms
+[2024-12-01 22:26:33 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 67.4358 ms
+[2024-12-01 22:26:33 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 67.3817 ms
+[2024-12-01 22:26:34 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:26:35 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:26:35 INF] Successfully retrieved operation filters.
+[2024-12-01 22:26:35 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1211 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:26:35 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (870 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:26:35 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 2302.8142 ms
+[2024-12-01 22:26:35 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2299.2772 ms
+[2024-12-01 22:28:41 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 26.0070 ms
+[2024-12-01 22:28:41 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 25.3826 ms
+[2024-12-01 22:28:41 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:28:42 INF] Successfully retrieved operation filters.
+[2024-12-01 22:28:42 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 607.3208 ms
+[2024-12-01 22:28:42 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:28:42 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 665.7819 ms
+[2024-12-01 22:28:43 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.0772 ms
+[2024-12-01 22:28:44 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 22:28:44 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:28:44 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 151.9137 ms
+[2024-12-01 22:28:46 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 0.1680 ms
+[2024-12-01 22:28:46 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 22:28:46 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 22:28:46 INF] Successfully read file for DocumentId: 5
+[2024-12-01 22:28:46 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 54.2863 ms
+[2024-12-01 22:28:59 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 21.5547 ms
+[2024-12-01 22:28:59 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 22:28:59 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 22:28:59 INF] Successfully read file for DocumentId: 5
+[2024-12-01 22:28:59 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 129.8776 ms
+[2024-12-01 22:31:06 INF] HTTP GET / responded 302 in 652.1384 ms
+[2024-12-01 22:31:06 INF] HTTP GET /api responded 302 in 16.4657 ms
+[2024-12-01 22:31:07 INF] HTTP GET /api/index.html responded 200 in 1023.6755 ms
+[2024-12-01 22:31:09 INF] HTTP GET /api/specification.json responded 304 in 17.6429 ms
+[2024-12-01 22:32:30 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 42.3733 ms
+[2024-12-01 22:32:30 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 42.3724 ms
+[2024-12-01 22:32:46 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:32:46 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:32:48 INF] Successfully retrieved operation filters.
+[2024-12-01 22:32:48 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (2401 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:32:48 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 18190.8951 ms
+[2024-12-01 22:32:48 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:32:48 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:32:48 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2951 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:32:48 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (2951 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:32:49 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 18539.6073 ms
+[2024-12-01 22:32:49 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 18330.1305 ms
+[2024-12-01 22:32:52 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.6117 ms
+[2024-12-01 22:32:52 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0858 ms
+[2024-12-01 22:32:53 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:32:53 INF] Successfully retrieved operation filters.
+[2024-12-01 22:32:54 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1395.7802 ms
+[2024-12-01 22:32:54 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:32:54 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (559 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:32:54 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1378.4657 ms
+[2024-12-01 22:32:56 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.1424 ms
+[2024-12-01 22:32:56 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 22:32:56 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:32:56 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 187.9482 ms
+[2024-12-01 22:32:59 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 0.1377 ms
+[2024-12-01 22:32:59 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 22:33:00 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 22:33:00 INF] Successfully read file for DocumentId: 5
+[2024-12-01 22:33:00 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 220.5635 ms
+[2024-12-01 22:37:20 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 107.1051 ms
+[2024-12-01 22:37:20 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 28.0939 ms
+[2024-12-01 22:37:22 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:37:24 INF] Successfully retrieved operation filters.
+[2024-12-01 22:37:24 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (1772 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:37:24 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:37:25 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 4465.8345 ms
+[2024-12-01 22:37:26 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:37:26 INF] Successfully retrieved operation filters.
+[2024-12-01 22:37:26 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (1445 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:37:26 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 2836.3969 ms
+[2024-12-01 22:37:26 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (3785 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:37:26 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 5144.8271 ms
+[2024-12-01 22:37:26 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:37:26 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1865 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:37:26 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 3153.8819 ms
+[2024-12-01 22:37:28 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.4195 ms
+[2024-12-01 22:37:28 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 22:37:28 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:37:28 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 391.7927 ms
+[2024-12-01 22:37:31 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 0.1154 ms
+[2024-12-01 22:37:31 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 22:37:31 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 22:37:31 INF] Successfully read file for DocumentId: 5
+[2024-12-01 22:37:31 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 94.5033 ms
+[2024-12-01 22:55:52 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 23.3152 ms
+[2024-12-01 22:55:52 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 23.6539 ms
+[2024-12-01 22:55:54 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:55:55 INF] Successfully retrieved operation filters.
+[2024-12-01 22:55:55 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (1031 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:55:55 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:55:55 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 3037.7279 ms
+[2024-12-01 22:55:55 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1174 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:55:55 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 3110.3168 ms
+[2024-12-01 22:59:02 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 3.9216 ms
+[2024-12-01 22:59:02 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 4.0391 ms
+[2024-12-01 22:59:03 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:59:04 INF] Successfully retrieved operation filters.
+[2024-12-01 22:59:04 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (714 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:59:04 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1379.3453 ms
+[2024-12-01 22:59:04 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:59:04 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (943 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:59:04 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1724.9709 ms
+[2024-12-01 22:59:07 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:59:07 INF] Successfully retrieved operation filters.
+[2024-12-01 22:59:07 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 538.4683 ms
+[2024-12-01 22:59:08 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:59:08 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (737 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:59:08 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 809.1623 ms
+[2024-12-01 22:59:15 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 1.9422 ms
+[2024-12-01 22:59:15 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.5819 ms
+[2024-12-01 22:59:16 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 22:59:16 INF] Successfully retrieved operation filters.
+[2024-12-01 22:59:16 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (516 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 22:59:16 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1384.8764 ms
+[2024-12-01 22:59:16 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 22:59:16 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (684 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 22:59:16 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1411.3072 ms
+[2024-12-01 23:00:21 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 1.0012 ms
+[2024-12-01 23:00:21 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 3.3800 ms
+[2024-12-01 23:00:22 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:00:23 INF] Successfully retrieved operation filters.
+[2024-12-01 23:00:23 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (865 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:00:23 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1696.6407 ms
+[2024-12-01 23:00:23 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:00:23 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (945 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:00:23 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1829.5570 ms
+[2024-12-01 23:01:07 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 23.3630 ms
+[2024-12-01 23:01:07 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 150.7498 ms
+[2024-12-01 23:01:08 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:01:09 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:01:10 INF] Successfully retrieved operation filters.
+[2024-12-01 23:01:10 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (2075 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:01:10 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 3358.9083 ms
+[2024-12-01 23:01:10 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:01:10 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1686 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:01:10 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2656.8253 ms
+[2024-12-01 23:01:11 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:01:11 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (3000 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:01:11 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 4559.5912 ms
+[2024-12-01 23:01:19 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.8583 ms
+[2024-12-01 23:01:19 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0506 ms
+[2024-12-01 23:01:19 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:01:19 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:01:19 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 482.2501 ms
+[2024-12-01 23:03:00 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0661 ms
+[2024-12-01 23:03:00 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 16.9578 ms
+[2024-12-01 23:03:01 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:03:02 INF] Successfully retrieved operation filters.
+[2024-12-01 23:03:02 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (697 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:03:02 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1846.5577 ms
+[2024-12-01 23:03:02 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:03:02 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1030 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:03:02 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1859.4271 ms
+[2024-12-01 23:04:17 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 25.7565 ms
+[2024-12-01 23:04:17 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 1.1877 ms
+[2024-12-01 23:04:18 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:04:18 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:04:18 INF] Successfully retrieved operation filters.
+[2024-12-01 23:04:18 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (893 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:04:18 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1200.9439 ms
+[2024-12-01 23:04:19 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1336.5813 ms
+[2024-12-01 23:05:51 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 12.7475 ms
+[2024-12-01 23:05:51 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 12.7136 ms
+[2024-12-01 23:05:51 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:05:52 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:05:52 INF] Successfully retrieved operation filters.
+[2024-12-01 23:05:52 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (815 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:05:52 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (1158 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:05:52 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1675.6306 ms
+[2024-12-01 23:05:52 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1672.5664 ms
+[2024-12-01 23:05:58 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.1702 ms
+[2024-12-01 23:05:58 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0550 ms
+[2024-12-01 23:05:58 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:05:58 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:05:59 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (574 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:05:59 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 840.4214 ms
+[2024-12-01 23:05:59 INF] Successfully retrieved operation filters.
+[2024-12-01 23:05:59 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (541 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:05:59 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1083.5764 ms
+[2024-12-01 23:06:03 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0713 ms
+[2024-12-01 23:06:03 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.1764 ms
+[2024-12-01 23:06:04 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:06:04 INF] Successfully retrieved operation filters.
+[2024-12-01 23:06:04 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 702.6344 ms
+[2024-12-01 23:06:04 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:06:04 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 730.5167 ms
+[2024-12-01 23:06:06 INF] Successfully retrieved operation filters.
+[2024-12-01 23:06:06 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 303.9764 ms
+[2024-12-01 23:06:06 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.1965 ms
+[2024-12-01 23:06:06 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:06:06 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:06:06 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 203.9584 ms
+[2024-12-01 23:07:40 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.8597 ms
+[2024-12-01 23:07:41 INF] Successfully retrieved operation filters.
+[2024-12-01 23:07:41 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 232.7256 ms
+[2024-12-01 23:07:41 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.1031 ms
+[2024-12-01 23:07:41 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:07:41 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.1385 ms
+[2024-12-01 23:07:41 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:07:41 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 339.0859 ms
+[2024-12-01 23:07:42 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:07:42 INF] Successfully retrieved operation filters.
+[2024-12-01 23:07:42 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (575 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:07:42 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1230.0285 ms
+[2024-12-01 23:07:42 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:07:42 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1081.9691 ms
+[2024-12-01 23:10:03 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 2.6585 ms
+[2024-12-01 23:10:03 INF] Successfully retrieved operation filters.
+[2024-12-01 23:10:03 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 298.4806 ms
+[2024-12-01 23:10:03 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.0418 ms
+[2024-12-01 23:10:03 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:10:04 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:10:04 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 328.6350 ms
+[2024-12-01 23:10:24 INF] HTTP OPTIONS /api/EntrepriseOperations/update-documents/8 responded 204 in 49.9052 ms
+[2024-12-01 23:10:26 INF] Starting to process ClientUpdateOperationDocumentsCommand for user: bc0336ab-c201-4b49-9501-267d68febf0e, operation : 8
+[2024-12-01 23:10:28 INF] Operation 8 modified successfully : Details Operation a été modifié avec succès.
+[2024-12-01 23:10:28 WRN] NejPortalBackend Long Running Request: UpdateOperationDocumentsCommand (2669 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"OperationId":8,"Files":null,"DocumentIds":[5],"$type":"UpdateOperationDocumentsCommand"}
+[2024-12-01 23:10:28 INF] HTTP PUT /api/EntrepriseOperations/update-documents/8 responded 204 in 3674.8646 ms
+[2024-12-01 23:10:28 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.3082 ms
+[2024-12-01 23:10:28 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:10:29 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:10:29 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 270.9306 ms
+[2024-12-01 23:10:34 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0407 ms
+[2024-12-01 23:10:34 INF] Successfully retrieved operation filters.
+[2024-12-01 23:10:34 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 96.4223 ms
+[2024-12-01 23:10:34 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.0614 ms
+[2024-12-01 23:10:34 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:10:34 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:10:34 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 239.8349 ms
+[2024-12-01 23:10:40 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/5 responded 204 in 0.0412 ms
+[2024-12-01 23:10:40 INF] Processing DownloadDocumentByIdQuery for DocumentId: 5
+[2024-12-01 23:10:40 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt
+[2024-12-01 23:10:41 INF] Successfully read file for DocumentId: 5
+[2024-12-01 23:10:41 INF] HTTP GET /api/EntrepriseDocuments/download/5 responded 200 in 220.1699 ms
+[2024-12-01 23:10:46 INF] HTTP OPTIONS /api/EntrepriseOperations/update-documents/8 responded 204 in 0.3135 ms
+[2024-12-01 23:10:46 INF] Starting to process ClientUpdateOperationDocumentsCommand for user: bc0336ab-c201-4b49-9501-267d68febf0e, operation : 8
+[2024-12-01 23:10:46 INF] Operation 8 modified successfully : Details Operation a été modifié avec succès.
+[2024-12-01 23:10:47 INF] HTTP PUT /api/EntrepriseOperations/update-documents/8 responded 204 in 246.2530 ms
+[2024-12-01 23:10:47 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.2099 ms
+[2024-12-01 23:10:47 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:10:47 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:10:47 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 206.0829 ms
+[2024-12-01 23:11:03 INF] HTTP OPTIONS /api/EntrepriseOperations/update-documents/8 responded 204 in 0.2036 ms
+[2024-12-01 23:11:03 INF] Starting to process ClientUpdateOperationDocumentsCommand for user: bc0336ab-c201-4b49-9501-267d68febf0e, operation : 8
+[2024-12-01 23:11:04 INF] Operation 8 modified successfully : Details Operation a été modifié avec succès.
+[2024-12-01 23:11:04 INF] HTTP PUT /api/EntrepriseOperations/update-documents/8 responded 204 in 673.8047 ms
+[2024-12-01 23:11:04 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.0652 ms
+[2024-12-01 23:11:04 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:11:04 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:11:04 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 300.4521 ms
+[2024-12-01 23:11:14 INF] HTTP OPTIONS /api/EntrepriseOperations/update-commentaires/8 responded 204 in 0.3415 ms
+[2024-12-01 23:11:15 INF] Starting to process UpdateOperationCommentairesCommand for user: bc0336ab-c201-4b49-9501-267d68febf0e, operation : 8
+[2024-12-01 23:11:15 INF] Operation 8 modified successfully
+[2024-12-01 23:11:15 INF] HTTP PUT /api/EntrepriseOperations/update-commentaires/8 responded 204 in 370.4074 ms
+[2024-12-01 23:11:15 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.1991 ms
+[2024-12-01 23:11:15 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:11:15 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:11:15 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 221.7234 ms
+[2024-12-01 23:11:22 INF] HTTP OPTIONS /api/EntrepriseOperations/update-info-general/8 responded 204 in 50.6801 ms
+[2024-12-01 23:11:22 INF] Starting to process UpdateOperationDetailsCommand for Operation: 8
+[2024-12-01 23:11:22 WRN] Operation 8  cannot be updated.
+[2024-12-01 23:11:23 ERR] An error occurred during UpdateOperationCommand processing.
+System.InvalidOperationException: Operation cannot be updated.
+   at NejPortalBackend.Application.Operations.Commands.UpdateOperationDetails.UpdateOperationDetailsCommandHandler.Handle(UpdateOperationDetailsCommand request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Commands/UpdateOperationDetails/UpdateOperationDetails.cs:line 161
+[2024-12-01 23:11:23 ERR] NejPortalBackend Request: Unhandled Exception for Request UpdateOperationDetailsCommand {"OperationId":8,"TypeOperationId":1,"Bureau":null,"Regime":null,"ReserverPar":null,"EtatOperationId":10,"CodeDossier":null,"$type":"UpdateOperationDetailsCommand"}
+System.InvalidOperationException: Operation cannot be updated.
+   at NejPortalBackend.Application.Operations.Commands.UpdateOperationDetails.UpdateOperationDetailsCommandHandler.Handle(UpdateOperationDetailsCommand request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Commands/UpdateOperationDetails/UpdateOperationDetails.cs:line 168
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`1.<>c__DisplayClass1_0.<<Handle>g__Handler|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 23:11:23 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Operation cannot be updated.
+   at NejPortalBackend.Application.Operations.Commands.UpdateOperationDetails.UpdateOperationDetailsCommandHandler.Handle(UpdateOperationDetailsCommand request, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Operations/Commands/UpdateOperationDetails/UpdateOperationDetails.cs:line 168
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`1.<>c__DisplayClass1_0.<<Handle>g__Handler|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at NejPortalBackend.Application.Common.Behaviours.PerformanceBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/PerformanceBehaviour.cs:line 30
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 33
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.EntrepriseUpdateInfosGenerale(ISender sender, Int32 id, UpdateOperationDetailsCommand command) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 123
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 23:11:24 ERR] HTTP PUT /api/EntrepriseOperations/update-info-general/8 responded 500 in 2036.7616 ms
+[2024-12-01 23:11:24 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.4651 ms
+[2024-12-01 23:11:24 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:11:24 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:11:24 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 282.2562 ms
+[2024-12-01 23:11:33 INF] HTTP OPTIONS /api/EntrepriseOperations/update-info-general/8 responded 204 in 0.5307 ms
+[2024-12-01 23:11:34 ERR] NejPortalBackend Request: Unhandled Exception for Request UpdateOperationDetailsCommand {"OperationId":8,"TypeOperationId":0,"Bureau":null,"Regime":null,"ReserverPar":null,"EtatOperationId":7,"CodeDossier":null,"$type":"UpdateOperationDetailsCommand"}
+NejPortalBackend.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 31
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 23:11:34 ERR] An unhandled exception has occurred while executing the request.
+NejPortalBackend.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 31
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.EntrepriseUpdateInfosGenerale(ISender sender, Int32 id, UpdateOperationDetailsCommand command) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 123
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 23:11:34 INF] HTTP PUT /api/EntrepriseOperations/update-info-general/8 responded 400 in 814.3814 ms
+[2024-12-01 23:11:34 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.2617 ms
+[2024-12-01 23:11:34 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:11:34 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:11:34 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 212.3829 ms
+[2024-12-01 23:11:39 INF] HTTP OPTIONS /api/EntrepriseOperations/update-info-general/8 responded 204 in 0.0433 ms
+[2024-12-01 23:11:39 ERR] NejPortalBackend Request: Unhandled Exception for Request UpdateOperationDetailsCommand {"OperationId":8,"TypeOperationId":0,"Bureau":null,"Regime":null,"ReserverPar":"e2374887-c185-45e3-b76c-03311cca8703","EtatOperationId":10,"CodeDossier":null,"$type":"UpdateOperationDetailsCommand"}
+NejPortalBackend.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 31
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+[2024-12-01 23:11:39 ERR] An unhandled exception has occurred while executing the request.
+NejPortalBackend.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at NejPortalBackend.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/ValidationBehaviour.cs:line 31
+   at NejPortalBackend.Application.Common.Behaviours.AuthorizationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/AuthorizationBehaviour.cs:line 77
+   at NejPortalBackend.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs:line 18
+   at NejPortalBackend.Web.Endpoints.EntrepriseOperations.EntrepriseUpdateInfosGenerale(ISender sender, Int32 id, UpdateOperationDetailsCommand command) in /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/Endpoints/EntrepriseOperations.cs:line 123
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+[2024-12-01 23:11:39 INF] HTTP PUT /api/EntrepriseOperations/update-info-general/8 responded 400 in 304.1275 ms
+[2024-12-01 23:11:39 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 21.0517 ms
+[2024-12-01 23:11:39 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:11:40 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:11:40 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 261.2229 ms
+[2024-12-01 23:20:01 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 28.3288 ms
+[2024-12-01 23:20:01 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 29.4560 ms
+[2024-12-01 23:20:03 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:20:03 INF] Successfully retrieved operation filters.
+[2024-12-01 23:20:03 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:20:03 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (570 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:20:03 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (927 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:20:03 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1970.0871 ms
+[2024-12-01 23:20:03 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2066.9737 ms
+[2024-12-01 23:20:27 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0485 ms
+[2024-12-01 23:20:27 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 1.9098 ms
+[2024-12-01 23:20:28 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:20:29 INF] Successfully retrieved operation filters.
+[2024-12-01 23:20:30 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (1257 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:20:30 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 2024.1522 ms
+[2024-12-01 23:20:30 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:20:30 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1350 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:20:30 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2030.0440 ms
+[2024-12-01 23:21:48 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.7470 ms
+[2024-12-01 23:21:48 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.9383 ms
+[2024-12-01 23:21:49 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:21:50 INF] Successfully retrieved operation filters.
+[2024-12-01 23:21:50 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (778 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:21:50 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1988.9383 ms
+[2024-12-01 23:21:50 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:21:50 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1231 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:21:50 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2249.3785 ms
+[2024-12-01 23:22:50 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 4.0864 ms
+[2024-12-01 23:22:50 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0421 ms
+[2024-12-01 23:22:51 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:22:52 INF] Successfully retrieved operation filters.
+[2024-12-01 23:22:52 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (873 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:22:52 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1960.4148 ms
+[2024-12-01 23:22:52 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:22:52 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1324 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:22:52 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2217.7393 ms
+[2024-12-01 23:22:54 INF] Successfully retrieved operation filters.
+[2024-12-01 23:22:54 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 405.0935 ms
+[2024-12-01 23:22:56 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0441 ms
+[2024-12-01 23:22:56 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0217 ms
+[2024-12-01 23:22:56 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:22:56 INF] Successfully retrieved operation filters.
+[2024-12-01 23:22:56 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 474.5143 ms
+[2024-12-01 23:22:56 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:22:56 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 538.1089 ms
+[2024-12-01 23:22:59 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:23:00 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:23:00 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 382.4613 ms
+[2024-12-01 23:23:00 INF] Successfully retrieved operation filters.
+[2024-12-01 23:23:00 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 76.4700 ms
+[2024-12-01 23:23:02 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.1423 ms
+[2024-12-01 23:23:02 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0415 ms
+[2024-12-01 23:23:03 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:23:03 INF] Successfully retrieved operation filters.
+[2024-12-01 23:23:03 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 518.6665 ms
+[2024-12-01 23:23:03 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:23:03 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 575.0547 ms
+[2024-12-01 23:24:29 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 20.5584 ms
+[2024-12-01 23:24:29 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.2360 ms
+[2024-12-01 23:24:30 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:24:30 INF] Successfully retrieved operation filters.
+[2024-12-01 23:24:30 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1204.5756 ms
+[2024-12-01 23:24:31 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:24:31 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (713 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:24:31 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 1219.9270 ms
+[2024-12-01 23:25:38 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 2.2672 ms
+[2024-12-01 23:25:39 INF] Successfully retrieved operation filters.
+[2024-12-01 23:25:39 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 249.5237 ms
+[2024-12-01 23:25:39 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.1615 ms
+[2024-12-01 23:25:39 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:25:39 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:25:39 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 165.4139 ms
+[2024-12-01 23:25:42 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.5243 ms
+[2024-12-01 23:25:43 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:25:43 INF] Successfully retrieved operation filters.
+[2024-12-01 23:25:43 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 785.1438 ms
+[2024-12-01 23:25:43 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:25:43 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 908.9575 ms
+[2024-12-01 23:25:44 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0370 ms
+[2024-12-01 23:25:44 INF] Successfully retrieved operation filters.
+[2024-12-01 23:25:44 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 138.0465 ms
+[2024-12-01 23:25:46 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:25:46 INF] Successfully retrieved operation filters.
+[2024-12-01 23:25:46 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 618.0489 ms
+[2024-12-01 23:25:46 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:25:46 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 725.7544 ms
+[2024-12-01 23:25:46 INF] Successfully retrieved operation filters.
+[2024-12-01 23:25:46 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 82.4880 ms
+[2024-12-01 23:25:54 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 31.9528 ms
+[2024-12-01 23:25:54 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 1.0967 ms
+[2024-12-01 23:25:55 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:25:56 INF] Successfully retrieved operation filters.
+[2024-12-01 23:25:56 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (661 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:25:56 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 2015.6405 ms
+[2024-12-01 23:25:56 INF] Successfully retrieved operation filters.
+[2024-12-01 23:25:56 WRN] NejPortalBackend Long Running Request: GetOperationFiltersQuery (837 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"$type":"GetOperationFiltersQuery"}
+[2024-12-01 23:25:56 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 1559.6511 ms
+[2024-12-01 23:25:56 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:25:56 WRN] NejPortalBackend Long Running Request: GetAllOperationsQuery (1284 milliseconds) bc0336ab-c201-4b49-9501-267d68febf0e administrator@localhost {"TypeOpration":null,"EtatOprations":[],"Clients":[],"Agents":[],"RechercheId":"","FromDate":null,"ToDate":null,"InClients":true,"InEtatOprations":true,"InAgents":true,"PageNumber":1,"PageSize":10,"$type":"GetAllOperationsQuery"}
+[2024-12-01 23:25:56 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 2244.3480 ms
+[2024-12-01 23:25:58 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:25:58 INF] Successfully retrieved operation filters.
+[2024-12-01 23:25:58 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 557.2152 ms
+[2024-12-01 23:25:59 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:25:59 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 757.5596 ms
+[2024-12-01 23:25:59 INF] Successfully retrieved operation filters.
+[2024-12-01 23:25:59 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 188.7516 ms
+[2024-12-01 23:26:00 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 0.0444 ms
+[2024-12-01 23:26:00 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 6.8125 ms
+[2024-12-01 23:26:01 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:26:01 INF] Successfully retrieved operation filters.
+[2024-12-01 23:26:01 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 640.3637 ms
+[2024-12-01 23:26:01 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:26:01 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 730.1981 ms
+[2024-12-01 23:26:16 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.3912 ms
+[2024-12-01 23:26:17 INF] Successfully retrieved operation filters.
+[2024-12-01 23:26:17 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 248.4840 ms
+[2024-12-01 23:26:24 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0344 ms
+[2024-12-01 23:26:24 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 24.0201 ms
+[2024-12-01 23:26:24 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:26:25 INF] Successfully retrieved operation filters.
+[2024-12-01 23:26:25 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 757.3039 ms
+[2024-12-01 23:26:25 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:26:25 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 821.7893 ms
+[2024-12-01 23:26:26 INF] HTTP OPTIONS /api/EntrepriseOperations/details/8 responded 204 in 0.0714 ms
+[2024-12-01 23:26:26 INF] GetOperationDetailsQuery received with parameters: GetOperationDetailsQuery { OperationId = 8 }
+[2024-12-01 23:26:26 INF] Operation details retrieved successfully for OperationId: 8, UserId: bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:26:26 INF] HTTP GET /api/EntrepriseOperations/details/8 responded 200 in 110.7592 ms
+[2024-12-01 23:26:45 INF] HTTP OPTIONS /api/EntrepriseDocuments/download/6 responded 204 in 0.4892 ms
+[2024-12-01 23:26:45 INF] Processing DownloadDocumentByIdQuery for DocumentId: 6
+[2024-12-01 23:26:45 INF] Reading file from path: /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/10296377-16a1-4b59-9ef5-2b776fec3070.pdf
+[2024-12-01 23:26:45 INF] Successfully read file for DocumentId: 6
+[2024-12-01 23:26:45 INF] HTTP GET /api/EntrepriseDocuments/download/6 responded 200 in 643.8682 ms
+[2024-12-01 23:35:49 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 105.6282 ms
+[2024-12-01 23:35:50 INF] Successfully retrieved operation filters.
+[2024-12-01 23:35:50 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 902.3597 ms
+[2024-12-01 23:36:14 INF] HTTP OPTIONS /api/EntrepriseOperations/filters responded 204 in 0.0740 ms
+[2024-12-01 23:36:14 INF] HTTP OPTIONS /api/EntrepriseOperations/all responded 204 in 23.7619 ms
+[2024-12-01 23:36:15 INF] Successfully retrieved operation filters.
+[2024-12-01 23:36:15 INF] HTTP GET /api/EntrepriseOperations/filters responded 200 in 498.5801 ms
+[2024-12-01 23:36:15 INF] GetAllOperationsQuery received with parameters: GetAllOperationsQuery { TypeOpration = , EtatOprations = System.Collections.Generic.List`1[System.Int32], Clients = System.Collections.Generic.List`1[System.String], Agents = System.Collections.Generic.List`1[System.String], RechercheId = , FromDate = , ToDate = , InClients = True, InEtatOprations = True, InAgents = True, PageNumber = 1, PageSize = 10 }
+[2024-12-01 23:36:15 INF] Successfully retrieved 3 operations for user bc0336ab-c201-4b49-9501-267d68febf0e.
+[2024-12-01 23:36:15 INF] HTTP POST /api/EntrepriseOperations/all responded 200 in 709.2805 ms

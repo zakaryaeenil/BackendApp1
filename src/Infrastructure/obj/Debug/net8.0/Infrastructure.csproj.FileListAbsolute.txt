@@ -36,3 +36,4 @@ c:/Users/zaenil/Desktop/T&T/NejPortalBackend/src/Infrastructure/obj/Debug/net8.0
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Infrastructure/obj/Debug/net8.0/NejPortalBackend.Infrastructure.pdb
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Infrastructure/obj/Debug/net8.0/Infrastructure.genruntimeconfig.cache
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Infrastructure/obj/Debug/net8.0/ref/NejPortalBackend.Infrastructure.dll
+/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Infrastructure/obj/Debug/net8.0/Infrastructure.sourcelink.json

@@ -119,7 +119,7 @@ public class ClientGetAllOperationsQueryHandler : IRequestHandler<ClientGetAllOp
             if (totalCount == 0)
             {
                 _logger.LogInformation("No operations found for user {UserId} with the given filters.", _currentUserService.Id);
-                return new PaginatedList<ClientOperationDto>([], 0, request.PageNumber, request.PageSize);
+                return new PaginatedList<ClientOperationDto>(Array.Empty<ClientOperationDto>(), 0, request.PageNumber, request.PageSize);
             }
 
             // Paginate and project to DTO

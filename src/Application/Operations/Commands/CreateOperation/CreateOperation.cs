@@ -107,11 +107,12 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
             await _context.Operations.AddAsync(operation, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken); // Operation gets an ID here
 
-            var userName = _identityService.GetUserNameAsync(_currentUserService.Id);
+            var userName = await _identityService.GetUserNameAsync(_currentUserService.Id);
+            var userNameClient = await _identityService.GetUserNameAsync(request.ClientId);
             // Create and log the historical record for the creation
             var historique = new Historique
             {
-                Action = $"L'opération numéro :"+ operation.Id +"a été criée par l'equipe" + userName + " pour le client "+request.ClientId+" : Operation a été crié avec succès.",
+                Action = $"L'opération numéro : "+ operation.Id +" a été criée par l'equipe : " + userName + " pour le client "+request.ClientId+" : Operation a été crié avec succès.",
                 UserId = _currentUserService.Id,
                 OperationId = operation.Id
             };
@@ -154,7 +155,7 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
                 await _context.Commentaires.AddAsync(commentaire, cancellationToken);
                 _logger.LogDebug("Commentaire added: {Message} for OperationId: {OperationId}", request.Commentaire, operation.Id);
             }
-
+            await _context.SaveChangesAsync(cancellationToken); // Operation gets an ID here
             // Commit the transaction
             await transaction.CommitAsync(cancellationToken);
 

@@ -64,12 +64,37 @@ public class GetOperationFiltersQueryHandler : IRequestHandler<GetOperationFilte
             var listAgents = await _identityService.GetAllUsersInRoleAsync(Roles.Agent);
             var listClients = await _identityService.GetAllUsersInRoleAsync(Roles.Client);
 
+            //
+            var dossierFilters = await _context.Dossiers
+                                                .AsNoTracking()
+                                                .Select(g => new
+                                                {
+                                                    g.CodeDossier,
+                                                    g.CodeClient
+                                                })
+                                                .ToListAsync(cancellationToken);
+
+           var dossierHelpersDtos = new List<DossierHelpersDto>();
+
+           foreach (var dossier in dossierFilters)
+             {
+              var userName = await _identityService.GetUserNameByCodeClientAsync(dossier.CodeClient);
+                dossierHelpersDtos.Add(
+                    new DossierHelpersDto
+                    {
+                        CodeDossier = dossier.CodeDossier,
+                        Nom = $"{dossier.CodeDossier}--{userName}"
+                    }
+                );
+             }
+                                                  
             var filtersVm = new OperationFiltersVm
             {
                 EtatOperations = etatOperations,
                 TypeOperations = typeOperations,
                 ListAgents = listAgents,
-                ListClients = listClients
+                ListClients = listClients,
+                ListDossierHelpersDto = dossierHelpersDtos
             };
 
             _logger.LogInformation("Successfully retrieved operation filters.");

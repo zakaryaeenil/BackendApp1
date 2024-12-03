@@ -28,3 +28,4 @@ C:/Users/zaenil/Desktop/T&T/NejPortalBackend/src/Application/obj/Debug/net8.0/re
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/obj/Debug/net8.0/refint/NejPortalBackend.Application.dll
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/obj/Debug/net8.0/NejPortalBackend.Application.pdb
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/obj/Debug/net8.0/ref/NejPortalBackend.Application.dll
+/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Application/obj/Debug/net8.0/Application.sourcelink.json

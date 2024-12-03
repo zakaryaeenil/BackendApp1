@@ -134,13 +134,14 @@ public class GetMyOperationsQueryHandler : IRequestHandler<GetMyOperationsQuery,
             if (totalCount == 0)
             {
                 _logger.LogInformation("No operations found for user {UserId} with the given filters.", _currentUserService.Id);
-                return new PaginatedList<OperationDto>([], 0, request.PageNumber, request.PageSize);
+                return new PaginatedList<OperationDto>(Array.Empty<OperationDto>(), 0, request.PageNumber, request.PageSize);
             }
 
             // Paginate and project to DTO
             PaginatedList<OperationDto> paginatedList = await operationsQuery
                   .OrderByDescending(t => t.LastModified)
-            .ThenBy(t => !t.EstReserver)
+                    .ThenBy(t => !t.EstReserver)
+                 .ThenBy(t => t.EtatOperation != EtatOperation.cloture)
                 .ProjectTo<OperationDto>(_mapper.ConfigurationProvider)
                 .PaginatedListAsync(request.PageNumber, request.PageSize);
 

@@ -57,11 +57,11 @@ public class UpdateOperationCommentairesCommandHandler : IRequestHandler<UpdateO
                 Commentaire commentaire = new Commentaire { Message = request.Commentaire, OperationId = entity.Id, UserId = _currentUserService.Id };
 
                 await _context.Commentaires.AddAsync(commentaire, cancellationToken);
-
+                var userName = await _identityService.GetUserNameAsync(_currentUserService.Id);
                 // Create and log the historical record for the modification
                 var historique = new Historique
                 {
-                    Action = $"L'opération numéro : {entity.Id} a été modifiée par l'equipe {_currentUserService.Id}: Commantaire Operation a été modifié avec succès.",
+                    Action = $"L'opération numéro : {entity.Id} a été modifiée par l'equipe :  {userName} : Commantaire a été ajouté avec succès.",
                     UserId = _currentUserService.Id,
                     OperationId = entity.Id
                 };

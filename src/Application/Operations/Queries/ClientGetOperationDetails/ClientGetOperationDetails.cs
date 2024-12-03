@@ -104,7 +104,7 @@ public class ClientGetOperationDetailsQueryHandler : IRequestHandler<ClientGetOp
             {
                 Commentaires = commentaires,
                 Documents = documents,
-                Operation = operation
+                ClientOperation = operation
             };
 
             _logger.LogInformation("Operation details retrieved successfully for OperationId: {OperationId}, UserId: {UserId}.", request.OperationId, _currentUserService.Id);

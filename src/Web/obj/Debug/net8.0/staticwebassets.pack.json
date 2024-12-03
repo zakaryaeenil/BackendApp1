@@ -5,6 +5,42 @@
       "PackagePath": "staticwebassets/api/specification.json"
     },
     {
+      "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/10/f9775345-37b7-47c3-b5de-0626b8e7755e.pdf",
+      "PackagePath": "staticwebassets/documents/client/10/f9775345-37b7-47c3-b5de-0626b8e7755e.pdf"
+    },
+    {
+      "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/11/44aed706-cc1f-46ff-9179-18af18371f6d.pdf",
+      "PackagePath": "staticwebassets/documents/client/11/44aed706-cc1f-46ff-9179-18af18371f6d.pdf"
+    },
+    {
+      "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/6/2b732346-a78e-4209-8361-d28a39a2e1a1.pdf",
+      "PackagePath": "staticwebassets/documents/client/6/2b732346-a78e-4209-8361-d28a39a2e1a1.pdf"
+    },
+    {
+      "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/6/5b87b27a-232b-4cfa-aa23-c713820b6f95.pdf",
+      "PackagePath": "staticwebassets/documents/client/6/5b87b27a-232b-4cfa-aa23-c713820b6f95.pdf"
+    },
+    {
+      "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/7/24a4abbe-aae4-47a8-93e7-40c2408df3c2.pdf",
+      "PackagePath": "staticwebassets/documents/client/7/24a4abbe-aae4-47a8-93e7-40c2408df3c2.pdf"
+    },
+    {
+      "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/7/436554cc-6bdb-445f-952f-e12ffcfb9c4d.pdf",
+      "PackagePath": "staticwebassets/documents/client/7/436554cc-6bdb-445f-952f-e12ffcfb9c4d.pdf"
+    },
+    {
+      "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/10296377-16a1-4b59-9ef5-2b776fec3070.pdf",
+      "PackagePath": "staticwebassets/documents/client/8/10296377-16a1-4b59-9ef5-2b776fec3070.pdf"
+    },
+    {
+      "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt",
+      "PackagePath": "staticwebassets/documents/client/8/29d94c5d-9d67-4cfc-8696-258e5e403019.txt"
+    },
+    {
+      "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/9/9f4295e7-0cb1-4d04-846e-f73992048388.txt",
+      "PackagePath": "staticwebassets/documents/client/9/9f4295e7-0cb1-4d04-846e-f73992048388.txt"
+    },
+    {
       "Id": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
     },
