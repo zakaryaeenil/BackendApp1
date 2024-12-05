@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using NejPortalBackend.Infrastructure.Data;
+using NejPortalBackend.Web.Hubs;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,7 +39,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-   //await app.InitialiseDatabaseAsync();
+  // await app.InitialiseDatabaseAsync();
 }
 else
 {
@@ -56,7 +57,6 @@ app.UseCors("AllowSpecificOrigins");
 // Authentication and Authorization
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.UseSwaggerUi(settings =>
 {
     settings.Path = "/api";

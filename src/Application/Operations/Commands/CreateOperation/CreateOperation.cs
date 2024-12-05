@@ -37,14 +37,16 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
     private readonly IUser _currentUserService;
     private readonly IFileService _fileService;
     private readonly ILogger<CreateOperationCommandHandler> _logger;
+    private readonly INotificationService _notificationService;
 
-    public CreateOperationCommandHandler(IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, IFileService fileService, ILogger<CreateOperationCommandHandler> logger)
+    public CreateOperationCommandHandler(IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, IFileService fileService, ILogger<CreateOperationCommandHandler> logger, INotificationService notificationService)
     {
         _context = context;
         _currentUserService = currentUserService;
         _identityService = identityService;
         _fileService = fileService;
         _logger = logger;
+        _notificationService = notificationService;
     }
 
     public async Task<int> Handle(CreateOperationCommand request, CancellationToken cancellationToken)
@@ -158,6 +160,9 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
             await _context.SaveChangesAsync(cancellationToken); // Operation gets an ID here
             // Commit the transaction
             await transaction.CommitAsync(cancellationToken);
+            // Send notification
+            var notificationMessage = "A new operation (ID: "+operation.Id+" ) has been created for you.";
+            await _notificationService.SendNotificationAsync(request.ClientId, notificationMessage, cancellationToken);
 
             _logger.LogInformation("Operation created successfully with Id: {OperationId}", operation.Id);
 

@@ -11,4 +11,5 @@ public class UserDto
     public bool HasAccess { get; set; }
     public string? UserName { get; set; } // Inherited from IdentityUser
     public string? Email_Notif { get; set; }
+    public string? Role { get; set; }
 }

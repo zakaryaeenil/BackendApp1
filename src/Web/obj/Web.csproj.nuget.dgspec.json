@@ -94,6 +94,7 @@
             "Microsoft.AspNetCore.Identity.UI": "8.0.8",
             "Microsoft.AspNetCore.Mvc.Testing": "8.0.8",
             "Microsoft.AspNetCore.OpenApi": "8.0.8",
+            "Microsoft.AspNetCore.SignalR": "1.1.0",
             "Microsoft.EntityFrameworkCore": "8.0.8",
             "Microsoft.EntityFrameworkCore.Design": "8.0.8",
             "Microsoft.EntityFrameworkCore.Relational": "8.0.8",
@@ -206,6 +207,7 @@
             "Microsoft.AspNetCore.Identity.UI": "8.0.8",
             "Microsoft.AspNetCore.Mvc.Testing": "8.0.8",
             "Microsoft.AspNetCore.OpenApi": "8.0.8",
+            "Microsoft.AspNetCore.SignalR": "1.1.0",
             "Microsoft.EntityFrameworkCore": "8.0.8",
             "Microsoft.EntityFrameworkCore.Design": "8.0.8",
             "Microsoft.EntityFrameworkCore.Relational": "8.0.8",
@@ -366,6 +368,7 @@
             "Microsoft.AspNetCore.Identity.UI": "8.0.8",
             "Microsoft.AspNetCore.Mvc.Testing": "8.0.8",
             "Microsoft.AspNetCore.OpenApi": "8.0.8",
+            "Microsoft.AspNetCore.SignalR": "1.1.0",
             "Microsoft.EntityFrameworkCore": "8.0.8",
             "Microsoft.EntityFrameworkCore.Design": "8.0.8",
             "Microsoft.EntityFrameworkCore.Relational": "8.0.8",
@@ -490,6 +493,11 @@
               "version": "[8.0.8, )",
               "versionCentrallyManaged": true
             },
+            "Microsoft.AspNetCore.SignalR": {
+              "target": "Package",
+              "version": "[1.1.0, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
               "version": "[8.0.8, )",
@@ -567,6 +575,7 @@
             "Microsoft.AspNetCore.Identity.UI": "8.0.8",
             "Microsoft.AspNetCore.Mvc.Testing": "8.0.8",
             "Microsoft.AspNetCore.OpenApi": "8.0.8",
+            "Microsoft.AspNetCore.SignalR": "1.1.0",
             "Microsoft.EntityFrameworkCore": "8.0.8",
             "Microsoft.EntityFrameworkCore.Design": "8.0.8",
             "Microsoft.EntityFrameworkCore.Relational": "8.0.8",

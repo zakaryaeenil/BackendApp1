@@ -17,6 +17,7 @@ public interface IApplicationDbContext
 
     DbSet<Dossier> Dossiers { get; }
     DbSet<Facture> Factures { get; }
+    DbSet<Notification> Notifications { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     /// <summary>

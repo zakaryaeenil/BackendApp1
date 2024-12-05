@@ -13,17 +13,18 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddWebServices(this IServiceCollection services)
     {
+        services.AddSignalR();
+
         services.AddDatabaseDeveloperPageExceptionFilter();
 
         services.AddScoped<IUser, CurrentUser>();
-
+        services.AddScoped<INotificationService, NotificationService>();
         services.AddHttpContextAccessor();
 
         services.AddHealthChecks()
             .AddDbContextCheck<ApplicationDbContext>();
 
         services.AddExceptionHandler<CustomExceptionHandler>();
-
         services.AddRazorPages();
 
         // Customise default API behaviour
@@ -47,7 +48,6 @@ public static class DependencyInjection
 
             configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
         });
-
         return services;
     }
 

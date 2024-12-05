@@ -16,7 +16,7 @@ namespace NejPortalBackend.Infrastructure.Data.Configurations
                 .IsRequired(); // Required field
 
             builder.Property(d => d.Date)
-                .IsRequired(); // Required field (if Date is optional, you can remove this)
+                .IsRequired(false); // Required field (if Date is optional, you can remove this)
             
             builder.HasIndex(c => c.CodeDossier)
                 .IsUnique();

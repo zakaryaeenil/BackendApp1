@@ -12,7 +12,7 @@ using NejPortalBackend.Infrastructure.Data;
 namespace NejPortalBackend.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241201181351_InitMigration")]
+    [Migration("20241203142557_InitMigration")]
     partial class InitMigration
     {
         /// <inheritdoc />
@@ -311,7 +311,6 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTimeOffset?>("Date")
-                        .IsRequired()
                         .HasColumnType("datetimeoffset");
 
                     b.Property<DateTimeOffset>("LastModified")
@@ -448,6 +447,44 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Historiques");
+                });
+
+            modelBuilder.Entity("NejPortalBackend.Domain.Entities.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset>("Created")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset>("LastModified")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("NejPortalBackend.Domain.Entities.Operation", b =>

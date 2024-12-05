@@ -19,6 +19,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
     public DbSet<Client> Clients => Set<Client>();
     public DbSet<Dossier> Dossiers => Set<Dossier>();
     public DbSet<Facture> Factures => Set<Facture>();
+    public DbSet<Notification> Notifications => Set<Notification>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

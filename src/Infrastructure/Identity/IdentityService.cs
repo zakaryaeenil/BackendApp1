@@ -12,6 +12,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 using System.Text;
+using Microsoft.Extensions.Options;
+using NejPortalBackend.Infrastructure.Configs;
+using System.Data;
 
 namespace NejPortalBackend.Infrastructure.Identity;
 
@@ -22,19 +25,32 @@ public class IdentityService : IIdentityService
     private readonly IAuthorizationService _authorizationService;
     private readonly ILogger<IdentityService> _logger;
     private readonly IConfiguration _configuration;
+    private readonly IEmailService _emailService;
+    private readonly FrontAppURLs _frontAppURLs;
+    private readonly IApplicationDbContext _context;
+
+    private readonly SignInManager<ApplicationUser> _signInManager;
 
     public IdentityService(
         UserManager<ApplicationUser> userManager,
         IUserClaimsPrincipalFactory<ApplicationUser> userClaimsPrincipalFactory,
         IAuthorizationService authorizationService,
         ILogger<IdentityService> logger,
-        IConfiguration configuration)
+        IConfiguration configuration,
+    IEmailService emailService,
+    IOptions<FrontAppURLs> options,
+    IApplicationDbContext context,
+    SignInManager<ApplicationUser> signInManager)
     {
         _userManager = userManager;
         _userClaimsPrincipalFactory = userClaimsPrincipalFactory;
         _authorizationService = authorizationService;
         _logger = logger;
         _configuration = configuration;
+        _emailService = emailService;
+        _frontAppURLs = options.Value;
+        _context = context;
+        _signInManager = signInManager;
     }
 
     public async Task<string?> GetUserNameAsync(string userId)
@@ -61,18 +77,98 @@ public class IdentityService : IIdentityService
 
         return user?.UserName;
     }
-    public async Task<(Result Result, string UserId)> CreateUserAsync(string userName, string password)
+    public async Task<(Result Result, string UserId)> CreateUserAsync(
+    string userName,
+    string password,
+    string email,
+    string? phoneNumber,
+    string? codeUser,
+    string notif_email,
+    CancellationToken cancellationToken = default)
     {
+        // Check if a user with the same email already exists
+        var existingUserWithEmail = await _userManager.FindByEmailAsync(email);
+        if (existingUserWithEmail != null)
+        {
+            return (Result.Failure(new List<string> { "User with this email already exists." }), string.Empty);
+        }
+
+        // Check if a user with the same username already exists
+        var existingUserWithUserName = await _userManager.FindByNameAsync(userName); // Fixed: Using FindByNameAsync for username
+        if (existingUserWithUserName != null)
+        {
+            return (Result.Failure(new List<string> { "User with this username already exists." }), string.Empty);
+        }
+
+        // Initialize a new Identity user
         var user = new ApplicationUser
         {
             UserName = userName,
-            Email = userName,
+            Email = email,
+            PhoneNumber = phoneNumber,
+            EmailConfirmed = true,
+            LockoutEnabled = true,
+            Email_Notif = notif_email,
+            HasAccess = true
         };
+       
+        bool codeUsed = _userManager.Users.Where(u => u.Id != user.Id && u.CodeRef == codeUser).Count() >= 1 ? true : false;
+        bool codeExist = _context.Clients.Where(u => u.CodeClient == codeUser).Count() >= 1 ? true : false;
 
+        if (!string.IsNullOrEmpty(codeUser) && codeUsed)
+        {
+            return (Result.Failure(new List<string> { "A user with this user code already exists." }), string.Empty);
+        }
+        if (!string.IsNullOrEmpty(codeUser) && !codeExist)
+        {
+            return (Result.Failure(new List<string> { "No client was identified with this user code." }), string.Empty);
+        }
+        else if (!string.IsNullOrEmpty(codeUser))
+        {
+            user.CodeRef = codeUser;
+        }
+        // Create the user
         var result = await _userManager.CreateAsync(user, password);
+        if (!result.Succeeded)
+        {
+            return (Result.Failure(result.Errors.Select(e => e.Description).ToList()), string.Empty);
+        }
 
-        return (result.ToApplicationResult(), user.Id);
+        // Determine role based on codeUser
+        var role = string.IsNullOrEmpty(codeUser) ? Roles.Agent : Roles.Client;
+
+        // Add user to the appropriate role
+        var roleResult = await _userManager.AddToRoleAsync(user, role);
+        if (!roleResult.Succeeded)
+        {
+            // If role assignment fails, remove the user
+            await _userManager.DeleteAsync(user);
+            return (Result.Failure(roleResult.Errors.Select(e => e.Description).ToList()), string.Empty);
+        }
+
+        // Generate a password reset token for secure access
+        var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+        var applicationBaseUrl = role == Roles.Client ? _frontAppURLs.ClientAppURL : _frontAppURLs.EntrepriseAppURL;
+        // Prepare the reset password link
+        var resetPasswordLink = $"{applicationBaseUrl}/reset-password?token={Uri.EscapeDataString(resetToken)}&email={Uri.EscapeDataString(email)}";
+
+        // Send a welcome email with the temporary password and reset link
+        try
+        {
+            await _emailService.SendWelcomeEmailAsync(email, password, resetPasswordLink, user.UserName); // Adjust method as needed
+
+        }
+        catch (Exception ex)
+        {
+            // Log the error and notify
+            _logger.LogError(ex, "Failed to send welcome email to {Email}", email);
+        }
+
+        // Return success with the user ID
+        return (Result.Success(), user.Id);
     }
+
 
     public async Task<bool> IsInRoleAsync(string userId, string role)
     {
@@ -97,19 +193,7 @@ public class IdentityService : IIdentityService
         return result.Succeeded;
     }
 
-    public async Task<Result> DeleteUserAsync(string userId)
-    {
-        var user = await _userManager.FindByIdAsync(userId);
 
-        return user != null ? await DeleteUserAsync(user) : Result.Success();
-    }
-
-    public async Task<Result> DeleteUserAsync(ApplicationUser user)
-    {
-        var result = await _userManager.DeleteAsync(user);
-
-        return result.ToApplicationResult();
-    }
     public async Task<IReadOnlyCollection<UserDto>> GetAllUsersInRoleAsync(string role)
     {
         // Fetch users assigned to the Client role
@@ -117,7 +201,7 @@ public class IdentityService : IIdentityService
         var isClient = role == Roles.Client;
         // Return an empty collection if no users are found
         if (usersInRole == null || !usersInRole.Any())
-            return [];
+            return Array.Empty<UserDto>();
 
         // Map to DTOs
         return usersInRole.Select(user => new UserDto
@@ -127,6 +211,7 @@ public class IdentityService : IIdentityService
             UserName = user.UserName,
             PhoneNumber = user.PhoneNumber,
             Email = user.Email,
+            Role= isClient ? Roles.Client : Roles.Agent,
             EmailConfirmed = user.EmailConfirmed,
             HasAccess = user.HasAccess
         }).ToList().AsReadOnly();
@@ -347,7 +432,174 @@ public class IdentityService : IIdentityService
 
         _logger.LogInformation("Refresh token saved for user {UserId}.", user.Id);
     }
+    public async Task<Result> ResetPasswordAsync(string email,string token,string newPassword,CancellationToken cancellationToken = default)
+    {
+        // Check if the user exists
+        var user = await _userManager.FindByEmailAsync(email);
+        if (user == null)
+        {
+            return Result.Failure(new List<string> { "User not found with the provided email." });
+        }
+
+        // Reset the password using the provided token
+        var resetPasswordResult = await _userManager.ResetPasswordAsync(user, token, newPassword);
+        if (!resetPasswordResult.Succeeded)
+        {
+            var errors = resetPasswordResult.Errors.Select(e => e.Description).ToList();
+
+            // Check if the error is due to token expiration
+            if (errors.Contains("Invalid token."))
+            {
+                return Result.Failure(new List<string> { "The reset password link has expired. Please request a new one." });
+            }
+
+            return Result.Failure(errors);
+        }
+
+        return Result.Success();
+    }
+    public async Task<Result> ForgotPasswordAsync(string email, CancellationToken cancellationToken = default)
+    {
+        // Find user by email
+        var user = await _userManager.FindByEmailAsync(email);
+        if (user == null)
+        {
+            return Result.Failure(new List<string> { "User not found with the provided email." });
+        }
+
+        // Generate a password reset token
+        var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+        if (string.IsNullOrEmpty(token))
+        {
+            return Result.Failure(new List<string> { "Failed to generate password reset token." });
+        }
+        var applicationBaseUrl = await IsInRoleAsync(user.Id, Roles.Client) ? _frontAppURLs.ClientAppURL : _frontAppURLs.EntrepriseAppURL;
+        // Prepare the reset password link
+        var resetPasswordLink = $"{applicationBaseUrl}/reset-password?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(email)}";
+
+        // Send the reset password link to the user via email
+        try
+        {
+            await _emailService.SendForgotPasswordEmailAsync(email, resetPasswordLink);
+        }
+        catch (Exception ex)
+        {
+            // Log the error and notify
+            _logger.LogError(ex, "Failed to send forgot password email to {Email}", email);
+            return Result.Failure(new List<string> { "Failed to send reset password email. Please try again later." });
+        }
+
+        return Result.Success();
+    }
 
 
+    public async Task<UserDto?> GetUserByIdAsync(string? id, CancellationToken cancellationToken = default)
+    {
+        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
+          
+        return user is null
+            ? null
+            : new UserDto
+            {
+                Id = user.Id,
+                CodeRef = user.CodeRef,
+                Nom = user.Nom,
+                Prenom = user.Prenom,
+                Email = user.Email,
+                Email_Notif = user.Email_Notif,
+                HasAccess = user.HasAccess,
+                PhoneNumber = user.PhoneNumber,
+                UserName = user.UserName,
+                EmailConfirmed = user.EmailConfirmed,
+            };
+    }
+
+    public async Task<(Result Result, string UserId)> UpdateUserAsync(string userId, string userName, string email, string emailNotif, string? phoneNumber, string? codeUser, bool hasAccess)
+    {
+        // Find the user by ID
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return (Result.Failure(new List<string> { "User not found." }), string.Empty);
+        }
+
+        // Check if a user with the same email already exists (but not the current user)
+        var existingUserWithEmail = await _userManager.FindByEmailAsync(email);
+        if (existingUserWithEmail != null && existingUserWithEmail.Id != userId)
+        {
+            return (Result.Failure(new List<string> { "A user with this email already exists." }), string.Empty);
+        }
+
+        // Check if a user with the same username already exists (but not the current user)
+        var existingUserWithUserName = await _userManager.FindByNameAsync(userName);
+        if (existingUserWithUserName != null && existingUserWithUserName.Id != userId)
+        {
+            return (Result.Failure(new List<string> { "A user with this username already exists." }), string.Empty);
+        }
+
+        // Update user properties
+        user.UserName = userName;
+        user.Email = email;
+        user.PhoneNumber = phoneNumber;
+        user.LockoutEnabled = true;
+        user.HasAccess = hasAccess;
+        user.Email_Notif = emailNotif;
+        var isClient = await IsInRoleAsync(user.Id, Roles.Client) ;
+        bool codeUsed = _userManager.Users.Where(u => u.Id != user.Id && u.CodeRef == codeUser).Count() >= 1 ? true : false;
+        bool codeExist = _context.Clients.Where(u =>  u.CodeClient == codeUser).Count() >= 1 ? true : false;
+        // Save changes to the user
+
+        if (isClient && codeUsed)
+        {
+            return (Result.Failure(new List<string> { "A user with this user code already exists." }), string.Empty);
+        }
+        if (isClient && !codeExist)
+        {
+            return (Result.Failure(new List<string> { "No client was identified with this user code." }), string.Empty);
+        }
+        else if (isClient)
+        {
+            user.CodeRef = codeUser;
+        }
+        var updateResult = await _userManager.UpdateAsync(user);
+        if (!updateResult.Succeeded)
+        {
+            return (Result.Failure(updateResult.Errors.Select(e => e.Description).ToList()), string.Empty);
+        }
+
+        return (Result.Success(), user.Id);
+    }
+    public async Task<(Result Result, string UserId)> ChangePasswordAsync(string userId, string oldPassword, string newPassword, string confirmNewPassword)
+    {
+        // Validate new password and confirmation match
+        if (newPassword != confirmNewPassword)
+        {
+            return (Result.Failure(new List<string> { "New password and confirm password do not match." }), string.Empty);
+        }
+
+        // Find the user by their ID
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return (Result.Failure(new List<string> { "User not found." }),string.Empty);
+        }
+
+        // Attempt to change the user's password
+        var changePasswordResult = await _userManager.ChangePasswordAsync(user, oldPassword, newPassword);
+
+        if (changePasswordResult.Succeeded)
+        {
+            // Refresh the sign-in token to ensure a new password invalidates old JWTs
+            await _signInManager.RefreshSignInAsync(user);
+
+            return (Result.Success(),string.Empty);
+        }
+        else
+        {
+            // Return the errors from the Identity framework
+            var errors = changePasswordResult.Errors.Select(e => e.Description).ToList();
+            return (Result.Failure(errors),string.Empty);
+        }
+    }
 
 }

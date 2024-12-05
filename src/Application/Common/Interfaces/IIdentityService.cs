@@ -14,13 +14,17 @@ public interface IIdentityService
 
     Task<bool> AuthorizeAsync(string userId, string policyName);
 
-    Task<(Result Result, string UserId)> CreateUserAsync(string userName, string password);
-
-    Task<Result> DeleteUserAsync(string userId);
     Task<IReadOnlyCollection<UserDto>> GetAllUsersInRoleAsync(string role);
     Task<int> GetUserInRoleCount(string role);
+    Task<UserDto?> GetUserByIdAsync(string? id, CancellationToken cancellationToken = default);
 
     //Auth
     Task<LoginResponse> LoginAsync(string email, string password, string appIdentifier);
     Task<LoginResponse> RefreshTokenAsync(string refreshToken, string appIdentifier);
+    Task<Result> ResetPasswordAsync(string email,string token,string newPassword,CancellationToken cancellationToken = default);
+
+
+    Task<(Result Result, string UserId)> CreateUserAsync(string userName,string password,string email,string? phoneNumber,string? codeUser,string notif_email,CancellationToken cancellationToken = default);
+    Task<(Result Result, string UserId)> UpdateUserAsync(string userId, string userName, string email, string emailNotif, string? phoneNumber, string? codeUser, bool hasAccess);
+    Task<(Result Result, string UserId)> ChangePasswordAsync(string userId, string oldPassword, string newPassword, string confirmNewPassword);
 }

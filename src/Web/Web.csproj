@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
     <PackageReference Include="NSwag.AspNetCore" />
     <PackageReference Include="NSwag.MSBuild">
@@ -35,6 +36,16 @@
 
 
   <!-- Auto-generated Open API specification and Angular TypeScript clients -->
+  <ItemGroup>
+    <None Remove="Hubs\" />
+    <None Remove="Templates\" />
+    <None Remove="Templates\Emails\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Hubs\" />
+    <Folder Include="Templates\" />
+    <Folder Include="Templates\Emails\" />
+  </ItemGroup>
   <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>

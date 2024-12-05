@@ -385,3 +385,4 @@ C:/Users/zaenil/Desktop/T&T/NejPortalBackend/src/Web/bin/Debug/net8.0/runtimes/w
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/bin/Debug/net8.0/Serilog.Sinks.File.dll
 /Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/obj/Debug/net8.0/Web.sourcelink.json
+/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/bin/Debug/net8.0/System.Net.WebSockets.WebSocketProtocol.dll

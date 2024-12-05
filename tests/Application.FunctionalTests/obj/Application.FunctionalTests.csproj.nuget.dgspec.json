@@ -89,6 +89,7 @@
             "Microsoft.AspNetCore.Identity.UI": "[8.0.8, )",
             "Microsoft.AspNetCore.Mvc.Testing": "[8.0.8, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.8, )",
+            "Microsoft.AspNetCore.SignalR": "[1.1.0, )",
             "Microsoft.EntityFrameworkCore": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Design": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Relational": "[8.0.8, )",
@@ -105,6 +106,13 @@
             "NUnit.Analyzers": "[3.9.0, )",
             "NUnit3TestAdapter": "[4.5.0, )",
             "Respawn": "[6.2.1, )",
+            "Serilog.AspNetCore": "[8.0.3, )",
+            "Serilog.Enrichers.Environment": "[3.0.1, )",
+            "Serilog.Enrichers.Process": "[3.0.0, )",
+            "Serilog.Enrichers.Thread": "[4.0.0, )",
+            "Serilog.Sinks.Console": "[6.0.0, )",
+            "Serilog.Sinks.Debug": "[3.0.0, )",
+            "Serilog.Sinks.File": "[6.0.0, )",
             "System.CodeDom": "[8.0.0, )",
             "Testcontainers.MsSql": "[3.9.0, )"
           },
@@ -189,6 +197,7 @@
             "Microsoft.AspNetCore.Identity.UI": "[8.0.8, )",
             "Microsoft.AspNetCore.Mvc.Testing": "[8.0.8, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.8, )",
+            "Microsoft.AspNetCore.SignalR": "[1.1.0, )",
             "Microsoft.EntityFrameworkCore": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Design": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Relational": "[8.0.8, )",
@@ -205,6 +214,13 @@
             "NUnit.Analyzers": "[3.9.0, )",
             "NUnit3TestAdapter": "[4.5.0, )",
             "Respawn": "[6.2.1, )",
+            "Serilog.AspNetCore": "[8.0.3, )",
+            "Serilog.Enrichers.Environment": "[3.0.1, )",
+            "Serilog.Enrichers.Process": "[3.0.0, )",
+            "Serilog.Enrichers.Thread": "[4.0.0, )",
+            "Serilog.Sinks.Console": "[6.0.0, )",
+            "Serilog.Sinks.Debug": "[3.0.0, )",
+            "Serilog.Sinks.File": "[6.0.0, )",
             "System.CodeDom": "[8.0.0, )",
             "Testcontainers.MsSql": "[3.9.0, )"
           },
@@ -337,6 +353,7 @@
             "Microsoft.AspNetCore.Identity.UI": "[8.0.8, )",
             "Microsoft.AspNetCore.Mvc.Testing": "[8.0.8, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.8, )",
+            "Microsoft.AspNetCore.SignalR": "[1.1.0, )",
             "Microsoft.EntityFrameworkCore": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Design": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Relational": "[8.0.8, )",
@@ -353,6 +370,13 @@
             "NUnit.Analyzers": "[3.9.0, )",
             "NUnit3TestAdapter": "[4.5.0, )",
             "Respawn": "[6.2.1, )",
+            "Serilog.AspNetCore": "[8.0.3, )",
+            "Serilog.Enrichers.Environment": "[3.0.1, )",
+            "Serilog.Enrichers.Process": "[3.0.0, )",
+            "Serilog.Enrichers.Thread": "[4.0.0, )",
+            "Serilog.Sinks.Console": "[6.0.0, )",
+            "Serilog.Sinks.Debug": "[3.0.0, )",
+            "Serilog.Sinks.File": "[6.0.0, )",
             "System.CodeDom": "[8.0.0, )",
             "Testcontainers.MsSql": "[3.9.0, )"
           },
@@ -449,6 +473,11 @@
               "version": "[8.0.8, )",
               "versionCentrallyManaged": true
             },
+            "Microsoft.AspNetCore.SignalR": {
+              "target": "Package",
+              "version": "[1.1.0, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
               "version": "[8.0.8, )",
@@ -469,6 +498,41 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[14.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[3.0.1, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Enrichers.Process": {
+              "target": "Package",
+              "version": "[3.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Enrichers.Thread": {
+              "target": "Package",
+              "version": "[4.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Sinks.Debug": {
+              "target": "Package",
+              "version": "[3.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[6.0.0, )",
               "versionCentrallyManaged": true
             }
           },
@@ -491,6 +555,7 @@
             "Microsoft.AspNetCore.Identity.UI": "[8.0.8, )",
             "Microsoft.AspNetCore.Mvc.Testing": "[8.0.8, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.8, )",
+            "Microsoft.AspNetCore.SignalR": "[1.1.0, )",
             "Microsoft.EntityFrameworkCore": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Design": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Relational": "[8.0.8, )",
@@ -507,6 +572,13 @@
             "NUnit.Analyzers": "[3.9.0, )",
             "NUnit3TestAdapter": "[4.5.0, )",
             "Respawn": "[6.2.1, )",
+            "Serilog.AspNetCore": "[8.0.3, )",
+            "Serilog.Enrichers.Environment": "[3.0.1, )",
+            "Serilog.Enrichers.Process": "[3.0.0, )",
+            "Serilog.Enrichers.Thread": "[4.0.0, )",
+            "Serilog.Sinks.Console": "[6.0.0, )",
+            "Serilog.Sinks.Debug": "[3.0.0, )",
+            "Serilog.Sinks.File": "[6.0.0, )",
             "System.CodeDom": "[8.0.0, )",
             "Testcontainers.MsSql": "[3.9.0, )"
           },
@@ -647,6 +719,7 @@
             "Microsoft.AspNetCore.Identity.UI": "[8.0.8, )",
             "Microsoft.AspNetCore.Mvc.Testing": "[8.0.8, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.8, )",
+            "Microsoft.AspNetCore.SignalR": "[1.1.0, )",
             "Microsoft.EntityFrameworkCore": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Design": "[8.0.8, )",
             "Microsoft.EntityFrameworkCore.Relational": "[8.0.8, )",
@@ -663,6 +736,13 @@
             "NUnit.Analyzers": "[3.9.0, )",
             "NUnit3TestAdapter": "[4.5.0, )",
             "Respawn": "[6.2.1, )",
+            "Serilog.AspNetCore": "[8.0.3, )",
+            "Serilog.Enrichers.Environment": "[3.0.1, )",
+            "Serilog.Enrichers.Process": "[3.0.0, )",
+            "Serilog.Enrichers.Thread": "[4.0.0, )",
+            "Serilog.Sinks.Console": "[6.0.0, )",
+            "Serilog.Sinks.Debug": "[3.0.0, )",
+            "Serilog.Sinks.File": "[6.0.0, )",
             "System.CodeDom": "[8.0.0, )",
             "Testcontainers.MsSql": "[3.9.0, )"
           },

@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using NejPortalBackend.Infrastructure.Configs;
+using NejPortalBackend.Infrastructure.Services;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -34,33 +36,51 @@ public static class DependencyInjection
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
         services.AddScoped<ApplicationDbContextInitialiser>();
-
         services.AddAuthentication(options =>
-        {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        })
-            .AddJwtBearer(options =>
-        {
-            var secretKey = configuration["JwtSettings:SecretKey"];
+                                    {
+                                        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                                        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                                    })
+                                            .AddJwtBearer(options =>
+                                     {
+                                         var secretKey = configuration["JwtSettings:SecretKey"];
+                                         if (string.IsNullOrEmpty(secretKey))
+                                             throw new InvalidOperationException("JWT secret key is not configured.");
 
-            if (string.IsNullOrEmpty(secretKey))
-                throw new InvalidOperationException("JWT secret key is not configured.");
+                                         var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 
-            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+                                         options.TokenValidationParameters = new TokenValidationParameters
+                                         {
+                                             ValidateIssuer = true,
+                                             ValidateAudience = true,
+                                             ValidateLifetime = true,
+                                             ValidateIssuerSigningKey = true,
+                                             ValidIssuer = configuration["JwtSettings:Issuer"],
+                                             ValidAudiences = new[] { configuration["JwtSettings:Audience1"], configuration["JwtSettings:Audience2"] },
+                                             IssuerSigningKey = signingKey,
+                                             ClockSkew = TimeSpan.FromDays(15)
+                                         };
 
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = configuration["JwtSettings:Issuer"],
-                ValidAudiences = new[] { configuration["JwtSettings:Audience1"], configuration["JwtSettings:Audience2"] },
-                IssuerSigningKey = signingKey,
-                ClockSkew = TimeSpan.FromDays(15) // Adjust if needed
-            };
-        });
+                                         // Handle SignalR token from query string
+                                         options.Events = new JwtBearerEvents
+                                         {
+                                             OnMessageReceived = context =>
+                                             {
+                                                 var accessToken = context.Request.Query["access_token"];
+                                                 var path = context.HttpContext.Request.Path;
+
+                                                 // Attach token if accessing SignalR hub
+                                                 if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/notificationHub"))
+                                                 {
+                                                     context.Token = accessToken;
+                                                 }
+
+                                                 return Task.CompletedTask;
+                                             }
+                                         };
+                                     });
+
+
 
         services.AddAuthorizationBuilder();
 
@@ -90,6 +110,12 @@ public static class DependencyInjection
         services.AddSingleton(TimeProvider.System);
         services.AddTransient<IIdentityService, IdentityService>();
         services.AddTransient<IFileService, FileService>();
+
+        // Bind email settings
+        services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
+        services.Configure<FrontAppURLs>(configuration.GetSection("FrontAppURLs"));
+        // Register email service
+        services.AddTransient<IEmailService, EmailService>();
 
         services.AddAuthorization(options =>
             options.AddPolicy(Policies.CanPurge, policy => policy.RequireRole(Roles.Administrator)));

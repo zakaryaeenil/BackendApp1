@@ -1,5 +1,6 @@
 ﻿using System;
 using NejPortalBackend.Application.Common.Security;
+using NejPortalBackend.Application.Comptes.Commands.CreateCompte;
 using NejPortalBackend.Application.Features.Auth;
 
 namespace NejPortalBackend.Web.Endpoints;
@@ -11,6 +12,7 @@ public class Authentification : EndpointGroupBase
             app.MapGroup(this)
                 .AllowAnonymous()
                 .MapPost(PostLogin, "login")
+                 .MapPost(PostResetPassword, "reset-password")
                 .MapPost(PostRefreshToken, "refresh-token");
 
         }
@@ -32,5 +34,24 @@ public class Authentification : EndpointGroupBase
                 }
                 : await sender.Send(command);
         }
+    private async Task<IResult> PostResetPassword(ISender sender, ResetPasswordCommand command)
+    {
+        try
+        {
+            var result = await sender.Send(command);
+
+            if (!result.Succeeded)
+            {
+                return Results.BadRequest(result.Errors);
+            }
+
+            return Results.Ok();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception (you can use a logging service here)
+            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
+        }
+    }
 }
 

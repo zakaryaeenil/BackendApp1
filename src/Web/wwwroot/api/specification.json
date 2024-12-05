@@ -393,6 +393,152 @@
         ]
       }
     },
+    "/api/EntrepriseComptes/filters": {
+      "get": {
+        "tags": [
+          "EntrepriseComptes"
+        ],
+        "operationId": "EntrepriseGetClientDontHaveComptes",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseComptes/all": {
+      "get": {
+        "tags": [
+          "EntrepriseComptes"
+        ],
+        "operationId": "EntrepriseGetAllComptes",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseComptes/create": {
+      "post": {
+        "tags": [
+          "EntrepriseComptes"
+        ],
+        "operationId": "EntrepriseCreateCompte",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCompteCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseComptes/update-password": {
+      "post": {
+        "tags": [
+          "EntrepriseComptes"
+        ],
+        "operationId": "EntrepriseUpdatePasswordCompte",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordCompteCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseComptes/update": {
+      "post": {
+        "tags": [
+          "EntrepriseComptes"
+        ],
+        "operationId": "EntrepriseUpdateCompte",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCompteCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/EntrepriseDashboard": {
       "get": {
         "tags": [
@@ -1575,6 +1721,10 @@
           "email_Notif": {
             "type": "string",
             "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -1887,6 +2037,90 @@
           },
           "commentaire": {
             "type": "string"
+          }
+        }
+      },
+      "ClientDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "codeClient": {
+            "type": "string",
+            "nullable": true
+          },
+          "nom": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateCompteCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "email_Notif": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string"
+          },
+          "codeUser": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ChangePasswordCompteCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "oldPassword": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "confirmPassword": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateCompteCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "emailNotif": {
+            "type": "string"
+          },
+          "hasAccess": {
+            "type": "boolean"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "codeUser": {
+            "type": "string",
+            "nullable": true
           }
         }
       },

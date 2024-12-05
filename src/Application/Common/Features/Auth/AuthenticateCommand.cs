@@ -18,7 +18,7 @@ public class AuthenticateCommandValidator : AbstractValidator<AuthenticateComman
     {
         RuleFor(x => x.Email)
            .NotNull()
-           .NotEmpty().WithMessage("Email is Requered.");
+           .NotEmpty().EmailAddress().WithMessage("Email is Requered.");
         RuleFor(x => x.Password)
            .NotNull()
            .NotEmpty().WithMessage("Password is Requered.");

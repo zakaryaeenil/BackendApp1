@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k5AgvCfLdewbood2VBaixF4nRxf0z/L7nBQIV2Jjli4=",
+  "Hash": "DSka7+SYzGDw8gMLh3a46RpG8g8cCmRGxzCHLrxu+f8=",
   "Source": "NejPortalBackend.Web",
   "BasePath": "_content/NejPortalBackend.Web",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/documents/client/11/44aed706-cc1f-46ff-9179-18af18371f6d.pdf"
+    },
+    {
+      "Identity": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/12/977a1fa2-baa6-4ec5-9f00-97d68c83110f.pdf",
+      "SourceId": "NejPortalBackend.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/",
+      "BasePath": "_content/NejPortalBackend.Web",
+      "RelativePath": "documents/client/12/977a1fa2-baa6-4ec5-9f00-97d68c83110f.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/documents/client/12/977a1fa2-baa6-4ec5-9f00-97d68c83110f.pdf"
     },
     {
       "Identity": "/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/src/Web/wwwroot/documents/client/6/2b732346-a78e-4209-8361-d28a39a2e1a1.pdf",
