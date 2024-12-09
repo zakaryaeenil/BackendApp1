@@ -17,4 +17,10 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Operations\Commands\UpdateOperationDetails\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Operations\Commands\UpdateOperationDetails\" />
+  </ItemGroup>
 </Project>

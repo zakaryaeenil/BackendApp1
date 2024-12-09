@@ -73,7 +73,7 @@ public class ClientUpdateOperationCommentairesCommandHandler : IRequestHandler<C
                     // Create and log the historical record for the modification
                     var historique = new Historique
                     {
-                        Action = $"L'opération numéro : {entity.Id} a été modifiée par le client {clientUsername}: Commantaire Operation a été modifié avec succès.",
+                        Action = "L'opération numéro : "+entity.Id+" a été modifiée par le client "+clientUsername+": Commantaire Operation a été modifié avec succès.",
                         UserId = _currentUserService.Id,
                         OperationId = entity.Id
                     };
@@ -104,7 +104,7 @@ public class ClientUpdateOperationCommentairesCommandHandler : IRequestHandler<C
             throw ex switch
             {
                 NotFoundException or InvalidOperationException or UnauthorizedAccessException => ex,
-                _ => new ApplicationException("An unexpected error occurred. Please try again later.", ex),
+                _ => new ApplicationException(ex.Message, ex),
             };
         }
     }

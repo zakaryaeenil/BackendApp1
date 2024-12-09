@@ -61,6 +61,25 @@ public class EmailService : IEmailService
         // Send the email
         await SendEmailAsync(email, "Welcome to NejPortal", emailTemplate);
     }
+    public async Task SendResetPasswordEmailAsync(string email, string resetPasswordLink, string userName)
+    {
+        var templatePath = Path.Combine(_environment.ContentRootPath, _emailSettings.WelcomeTemplatePath);
 
+        if (!File.Exists(templatePath))
+        {
+            throw new FileNotFoundException($"Email template not found at {templatePath}");
+        }
+
+        // Read and process the email template
+        var emailTemplate = await File.ReadAllTextAsync(templatePath);
+
+        emailTemplate = emailTemplate
+            .Replace("{{UserName}}", userName)
+            .Replace("{{Email}}", email)
+            .Replace("{{ResetPasswordLink}}", resetPasswordLink);
+
+        // Send the email
+        await SendEmailAsync(email, "Welcome to NejPortal", emailTemplate);
+    }
 }
 

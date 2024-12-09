@@ -19,20 +19,9 @@ public class EntrepriseDocuments : EndpointGroupBase
         {
             var vm = await sender.Send(new DownloadDocumentByIdQuery { DocumentId = id });
 
-            if (vm == null || vm.FileContent == null || vm.ContentType == null)
-            {
-                return Results.BadRequest("Error reading file or file is empty.");
-            }
-
-            // Create a response object containing the file content and filename
-            var fileResponse = new DownloadDocumentVm
-            {
-                FileContent = vm.FileContent,
-                FileName = vm.FileName,
-                ContentType = vm.ContentType
-            };
-
-            return Results.Ok(fileResponse); // Send as a JSON object
+            return vm == null || vm.FileContent == null || vm.ContentType == null
+                ? Results.BadRequest("Error reading file or file is empty.")
+                : Results.File(vm.FileContent, vm.ContentType, vm.FileName);
         }
         catch (Exception ex)
         {
@@ -41,7 +30,7 @@ public class EntrepriseDocuments : EndpointGroupBase
             Console.Error.WriteLine($"Error downloading the file: {ex.Message}");
 
             // Return a server error response
-            return Results.Problem("An error occurred while processing your request.");
+            return Results.Problem(ex.Message, "An error occurred while processing your request.");
         }
     }
 

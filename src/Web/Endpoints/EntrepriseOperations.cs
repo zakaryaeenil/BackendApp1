@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Text;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NejPortalBackend.Application.Common.Models;
 using NejPortalBackend.Application.Common.Vms;
 using NejPortalBackend.Application.Operations.Commands.CreateOperation;
+using NejPortalBackend.Application.Operations.Commands.ReserveOperation;
 using NejPortalBackend.Application.Operations.Commands.UpdateOperationCommentaires;
 using NejPortalBackend.Application.Operations.Commands.UpdateOperationDetails;
 using NejPortalBackend.Application.Operations.Commands.UpdateOperationDocuments;
 using NejPortalBackend.Application.Operations.Queries.GetAllOperations;
+using NejPortalBackend.Application.Operations.Queries.GetExportCsvOperations;
 using NejPortalBackend.Application.Operations.Queries.GetMyOperations;
 using NejPortalBackend.Application.Operations.Queries.GetNotReservedOperations;
 using NejPortalBackend.Application.Operations.Queries.GetOperationDetails;
@@ -27,10 +30,11 @@ public class EntrepriseOperations : EndpointGroupBase
         .MapPost(GetEntrepriseMyOperationsWithPagination, "my")
         .MapPost(GetEntrepriseNotResOperationsWithPagination, "not-reserved")
         .MapPost(CreateEntrepriseOperation, "create")
-        //.MapPut(EntrepriseReserveOperation, "reserve/{id}")
+        .MapPut(EntrepriseReserveOperation, "reserve/{id}")
         .MapPut(EntrepriseUpdateInfosGenerale, "update-info-general/{id}")
         .MapPut(EntrepriseUpdateDocuments, "update-documents/{id}")
-        .MapPut(EntrepriseUpdateComments, "update-commentaires/{id}");
+        .MapPut(EntrepriseUpdateComments, "update-commentaires/{id}")
+        .MapPost(GetEntrepriseExportCsvOperations, "export");
 
     }
     private async Task<OperationFiltersVm> GetEntrepriseAllFilters(ISender sender)
@@ -53,12 +57,20 @@ public class EntrepriseOperations : EndpointGroupBase
         return await sender.Send(query);
     }
 
-    //private async Task<IResult> EntrepriseReserveOperation(ISender sender, int id, ReserveOperationCommand command)
-    //{
-    //  if (id != command.Id) return Results.BadRequest();
-    //await sender.Send(command);
-    // return Results.NoContent();
-    //}
+    private async Task<IResult> EntrepriseReserveOperation(ISender sender, int id)
+    {
+        try
+        {
+            
+            await sender.Send(new ReserveOperationCommand { OperationId = id} );
+             return Results.NoContent();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception (you can use a logging service here)
+            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
+        }
+    }
 
     private async Task<IResult> CreateEntrepriseOperation(ISender sender,HttpRequest request)
     {
@@ -69,7 +81,7 @@ public class EntrepriseOperations : EndpointGroupBase
             // Validate required form fields
             if (!int.TryParse(form["typeOperation"], out var typeOperation))
             {
-                return Results.BadRequest("Invalid typeOperation.");
+                return Results.BadRequest(new { Message = "Invalid typeOperation" });
             }
 
             var commentaire = form["commentaire"].ToString();
@@ -77,7 +89,7 @@ public class EntrepriseOperations : EndpointGroupBase
             var client = form["clientId"].ToString();
             if (string.IsNullOrWhiteSpace(client))
             {
-                return Results.BadRequest("Client ID is required.");
+                return Results.BadRequest(new { Message = "Client ID is required." });
             }
 
             var agent = form["agentId"].ToString();
@@ -117,20 +129,28 @@ public class EntrepriseOperations : EndpointGroupBase
 
     private async Task<IResult> EntrepriseUpdateInfosGenerale(ISender sender, int id, UpdateOperationDetailsCommand command)
     {
+        try { 
         if (id != command.OperationId)
-            return Results.BadRequest("The provided ID does not match the command's OperationId.");
+            return Results.BadRequest(new { Message = "The provided ID does not match the command's OperationId." });
 
         await sender.Send(command);
         return Results.NoContent();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception (you can use a logging service here)
+            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
+        }
     }
 
     private async Task<IResult> EntrepriseUpdateDocuments(ISender sender, int id, HttpRequest request)
     {
+        try { 
         var form = await request.ReadFormAsync();
 
         if (!int.TryParse(form["operationId"], out var operationId))
         {
-            return Results.BadRequest("Invalid operation ID.");
+            return Results.BadRequest( "Invalid operation ID.");
         }
 
         // Parse the list of documentIds
@@ -149,7 +169,7 @@ public class EntrepriseOperations : EndpointGroupBase
                 }
                 else
                 {
-                    return Results.BadRequest($"Invalid document ID: {docId}");
+                    return Results.BadRequest(new { Message = $"Invalid document ID: {docId}" });
                 }
             }
         }
@@ -164,20 +184,57 @@ public class EntrepriseOperations : EndpointGroupBase
 
         if (id != command.OperationId)
         {
-            return Results.BadRequest("The provided ID does not match the command's OperationId.");
+            return Results.BadRequest(new { Message = "The provided ID does not match the command's OperationId." });
         }
 
         await sender.Send(command);
 
         return Results.NoContent();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception (you can use a logging service here)
+            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
+        }
     }
 
     private async Task<IResult> EntrepriseUpdateComments(ISender sender, int id, UpdateOperationCommentairesCommand command)
     {
+        try { 
         if (id != command.OperationId)
-            return Results.BadRequest("The provided ID does not match the command's OperationId.");
+            return Results.BadRequest(new { Message = "The provided ID does not match the command's OperationId." });
 
         await sender.Send(command);
         return Results.NoContent();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception (you can use a logging service here)
+            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
+        }
     }
+
+
+
+
+    private async Task<IResult> GetEntrepriseExportCsvOperations(ISender sender, GetExportCsvOperationsQuery query)
+    {
+        try
+        {
+            var vm = await sender.Send(query);
+            return vm == null || vm.FileContent == null || vm.ContentType == null
+                ? Results.BadRequest("Error reading file or file is empty.")
+                : Results.File(vm.FileContent, vm.ContentType, vm.FileName);
+        }
+        catch (Exception ex)
+        {
+            // Log the error and return a generic error response
+            // Log the error using your preferred logging method
+            Console.Error.WriteLine($"Error downloading the file: {ex.Message}");
+
+            // Return a server error response
+            return Results.Problem(ex.Message,"An error occurred while processing your request.");
+        }
+    }
+
 }

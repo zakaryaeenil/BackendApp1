@@ -71,7 +71,7 @@ public class ClientGetAllOperationsQueryHandler : IRequestHandler<ClientGetAllOp
         if (!isClient)
         {
             _logger.LogWarning("User {UserId} attempted to access client operations without proper role.", _currentUserService.Id);
-            throw new InvalidOperationException($"User {_currentUserService.Id} does not have the required role.");
+            throw new InvalidOperationException("User "+ _currentUserService.Id+" does not have the required role.");
         }
 
         try
@@ -134,7 +134,7 @@ public class ClientGetAllOperationsQueryHandler : IRequestHandler<ClientGetAllOp
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while processing ClientGetAllOperationsQuery for user {UserId}.", _currentUserService.Id);
+            _logger.LogError(ex.Message, "An error occurred while processing ClientGetAllOperationsQuery for user {UserId}.", _currentUserService.Id);
             throw;
         }
     }

@@ -145,7 +145,7 @@ public class UpdateOperationDocumentsCommandHandler : IRequestHandler<UpdateOper
             throw ex switch
             {
                 NotFoundException or InvalidOperationException or UnauthorizedAccessException => ex,
-                _ => new ApplicationException("An unexpected error occurred. Please try again later.", ex),
+                _ => new ApplicationException(ex.Message, ex),
             };
         }
     }

@@ -57,7 +57,7 @@ public class GetDossierFiltersQueryHandler : IRequestHandler<GetDossierFiltersQu
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while handling GetDossierFiltersQuery.");
+            _logger.LogError(ex.Message, "An error occurred while handling GetDossierFiltersQuery.");
             throw;
         }
     }

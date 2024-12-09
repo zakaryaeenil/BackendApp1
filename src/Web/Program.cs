@@ -64,21 +64,7 @@ app.UseSwaggerUi(settings =>
 });
 
 // Custom error handler
-app.UseExceptionHandler(options =>
-{
-    options.Run(async context =>
-    {
-        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-        context.Response.ContentType = "application/json";
-
-        var ex = context.Features.Get<IExceptionHandlerFeature>();
-        if (ex != null)
-        {
-            var error = new { message = ex.Error.Message };
-            await context.Response.WriteAsJsonAsync(error);
-        }
-    });
-});
+app.UseExceptionHandler(options => { });
 
 app.Map("/", () => Results.Redirect("/api"));
 

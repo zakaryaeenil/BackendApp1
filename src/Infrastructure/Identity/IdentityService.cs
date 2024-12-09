@@ -458,7 +458,7 @@ public class IdentityService : IIdentityService
 
         return Result.Success();
     }
-    public async Task<Result> ForgotPasswordAsync(string email, CancellationToken cancellationToken = default)
+    public async Task<Result> ForgotPasswordAsync(string email)
     {
         // Find user by email
         var user = await _userManager.FindByEmailAsync(email);
@@ -466,7 +466,10 @@ public class IdentityService : IIdentityService
         {
             return Result.Failure(new List<string> { "User not found with the provided email." });
         }
-
+        if (user.UserName == null)
+        {
+            return Result.Failure(new List<string> { "User not found with the provided email." });
+        }
         // Generate a password reset token
         var token = await _userManager.GeneratePasswordResetTokenAsync(user);
         if (string.IsNullOrEmpty(token))
@@ -480,7 +483,7 @@ public class IdentityService : IIdentityService
         // Send the reset password link to the user via email
         try
         {
-            await _emailService.SendForgotPasswordEmailAsync(email, resetPasswordLink);
+            await _emailService.SendResetPasswordEmailAsync(email, resetPasswordLink,user.UserName);
         }
         catch (Exception ex)
         {

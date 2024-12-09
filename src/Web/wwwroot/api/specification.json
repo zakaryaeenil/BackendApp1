@@ -38,6 +38,56 @@
         }
       }
     },
+    "/api/Authentification/reset-password": {
+      "post": {
+        "tags": [
+          "Authentification"
+        ],
+        "operationId": "PostResetPassword",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/Authentification/forgot-password": {
+      "post": {
+        "tags": [
+          "Authentification"
+        ],
+        "operationId": "PostForgotPassword",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/api/Authentification/refresh-token": {
       "post": {
         "tags": [
@@ -421,6 +471,42 @@
         ]
       }
     },
+    "/api/EntrepriseComptes/{id}": {
+      "get": {
+        "tags": [
+          "EntrepriseComptes"
+        ],
+        "operationId": "GetCompteById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/EntrepriseComptes/all": {
       "get": {
         "tags": [
@@ -437,6 +523,63 @@
                   "items": {
                     "$ref": "#/components/schemas/UserDto"
                   }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseComptes/details": {
+      "get": {
+        "tags": [
+          "EntrepriseComptes"
+        ],
+        "operationId": "GetEntrepriseCompteDetails",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "Year",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "Month",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompteDetailsVm"
                 }
               }
             }
@@ -509,12 +652,23 @@
         ]
       }
     },
-    "/api/EntrepriseComptes/update": {
+    "/api/EntrepriseComptes/update/{id}": {
       "post": {
         "tags": [
           "EntrepriseComptes"
         ],
         "operationId": "EntrepriseUpdateCompte",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
         "requestBody": {
           "x-name": "command",
           "content": {
@@ -525,7 +679,7 @@
             }
           },
           "required": true,
-          "x-position": 1
+          "x-position": 2
         },
         "responses": {
           "200": {
@@ -933,6 +1087,36 @@
         ]
       }
     },
+    "/api/EntrepriseOperations/reserve/{id}": {
+      "put": {
+        "tags": [
+          "EntrepriseOperations"
+        ],
+        "operationId": "EntrepriseReserveOperation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/EntrepriseOperations/update-info-general/{id}": {
       "put": {
         "tags": [
@@ -1034,6 +1218,36 @@
           },
           "required": true,
           "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/EntrepriseOperations/export": {
+      "post": {
+        "tags": [
+          "EntrepriseOperations"
+        ],
+        "operationId": "GetEntrepriseExportCsvOperations",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetExportCsvOperationsQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
         },
         "responses": {
           "200": {
@@ -1471,6 +1685,30 @@
             "type": "string"
           },
           "appIdentifier": {
+            "type": "string"
+          }
+        }
+      },
+      "ResetPasswordCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          }
+        }
+      },
+      "ForgotPasswordCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "email": {
             "type": "string"
           }
         }
@@ -2051,6 +2289,71 @@
           "nom": {
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "CompteDetailsVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "codeUser": {
+            "type": "string",
+            "nullable": true
+          },
+          "nom": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "nbrTotalOperations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nbrNotReservedOperations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nbrEncoursOperations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nbrTotalImportOperations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nbrTotalExportOperations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nbrTotalFactures": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isClient": {
+            "type": "boolean"
+          },
+          "operationEtatDtos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OperationEtatDto"
+            }
+          },
+          "chartOperations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChartOperationByYear"
+            }
           }
         }
       },
@@ -2663,6 +2966,62 @@
           },
           "commentaire": {
             "type": "string"
+          }
+        }
+      },
+      "GetExportCsvOperationsQuery": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "typeOpration": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "etatOprations": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "clients": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "agents": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "rechercheId": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "inClients": {
+            "type": "boolean"
+          },
+          "inEtatOprations": {
+            "type": "boolean"
+          },
+          "inAgents": {
+            "type": "boolean"
           }
         }
       },

@@ -88,7 +88,7 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
             
             if (isEtatOperationCloture && !isCodeDossierValid)
             {
-                throw new InvalidOperationException("Impossile de cloturer une opération sans unn code dossier valid");
+                throw new InvalidOperationException("Impossile de cloturer une opération sans un code dossier valid");
             }
             else
             {
@@ -104,7 +104,16 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                         entity.TypeOperation = (TypeOperation)request.TypeOperationId;
                         isUpdated = true;
                     }
-                    if (entity.EtatOperation != (EtatOperation)request.EtatOperationId && ((isAgent && !isEtatOperationCloture) || isAdmin))
+                    if (entity.CodeDossier != request.CodeDossier &&
+                    ((isAgent && isCodeDossierValid && (!isEtatOperationCloture || true)) || // Agent-specific checks
+                     (isAdmin && isCodeDossierValid))                                      // Admin-specific check
+                 )
+                    {
+                        entity.CodeDossier = request.CodeDossier;
+                        isUpdated = true;
+                    }
+
+                    if (entity.EtatOperation != (EtatOperation)request.EtatOperationId && (((isAgent && !isEtatOperationCloture) || (isAgent && isEtatOperationCloture && isCodeDossierValid)) || isAdmin))
                     {
                         entity.EtatOperation = (EtatOperation)request.EtatOperationId;
                         isUpdated = true;
@@ -122,14 +131,10 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                     if (entity.ReserverPar != request.ReserverPar && ((isAgent && !isEtatOperationCloture) || isAdmin))
                     {
                         entity.ReserverPar = request.ReserverPar;
-                        entity.EstReserver = true;
+                        entity.EstReserver = !string.IsNullOrWhiteSpace(entity.ReserverPar);
                         isUpdated = true;
                     }
-                    if ((entity.CodeDossier != request.CodeDossier && isCodeDossierValid && ((isAgent && !isEtatOperationCloture ) || isAdmin)) || (request.CodeDossier == null && ((isAgent && !isEtatOperationCloture) || isAdmin)))
-                    {
-                        entity.CodeDossier = request.CodeDossier;
-                        isUpdated = true;
-                    }
+                 
                     // Only update if there were changes
                     if (isUpdated)
                     {
@@ -154,8 +159,8 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                     }
                     else
                     {
-                        _logger.LogWarning("Operation {OperationId}  not be updated.", entity.Id);
-                        throw new InvalidOperationException("operation  not be updated");
+                        _logger.LogInformation("Operation {OperationId}  not be updated.", entity.Id);
+                      
                     }
                 }
                 else
@@ -173,7 +178,7 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
             throw ex switch
             {
                 NotFoundException or InvalidOperationException or UnauthorizedAccessException => ex,
-                _ => new ApplicationException("An unexpected error occurred. Please try again later.", ex),
+                _ => new ApplicationException( ex.Message,ex),
             };
         }
     }

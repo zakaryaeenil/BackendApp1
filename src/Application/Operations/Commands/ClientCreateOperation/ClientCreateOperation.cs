@@ -92,7 +92,7 @@ public class ClientCreateOperationCommandHandler : IRequestHandler<ClientCreateO
             // Create and log the historical record for the creation
             var historique = new Historique
             {
-                Action = $"L'opération numéro : {operation.Id} a été criée par le client {_currentUserService.Id}: Operation a été crié avec succès.",
+                Action = "L'opération numéro : "+ operation.Id+" a été criée par le client {_currentUserService.Id}: Operation a été crié avec succès.",
                 UserId = _currentUserService.Id,
                 OperationId = operation.Id
             };
@@ -151,7 +151,7 @@ public class ClientCreateOperationCommandHandler : IRequestHandler<ClientCreateO
             throw ex switch
             {
                 NotFoundException or InvalidOperationException or UnauthorizedAccessException => ex,
-                _ => new ApplicationException("An unexpected error occurred. Please try again later.", ex),
+                _ => new ApplicationException(ex.Message,ex),
             };
         }
     }

@@ -9,6 +9,10 @@ using NejPortalBackend.Application.Comptes.Commands.UpdateCompte;
 using NejPortalBackend.Application.Comptes.Commands.ChangePasswordCompte;
 using Microsoft.AspNetCore.Components.Forms;
 using NejPortalBackend.Application.Comptes.Queries.GetClientsNotHaveCompte;
+using NejPortalBackend.Application.Common.Vms;
+using NejPortalBackend.Application.Operations.Queries.GetOperationDetails;
+using NejPortalBackend.Application.Comptes.Queries.GetCompteDetails;
+using NejPortalBackend.Application.Comptes.Queries.GetCompte;
 
 namespace NejPortalBackend.Web.Endpoints;
 
@@ -19,7 +23,9 @@ public class EntrepriseComptes : EndpointGroupBase
         app.MapGroup(this)
             .RequireAuthorization()
             .MapGet(EntrepriseGetClientDontHaveComptes, "filters")
+            .MapGet(GetCompteById, "{id}")
             .MapGet(EntrepriseGetAllComptes, "all")
+            .MapGet(GetEntrepriseCompteDetails, "details")
             .MapPost(EntrepriseCreateCompte, "create")
             .MapPost(EntrepriseUpdatePasswordCompte, "update-password")
             .MapPost(EntrepriseUpdateCompte, "update/{id}");
@@ -41,27 +47,45 @@ public class EntrepriseComptes : EndpointGroupBase
 
             if (!result.Succeeded)
             {
-                return Results.BadRequest(result.Errors);
+                          // Return structured error information
+                return Results.BadRequest(new { Message = "Failed to create user.", Errors = result.Errors?? Array.Empty<string>() });
             }
 
             return Results.Ok(new { UserId = userId });
         }
         catch (Exception ex)
         {
-            // Log the exception (you can use a logging service here)
-            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
+
+            // Return a detailed error message for debugging
+            return Results.Problem(
+                detail: ex.Message,
+                title: "An error occurred while creating the user",
+                statusCode: 500
+            );
         }
     }
 
-    private async Task<IResult> EntrepriseUpdateCompte(ISender sender, UpdateCompteCommand command)
+    private async Task<CompteDetailsVm> GetEntrepriseCompteDetails(ISender sender, [AsParameters] GetCompteDetailsQuery query)
+    {
+        return await sender.Send(query);
+    }
+    private async Task<UserDto> GetCompteById(ISender sender, string id)
+    {
+            return await sender.Send(new GetCompteQuery { Id = id });
+    }
+
+    private async Task<IResult> EntrepriseUpdateCompte(ISender sender, string id, UpdateCompteCommand command)
     {
         try
         {
+            if (id != command.Id)
+                return Results.BadRequest(new { Message = "The provided ID does not match the command's OperationId." });
+
             var (result, userId) = await sender.Send(command);
 
             if (!result.Succeeded)
             {
-                return Results.BadRequest(result.Errors);
+                return Results.BadRequest(new { Message = "Failed to update user.", Errors = result.Errors ?? Array.Empty<string>() });
             }
 
             return Results.Ok(new { UserId = userId });

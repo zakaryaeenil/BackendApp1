@@ -28,7 +28,7 @@ public class FileService : IFileService
         var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
 
         // Define the path to save the file
-        var folderPath = Path.Combine(_hostingEnvironment.WebRootPath, mainFolderName, userName, $"{operationId}");
+        var folderPath = Path.Combine(_hostingEnvironment.WebRootPath, mainFolderName, userName, operationId.ToString() ?? string.Empty);
         var filePath = Path.Combine(folderPath, fileName);
 
         // Check if the directory exists

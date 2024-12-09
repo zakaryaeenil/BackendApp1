@@ -5,7 +5,6 @@ using NejPortalBackend.Domain.Constants;
 
 namespace NejPortalBackend.Application.Features.Auth;
 
-[Authorize(Roles = Roles.AdminAndAgentAndClient)]
 public record ResetPasswordCommand : IRequest<Result>
 {
     public required string Email { get; init; }
@@ -39,6 +38,7 @@ public class ResetPasswordCommandHandler : IRequestHandler<ResetPasswordCommand,
 
     public async Task<Result> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
     {
+
         return await _identityService.ResetPasswordAsync(request.Email,request.Token,request.NewPassword,cancellationToken);
     }
 }

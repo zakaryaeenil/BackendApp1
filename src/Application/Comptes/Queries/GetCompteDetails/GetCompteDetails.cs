@@ -22,7 +22,7 @@ public class GetCompteDetailsQueryValidator : AbstractValidator<GetCompteDetails
     public GetCompteDetailsQueryValidator()
     {
         RuleFor(v => v.Id).NotEmpty()
-              .NotNull().WithMessage("Client Idantifiant required.");
+              .NotNull().WithMessage("Id Idantifiant required.");
     }
 
 }

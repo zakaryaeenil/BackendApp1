@@ -110,6 +110,7 @@ public static class DependencyInjection
         services.AddSingleton(TimeProvider.System);
         services.AddTransient<IIdentityService, IdentityService>();
         services.AddTransient<IFileService, FileService>();
+        services.AddTransient<ICsvExportService, CsvExportService>();
 
         // Bind email settings
         services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));

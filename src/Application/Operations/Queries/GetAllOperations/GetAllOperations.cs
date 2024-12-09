@@ -138,8 +138,9 @@ public class GetAllOperationsQueryHandler : IRequestHandler<GetAllOperationsQuer
 
             // Paginate and project to DTO
             PaginatedList<OperationDto> paginatedList = await operationsQuery
-                  .OrderByDescending(t => t.LastModified)
-                    .ThenBy(t => !t.EstReserver)
+                .OrderByDescending(t => t.EtatOperation != EtatOperation.cloture)
+                 .ThenBy(t => !t.EstReserver)
+                  .ThenBy(t => t.LastModified)                
                      .ThenBy(t => t.EtatOperation != EtatOperation.cloture)
                      .ProjectTo<OperationDto>(_mapper.ConfigurationProvider)
                     .PaginatedListAsync(request.PageNumber, request.PageSize);
@@ -150,7 +151,7 @@ public class GetAllOperationsQueryHandler : IRequestHandler<GetAllOperationsQuer
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while processing GetAllOperationsQuery for user {UserId}.", _currentUserService.Id);
+            _logger.LogError(ex.Message, "An error occurred while processing GetAllOperationsQuery for user {UserId}.", _currentUserService.Id);
             throw;
         }
     }

@@ -64,7 +64,7 @@ public class GetDossierDetailsQueryHandler : IRequestHandler<GetDossierDetailsQu
                 .ToListAsync(cancellationToken);
             _logger.LogDebug("Retrieved {FactureCount} factures for CodeDossier: {CodeDossier}", factureList.Count, request.CodeDossier);
 
-            if (!opList.Any())
+            if (opList.Count == 0)
             {
                 _logger.LogWarning("No operations found for CodeDossier: {CodeDossier}", request.CodeDossier);
                 throw new InvalidOperationException($"No operations found for dossier {request.CodeDossier}");
@@ -108,12 +108,12 @@ public class GetDossierDetailsQueryHandler : IRequestHandler<GetDossierDetailsQu
         }
         catch (InvalidOperationException ex)
         {
-            _logger.LogWarning(ex, "Validation error in GetDossierDetailsQuery for CodeDossier: {CodeDossier}", request.CodeDossier);
+            _logger.LogWarning(ex.Message, "Validation error in GetDossierDetailsQuery for CodeDossier: {CodeDossier}", request.CodeDossier);
             throw;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while handling GetDossierDetailsQuery for CodeDossier: {CodeDossier}", request.CodeDossier);
+            _logger.LogError(ex.Message, "An error occurred while handling GetDossierDetailsQuery for CodeDossier: {CodeDossier}", request.CodeDossier);
             throw;
         }
     }
