@@ -5,9 +5,20 @@ using NejPortalBackend.Application.Operations.Commands.ClientCreateOperation;
 using NejPortalBackend.Application.Operations.Commands.ClientUpdateOperationCommentaires;
 using NejPortalBackend.Application.Operations.Commands.ClientUpdateOperationDetails;
 using NejPortalBackend.Application.Operations.Commands.ClientUpdateOperationDocuments;
+using NejPortalBackend.Application.Operations.Commands.CreateOperation;
+using NejPortalBackend.Application.Operations.Commands.ReserveOperation;
+using NejPortalBackend.Application.Operations.Commands.UpdateOperationCommentaires;
+using NejPortalBackend.Application.Operations.Commands.UpdateOperationDetails;
+using NejPortalBackend.Application.Operations.Commands.UpdateOperationDocuments;
 using NejPortalBackend.Application.Operations.Queries.ClientGetAllOperations;
 using NejPortalBackend.Application.Operations.Queries.ClientGetOperationDetails;
 using NejPortalBackend.Application.Operations.Queries.ClientGetOperationFilters;
+using NejPortalBackend.Application.Operations.Queries.GetAllOperations;
+using NejPortalBackend.Application.Operations.Queries.GetExportCsvOperations;
+using NejPortalBackend.Application.Operations.Queries.GetMyOperations;
+using NejPortalBackend.Application.Operations.Queries.GetNotReservedOperations;
+using NejPortalBackend.Application.Operations.Queries.GetOperationDetails;
+using NejPortalBackend.Application.Operations.Queries.GetOperationFilters;
 
 namespace NejPortalBackend.Web.Endpoints;
 
@@ -16,15 +27,18 @@ public class ClientOperations : EndpointGroupBase
     public override void Map(WebApplication app)
     {
         app.MapGroup(this)
-         .RequireAuthorization()
-         .MapGet(GetClientAllFilters, "filters")
-         .MapGet(GetClientOperationDetails, "details/{id}")
-         .MapPost(GetClientOperationsWithPagination, "all")
-         .MapPost(CreateClientOperation, "create")
-         //.MapPost(GetClientOperationsExport, "export")
-         .MapPut(ClientUpdateInfosGenerale, "update-info-general/{id}")
-         .MapPut(ClientUpdateDocuments, "update-documents/{id}")
-         .MapPut(ClientUpdateComments, "update-commentaires/{id}");
+        .RequireAuthorization()
+        .MapGet(GetClientAllFilters, "filters")
+        .MapGet(GetClientOperationDetails, "details/{id}")
+        .MapPost(GetClientOperationsWithPagination, "all")
+        .MapPost(CreateClientOperation, "create")
+        //.MapPut(ClientReserveOperation, "reserve/{id}")
+        .MapPut(ClientUpdateInfosGenerale, "update-info-general/{id}")
+        .MapPut(ClientUpdateDocuments, "update-documents/{id}")
+        .MapPut(ClientUpdateComments, "update-commentaires/{id}")
+       // .MapPost(GetClientExportCsvOperations, "export")
+         ;
+
     }
     private async Task<OperationFiltersVm> GetClientAllFilters(ISender sender)
     {
@@ -36,30 +50,45 @@ public class ClientOperations : EndpointGroupBase
         return await sender.Send(query);
     }
 
-    //private async Task<ExportOperationsVM> GetClientOperationsExport(ISender sender, GetClientExportOperationsQuery query)
-    //{
-    //    return await sender.Send(query);
-
-    //}
-    private async Task<int> CreateClientOperation(ISender sender, HttpRequest request)
+    private async Task<IResult> CreateClientOperation(ISender sender, HttpRequest request)
     {
-        var form = await request.ReadFormAsync();
-
-        // Get form data
-        var typeOperation = int.Parse(form["typeOperation"].ToString());
-        var commentaire = form["commentaire"].ToString();
-        // Get uploaded files
-        var files = form.Files;
-
-        // Create the command for the client operation
-        var command = new ClientCreateOperationCommand
+        try
         {
-            TypeOperationId = typeOperation,
-            Commentaire = commentaire,
-            Files = files
-        };
-        return await sender.Send(command);
+            var form = await request.ReadFormAsync();
+
+            // Validate required form fields
+            if (!int.TryParse(form["typeOperation"], out var typeOperation))
+            {
+                return Results.BadRequest(new { Message = "Invalid typeOperation" });
+            }
+
+            var commentaire = form["commentaire"].ToString();
+
+
+            // Get uploaded files and ensure there is at least one file
+            var files = form.Files;
+
+
+            // Create the command for the client operation
+            var command = new ClientCreateOperationCommand
+            {
+                TypeOperationId = typeOperation,
+                Commentaire = commentaire,
+                Files = files
+            };
+
+            // Send command to the handler and return the result
+            var operationId = await sender.Send(command);
+            return Results.Ok(operationId); // Return success response with operation ID
+        }
+        catch (Exception ex)
+        {
+            // Log the exception (you can use a logging service here)
+            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
+        }
     }
+
+
 
     private async Task<OperationDetailVm> GetClientOperationDetails(ISender sender, int id)
     {
@@ -68,46 +97,94 @@ public class ClientOperations : EndpointGroupBase
 
     private async Task<IResult> ClientUpdateInfosGenerale(ISender sender, int id, ClientUpdateOperationDetailsCommand command)
     {
-        if (id != command.OperationId)
-            return Results.BadRequest("The provided ID does not match the command's OperationId.");
+        try
+        {
+            if (id != command.OperationId)
+                return Results.BadRequest(new { Message = "The provided ID does not match the command's OperationId." });
 
-        await sender.Send(command);
-        return Results.NoContent();
+            await sender.Send(command);
+            return Results.NoContent();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception (you can use a logging service here)
+            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
+        }
     }
 
     private async Task<IResult> ClientUpdateDocuments(ISender sender, int id, HttpRequest request)
     {
-        var form = await request.ReadFormAsync();
-
-        if (!int.TryParse(form["operationId"], out var operationId))
+        try
         {
-            return Results.BadRequest("Invalid operation ID.");
+            var form = await request.ReadFormAsync();
+
+            if (!int.TryParse(form["operationId"], out var operationId))
+            {
+                return Results.BadRequest("Invalid operation ID.");
+            }
+
+            var newFiles = form.Files;
+
+            var command = new ClientUpdateOperationDocumentsCommand
+            {
+                OperationId = operationId,
+                Files = newFiles.Any() ? newFiles : null, // Only pass files if they exist
+            };
+
+            if (id != command.OperationId)
+            {
+                return Results.BadRequest(new { Message = "The provided ID does not match the command's OperationId." });
+            }
+
+            await sender.Send(command);
+
+            return Results.NoContent();
         }
-        var newFiles = form.Files;
-
-        var command = new ClientUpdateOperationDocumentsCommand
+        catch (Exception ex)
         {
-            OperationId = operationId,
-            Files = newFiles.Any() ? newFiles : null, // Only pass files if they exist
-        };
-
-        if (id != command.OperationId)
-        {
-            return Results.BadRequest("The provided ID does not match the command's OperationId.");
+            // Log the exception (you can use a logging service here)
+            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
         }
-
-        await sender.Send(command);
-
-        return Results.NoContent();
     }
 
     private async Task<IResult> ClientUpdateComments(ISender sender, int id, ClientUpdateOperationCommentairesCommand command)
     {
-        if (id != command.OperationId)
-            return Results.BadRequest("The provided ID does not match the command's OperationId.");
+        try
+        {
+            if (id != command.OperationId)
+                return Results.BadRequest(new { Message = "The provided ID does not match the command's OperationId." });
 
-        await sender.Send(command);
-        return Results.NoContent();
+            await sender.Send(command);
+            return Results.NoContent();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception (you can use a logging service here)
+            return Results.Problem($"An error occurred while processing your request: {ex.Message}");
+        }
+    }
+
+
+
+
+    private async Task<IResult> GetClientExportCsvOperations(ISender sender, GetExportCsvOperationsQuery query)
+    {
+        try
+        {
+            var vm = await sender.Send(query);
+            return vm == null || vm.FileContent == null || vm.ContentType == null
+                ? Results.BadRequest("Error reading file or file is empty.")
+                : Results.File(vm.FileContent, vm.ContentType, vm.FileName);
+        }
+        catch (Exception ex)
+        {
+            // Log the error and return a generic error response
+            // Log the error using your preferred logging method
+            Console.Error.WriteLine($"Error downloading the file: {ex.Message}");
+
+            // Return a server error response
+            return Results.Problem(ex.Message, "An error occurred while processing your request.");
+        }
     }
 
 

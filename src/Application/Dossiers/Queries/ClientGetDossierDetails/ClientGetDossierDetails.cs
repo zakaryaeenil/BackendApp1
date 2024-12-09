@@ -8,17 +8,17 @@ using NejPortalBackend.Application.Dossiers.Queries.GetDossierDetails;
 using NejPortalBackend.Domain.Constants;
 using NejPortalBackend.Domain.Enums;
 
-namespace NejPortalBackend.Application.Dossiers.Queries.CientGetDossierDetails;
+namespace NejPortalBackend.Application.Dossiers.Queries.ClientGetDossierDetails;
 
 [Authorize(Roles = Roles.Client)]
-public record CientGetDossierDetailsQuery : IRequest<DossierDetailVm>
+public record ClientGetDossierDetailsQuery : IRequest<DossierDetailVm>
 {
     public required string CodeDossier { get; init; }
 }
 
-public class CientGetDossierDetailsQueryValidator : AbstractValidator<CientGetDossierDetailsQuery>
+public class ClientGetDossierDetailsQueryValidator : AbstractValidator<ClientGetDossierDetailsQuery>
 {
-    public CientGetDossierDetailsQueryValidator()
+    public ClientGetDossierDetailsQueryValidator()
     {
         RuleFor(x => x.CodeDossier)
        .NotNull().NotEmpty()
@@ -26,21 +26,21 @@ public class CientGetDossierDetailsQueryValidator : AbstractValidator<CientGetDo
     }
 }
 
-public class CientGetDossierDetailsQueryHandler : IRequestHandler<CientGetDossierDetailsQuery, DossierDetailVm>
+public class ClientGetDossierDetailsQueryHandler : IRequestHandler<ClientGetDossierDetailsQuery, DossierDetailVm>
 {
 
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
-    private readonly ILogger<CientGetDossierDetailsQueryHandler> _logger;
+    private readonly ILogger<ClientGetDossierDetailsQueryHandler> _logger;
     private readonly IIdentityService _identityService;
     private readonly IUser _currentUserService;
 
-    public CientGetDossierDetailsQueryHandler(
+    public ClientGetDossierDetailsQueryHandler(
         IApplicationDbContext context,
           IUser currentUserService,
         IIdentityService identityService,
         IMapper mapper,
-        ILogger<CientGetDossierDetailsQueryHandler> logger)
+        ILogger<ClientGetDossierDetailsQueryHandler> logger)
     {
         _context = context;
         _mapper = mapper;
@@ -49,7 +49,7 @@ public class CientGetDossierDetailsQueryHandler : IRequestHandler<CientGetDossie
         _identityService = identityService;
     }
 
-    public async Task<DossierDetailVm> Handle(CientGetDossierDetailsQuery request, CancellationToken cancellationToken)
+    public async Task<DossierDetailVm> Handle(ClientGetDossierDetailsQuery request, CancellationToken cancellationToken)
     {
         _logger.LogInformation("ClientGetAllOperationsQuery received with parameters: {Request}", request);
 

@@ -7,30 +7,30 @@ using NejPortalBackend.Application.Common.Vms;
 using NejPortalBackend.Domain.Constants;
 using NejPortalBackend.Domain.Enums;
 
-namespace NejPortalBackend.Application.Dossiers.Queries.CientGetDossierFilters;
+namespace NejPortalBackend.Application.Dossiers.Queries.ClientGetDossierFilters;
 
 [Authorize(Roles = Roles.Client)]
-public record CientGetDossierFiltersQuery : IRequest<DossierFiltersVm>;
+public record ClientGetDossierFiltersQuery : IRequest<DossierFiltersVm>;
 
-public class CientGetDossierFiltersQueryHandler : IRequestHandler<CientGetDossierFiltersQuery, DossierFiltersVm>
+public class ClientGetDossierFiltersQueryHandler : IRequestHandler<ClientGetDossierFiltersQuery, DossierFiltersVm>
 {
-    private readonly ILogger<CientGetDossierFiltersQueryHandler> _logger;
+    private readonly ILogger<ClientGetDossierFiltersQueryHandler> _logger;
     private readonly IIdentityService _identityService;
     private readonly IUser _currentUserService;
 
-    public CientGetDossierFiltersQueryHandler(
+    public ClientGetDossierFiltersQueryHandler(
           IUser currentUserService,
         IIdentityService identityService,
-        ILogger<CientGetDossierFiltersQueryHandler> logger)
+        ILogger<ClientGetDossierFiltersQueryHandler> logger)
     {
         _currentUserService = currentUserService;
         _logger = logger;
         _identityService = identityService;
     }
 
-    public async Task<DossierFiltersVm> Handle(CientGetDossierFiltersQuery request, CancellationToken cancellationToken)
+    public async Task<DossierFiltersVm> Handle(ClientGetDossierFiltersQuery request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("CientGetDossierFiltersQueryHandler received with parameters: {Request}", request);
+        _logger.LogInformation("ClientGetDossierFiltersQueryHandler received with parameters: {Request}", request);
 
         if (string.IsNullOrWhiteSpace(_currentUserService.Id))
         {
@@ -58,12 +58,12 @@ public class CientGetDossierFiltersQueryHandler : IRequestHandler<CientGetDossie
                 EtatPayments = etatPayments
             };
 
-            _logger.LogInformation("Successfully handled CientGetDossierFiltersQueryHandler.");
+            _logger.LogInformation("Successfully handled ClientGetDossierFiltersQueryHandler.");
             return result;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message, "An error occurred while handling CientGetDossierFiltersQueryHandler.");
+            _logger.LogError(ex.Message, "An error occurred while handling ClientGetDossierFiltersQueryHandler.");
             throw;
         }
     }
