@@ -21,9 +21,9 @@ public class ClientUpdateOperationDetailsCommandValidator : AbstractValidator<Cl
 {
     public ClientUpdateOperationDetailsCommandValidator()
     {
-        RuleFor(v => v.TypeOperationId).NotEmpty()
+        RuleFor(v => v.TypeOperationId)
                 .NotNull().WithMessage("Type is required.");
-        RuleFor(v => v.OperationId).NotEmpty()
+        RuleFor(v => v.OperationId)
                 .NotNull().WithMessage("Operation is required.");
     }
 }
@@ -74,13 +74,11 @@ public class ClientUpdateOperationDetailsCommandHandler : IRequestHandler<Client
                 .FindAsync(new object[] { request.OperationId }, cancellationToken)
                 ?? throw new NotFoundException(nameof(Operations), request.OperationId.ToString());
 
-            // Check if the operation is in the correct state for modification
-            if (entity.EtatOperation == EtatOperation.depotDossier)
-            {
+            
                 // Update TypeOperation, Bureau, and Regime if necessary
                 bool isUpdated = false;
 
-                if (entity.TypeOperation != (TypeOperation)request.TypeOperationId)
+                if (entity.TypeOperation != (TypeOperation)request.TypeOperationId && entity.EtatOperation == EtatOperation.depotDossier)
                 {
                     entity.TypeOperation = (TypeOperation)request.TypeOperationId;
                     isUpdated = true;
@@ -132,12 +130,7 @@ public class ClientUpdateOperationDetailsCommandHandler : IRequestHandler<Client
                 {
                     _logger.LogInformation("No changes were made to the operation {OperationId}", entity.Id);
                 }
-            }
-            else
-            {
-                _logger.LogWarning("Operation {OperationId} is not in depotDossier state and cannot be updated.", entity.Id);
-                throw new InvalidOperationException("Operation is not in the depotDossier state to update it.");
-            }
+
         }
         catch (Exception ex)
         {

@@ -39,13 +39,17 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
     private readonly IIdentityService _identityService;
     private readonly IUser _currentUserService;
     private readonly ILogger<UpdateOperationDetailsCommandHandler> _logger;
+    private readonly INotificationService _notificationService;
+    private readonly IEmailService _emailService;
 
-    public UpdateOperationDetailsCommandHandler(IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, ILogger<UpdateOperationDetailsCommandHandler> logger)
+    public UpdateOperationDetailsCommandHandler(IEmailService emailService, IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, ILogger<UpdateOperationDetailsCommandHandler> logger, INotificationService notificationService)
     {
+        _notificationService = notificationService;
         _context = context;
         _currentUserService = currentUserService;
         _identityService = identityService;
         _logger = logger;
+        _emailService = emailService;
     }
     public async Task Handle(UpdateOperationDetailsCommand request, CancellationToken cancellationToken)
     {
@@ -153,6 +157,57 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
 
                         // Save changes to the database
                         await _context.SaveChangesAsync(cancellationToken);
+
+
+
+                        if (!string.IsNullOrWhiteSpace(entity.ReserverPar))
+                        {
+                            // Send notification
+                            var notificationAgentMessage = "operation (ID: " + entity.Id + " ) : Details has been modified.";
+                            await _notificationService.SendNotificationAsync(entity.ReserverPar, notificationAgentMessage, cancellationToken);
+
+
+                            var reserverParUserName = await _identityService.GetUserNameAsync(entity.ReserverPar);
+                            var reserverParEmail = await _identityService.GetUserEmailNotifAsync(entity.ReserverPar);
+
+
+                            // Send the reset password link to the user via email
+                            try
+                            {
+                                if (!string.IsNullOrWhiteSpace(reserverParUserName) && !string.IsNullOrWhiteSpace(reserverParEmail))
+                                    await _emailService.SendOperationEmailAsync(reserverParEmail, entity.Id, notificationAgentMessage, reserverParUserName);
+                            }
+                            catch (Exception ex)
+                            {
+                                // Log the error and notify
+                                _logger.LogError(ex, "Failed to send create Operation email to {Email}", reserverParUserName);
+
+                            }
+                        }
+
+                        // Send notification
+                        var notificationMessage = "operation (ID: " + entity.Id + " ) :  Details has been modified.";
+                        await _notificationService.SendNotificationAsync(entity.UserId, notificationMessage, cancellationToken);
+
+                        var clientUserName = await _identityService.GetUserNameAsync(entity.UserId);
+                        var clientEmail = await _identityService.GetUserEmailNotifAsync(entity.UserId);
+
+
+                        // Send email to the user via email
+                        try
+                        {
+                            if (!string.IsNullOrWhiteSpace(clientUserName) && !string.IsNullOrWhiteSpace(clientEmail))
+                                await _emailService.SendOperationEmailAsync(clientEmail, entity.Id, notificationMessage, clientUserName);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Log the error and notify
+                            _logger.LogError(ex, "Failed to send update Details Operation email to {Email}", clientEmail);
+
+                        }
+
+
+
 
                         _logger.LogInformation("Operation {OperationId} modified successfully : Details Operation a été modifié avec succès.", entity.Id);
 

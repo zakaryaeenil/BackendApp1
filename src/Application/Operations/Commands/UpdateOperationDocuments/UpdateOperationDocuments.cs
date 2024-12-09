@@ -34,14 +34,18 @@ public class UpdateOperationDocumentsCommandHandler : IRequestHandler<UpdateOper
     private readonly IUser _currentUserService;
     private readonly IFileService _fileService;
     private readonly ILogger<UpdateOperationDocumentsCommandHandler> _logger;
+    private readonly INotificationService _notificationService;
+    private readonly IEmailService _emailService;
 
-    public UpdateOperationDocumentsCommandHandler(IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, IFileService fileService, ILogger<UpdateOperationDocumentsCommandHandler> logger)
+    public UpdateOperationDocumentsCommandHandler(IEmailService emailService, IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, IFileService fileService, ILogger<UpdateOperationDocumentsCommandHandler> logger, INotificationService notificationService)
     {
         _context = context;
         _currentUserService = currentUserService;
         _identityService = identityService;
         _fileService = fileService;
         _logger = logger;
+        _notificationService = notificationService;
+        _emailService = emailService;
     }
 
     public async Task Handle(UpdateOperationDocumentsCommand request, CancellationToken cancellationToken)
@@ -123,6 +127,51 @@ public class UpdateOperationDocumentsCommandHandler : IRequestHandler<UpdateOper
                         // Save changes to the database
                         await _context.SaveChangesAsync(cancellationToken);
 
+                        if (!string.IsNullOrWhiteSpace(entity.ReserverPar))
+                        {
+                            // Send notification
+                            var notificationAgentMessage = "operation (ID: " + entity.Id + " ) : Comments has been added or modified.";
+                            await _notificationService.SendNotificationAsync(entity.ReserverPar, notificationAgentMessage, cancellationToken);
+
+
+                            var reserverParUserName = await _identityService.GetUserNameAsync(entity.ReserverPar);
+                            var reserverParEmail = await _identityService.GetUserEmailNotifAsync(entity.ReserverPar);
+
+
+                            // Send the reset password link to the user via email
+                            try
+                            {
+                                if (!string.IsNullOrWhiteSpace(reserverParUserName) && !string.IsNullOrWhiteSpace(reserverParEmail))
+                                    await _emailService.SendOperationEmailAsync(reserverParEmail, entity.Id, notificationAgentMessage, reserverParUserName);
+                            }
+                            catch (Exception ex)
+                            {
+                                // Log the error and notify
+                                _logger.LogError(ex, "Failed to send update Documents Operation email to {Email}", reserverParUserName);
+
+                            }
+                        }
+
+                        // Send notification
+                        var notificationMessage = "operation (ID: " + entity.Id + " ) :  Documents has been added or modified.";
+                        await _notificationService.SendNotificationAsync(entity.UserId, notificationMessage, cancellationToken);
+
+                        var clientUserName = await _identityService.GetUserNameAsync(entity.UserId);
+                        var clientEmail = await _identityService.GetUserEmailNotifAsync(entity.UserId);
+
+
+                        // Send email to the user via email
+                        try
+                        {
+                            if (!string.IsNullOrWhiteSpace(clientUserName) && !string.IsNullOrWhiteSpace(clientEmail))
+                                await _emailService.SendOperationEmailAsync(clientEmail, entity.Id, notificationMessage, clientUserName);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Log the error and notify
+                            _logger.LogError(ex, "Failed to send update Comments Documents email to {Email}", clientEmail);
+
+                        }
                         _logger.LogInformation("Operation {OperationId} modified successfully : Documents Operation a été modifié avec succès.", entity.Id);
                     }
                 }

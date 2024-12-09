@@ -59,6 +59,12 @@ public class IdentityService : IIdentityService
 
         return user?.UserName;
     }
+    public async Task<string?> GetUserEmailNotifAsync(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+
+        return user?.Email_Notif;
+    }
     public async Task<string?> GetUserNameByCodeClientAsync(string codeRef)
     {
         var user = await _userManager.Users.FirstOrDefaultAsync(u => u.CodeRef == codeRef);

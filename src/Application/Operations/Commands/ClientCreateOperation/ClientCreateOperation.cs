@@ -20,7 +20,7 @@ public class ClientCreateOperationCommandValidator : AbstractValidator<ClientCre
 {
     public ClientCreateOperationCommandValidator()
     {
-        RuleFor(v => v.TypeOperationId).NotEmpty()
+        RuleFor(v => v.TypeOperationId)
                .NotNull().WithMessage("Type is required.");
     }
 }

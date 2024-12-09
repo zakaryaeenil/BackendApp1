@@ -14,9 +14,9 @@ public class DashboardVm
         public int NbrTotalImportOperations { get; set; } = 0;
         public int NbrTotalExportOperations { get; set; } = 0;
         public int NbrTotalFactures { get; set; } = 0;
-        // Use List<T> instead of IReadOnlyCollection<T>
-        public List<FactureEtatDto> FactureEtatDtos { get; set; } = [];
-        public List<OperationEtatDto> OperationEtatDtos { get; set; }  = [];
-        public List<ChartOperationByYear> ChartOperations { get; set; }  = [];
+    // Use List<T> instead of IReadOnlyCollection<T>
+    public List<FactureEtatDto> FactureEtatDtos { get; set; } = new List<FactureEtatDto>();
+        public List<OperationEtatDto> OperationEtatDtos { get; set; } = new List<OperationEtatDto>();
+    public List<ChartOperationByYear> ChartOperations { get; set; } = new List<ChartOperationByYear>();
 
 }

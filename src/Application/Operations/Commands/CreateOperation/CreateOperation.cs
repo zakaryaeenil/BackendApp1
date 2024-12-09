@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using NejPortalBackend.Application.Common.Interfaces;
+using NejPortalBackend.Application.Common.Models;
 using NejPortalBackend.Application.Common.Security;
 using NejPortalBackend.Domain.Constants;
 using NejPortalBackend.Domain.Entities;
@@ -38,8 +39,9 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
     private readonly IFileService _fileService;
     private readonly ILogger<CreateOperationCommandHandler> _logger;
     private readonly INotificationService _notificationService;
+    private readonly IEmailService _emailService;
 
-    public CreateOperationCommandHandler(IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, IFileService fileService, ILogger<CreateOperationCommandHandler> logger, INotificationService notificationService)
+    public CreateOperationCommandHandler(IEmailService emailService,IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, IFileService fileService, ILogger<CreateOperationCommandHandler> logger, INotificationService notificationService)
     {
         _context = context;
         _currentUserService = currentUserService;
@@ -47,6 +49,7 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
         _fileService = fileService;
         _logger = logger;
         _notificationService = notificationService;
+        _emailService = emailService;
     }
 
     public async Task<int> Handle(CreateOperationCommand request, CancellationToken cancellationToken)
@@ -160,10 +163,52 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
             await _context.SaveChangesAsync(cancellationToken); // Operation gets an ID here
             // Commit the transaction
             await transaction.CommitAsync(cancellationToken);
+
+            if(!string.IsNullOrWhiteSpace(operation.ReserverPar))
+            {
+                // Send notification
+                var notificationAgentMessage = "A new operation (ID: " + operation.Id + " ) has been created and afficted to you.";
+                await _notificationService.SendNotificationAsync(operation.ReserverPar, notificationAgentMessage, cancellationToken);
+
+
+                var reserverParUserName = await _identityService.GetUserNameAsync(operation.ReserverPar);
+                var reserverParEmail = await _identityService.GetUserEmailNotifAsync(operation.ReserverPar);
+
+
+                // Send the reset password link to the user via email
+                try
+                {
+                    if(!string.IsNullOrWhiteSpace(reserverParUserName) && !string.IsNullOrWhiteSpace(reserverParEmail))
+                    await _emailService.SendOperationEmailAsync(reserverParEmail, operation.Id, notificationAgentMessage, reserverParUserName);
+                }
+                catch (Exception ex)
+                {
+                    // Log the error and notify
+                    _logger.LogError(ex, "Failed to send create Operation email to {Email}", reserverParUserName);
+
+                }
+            }
+
             // Send notification
             var notificationMessage = "A new operation (ID: "+operation.Id+" ) has been created for you.";
             await _notificationService.SendNotificationAsync(request.ClientId, notificationMessage, cancellationToken);
 
+            var clientUserName = await _identityService.GetUserNameAsync(request.ClientId);
+            var clientEmail = await _identityService.GetUserEmailNotifAsync(request.ClientId);
+
+
+            // Send email to the user via email
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(clientUserName) && !string.IsNullOrWhiteSpace(clientEmail))
+                    await _emailService.SendOperationEmailAsync(clientEmail, operation.Id, notificationMessage, clientUserName);
+            }
+            catch (Exception ex)
+            {
+                // Log the error and notify
+                _logger.LogError(ex, "Failed to send create Operation email to {Email}", clientEmail);
+
+            }
             _logger.LogInformation("Operation created successfully with Id: {OperationId}", operation.Id);
 
             return operation.Id;

@@ -18,17 +18,20 @@ public class ClientOperationDto
     public DateTimeOffset? LastModified { get; init; }
     
     public bool IsLocked { get; init; } = false;
+    public int nbrDocs { get; init; }
 
     private class Mapping : Profile
     {
         public Mapping()
         {
-            CreateMap<Operation, OperationDto>()
+            CreateMap<Operation, ClientOperationDto>()
                 .ForMember(dest => dest.TypeOperation, opt => opt.MapFrom(src => (int)src.TypeOperation))
                 .ForMember(dest => dest.EtatOperation, opt => opt.MapFrom(src => (int)src.EtatOperation))
                 .ForMember(d => d.LastModified, opt => opt.MapFrom(s => s.LastModified))
                 .ForMember(d => d.Created, opt => opt.MapFrom(s => s.Created))
-                .ForMember(d => d.IsLocked, opt => opt.MapFrom(s => s.EtatOperation == Domain.Enums.EtatOperation.cloture));
+                .ForMember(d => d.IsLocked, opt => opt.MapFrom(s => s.EtatOperation == Domain.Enums.EtatOperation.cloture))
+                .ForMember(d => d.nbrDocs, opt => opt.MapFrom(s => s.Documents.Count()));
+
         }
     }
 }
