@@ -1,6 +1,6 @@
-﻿using System;
-using NejPortalBackend.Application.Common.Vms;
-using NejPortalBackend.Application.Features.DownloadDocumentById;
+﻿
+using NejPortalBackend.Application.Common.Features.DownloadDocumentById;
+
 
 namespace NejPortalBackend.Web.Endpoints;
 

@@ -5,14 +5,14 @@ using NejPortalBackend.Application.Common.Models;
 using NejPortalBackend.Application.Comptes.Commands.CreateCompte;
 using NejPortalBackend.Application.Comptes.Queries.GetComptes;
 using NejPortalBackend.Application.Operations.Commands.CreateOperation;
-using NejPortalBackend.Application.Comptes.Commands.UpdateCompte;
-using NejPortalBackend.Application.Comptes.Commands.ChangePasswordCompte;
 using Microsoft.AspNetCore.Components.Forms;
 using NejPortalBackend.Application.Comptes.Queries.GetClientsNotHaveCompte;
 using NejPortalBackend.Application.Common.Vms;
 using NejPortalBackend.Application.Operations.Queries.GetOperationDetails;
 using NejPortalBackend.Application.Comptes.Queries.GetCompteDetails;
 using NejPortalBackend.Application.Comptes.Queries.GetCompte;
+using NejPortalBackend.Application.Comptes.Commands.UpdateCompte;
+using NejPortalBackend.Application.Common.Features.ChangePasswordCompte;
 
 namespace NejPortalBackend.Web.Endpoints;
 

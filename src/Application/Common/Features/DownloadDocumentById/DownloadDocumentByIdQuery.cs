@@ -5,7 +5,7 @@ using NejPortalBackend.Application.Common.Security;
 using NejPortalBackend.Application.Common.Vms;
 using NejPortalBackend.Domain.Constants;
 
-namespace NejPortalBackend.Application.Features.DownloadDocumentById;
+namespace NejPortalBackend.Application.Common.Features.DownloadDocumentById;
 
 [Authorize(Roles = Roles.AdminAndAgentAndClient)]
 public record DownloadDocumentByIdQuery : IRequest<DownloadDocumentVm>

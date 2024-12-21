@@ -14,6 +14,7 @@ public class DossierDto
     public decimal? MontantReste { get; set; }
     public string? Client { get; set; }
     public string? Agents { get; set; }
+    public string? Devise { get; set; }
 
     public EtatPayement EtatPayement { get; set; }
 }

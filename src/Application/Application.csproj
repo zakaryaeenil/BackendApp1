@@ -19,8 +19,10 @@
 
   <ItemGroup>
     <None Remove="Operations\Commands\UpdateOperationDetails\" />
+    <None Remove="Common\Features\ChangePasswordCompte\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Operations\Commands\UpdateOperationDetails\" />
+    <Folder Include="Common\Features\ChangePasswordCompte\" />
   </ItemGroup>
 </Project>

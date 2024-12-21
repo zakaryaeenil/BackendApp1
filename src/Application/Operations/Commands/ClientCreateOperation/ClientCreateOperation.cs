@@ -32,14 +32,18 @@ public class ClientCreateOperationCommandHandler : IRequestHandler<ClientCreateO
     private readonly IUser _currentUserService;
     private readonly IFileService _fileService;
     private readonly ILogger<ClientCreateOperationCommandHandler> _logger;
+    private readonly INotificationService _notificationService;
+    private readonly IEmailService _emailService;
 
-    public ClientCreateOperationCommandHandler(IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, IFileService fileService, ILogger<ClientCreateOperationCommandHandler> logger)
+    public ClientCreateOperationCommandHandler(IEmailService emailService, INotificationService notificationService, IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, IFileService fileService, ILogger<ClientCreateOperationCommandHandler> logger)
     {
         _context = context;
         _currentUserService = currentUserService;
         _identityService = identityService;
         _fileService = fileService;
         _logger = logger;
+        _emailService = emailService;
+        _notificationService = notificationService;
     }
 
     public async Task<int> Handle(ClientCreateOperationCommand request, CancellationToken cancellationToken)
@@ -92,7 +96,7 @@ public class ClientCreateOperationCommandHandler : IRequestHandler<ClientCreateO
             // Create and log the historical record for the creation
             var historique = new Historique
             {
-                Action = "L'opération numéro : "+ operation.Id+" a été criée par le client {_currentUserService.Id}: Operation a été crié avec succès.",
+                Action = "L'opération numéro : "+ operation.Id+" a été criée par le client "+ clientUsername + ": Operation a été crié avec succès.",
                 UserId = _currentUserService.Id,
                 OperationId = operation.Id
             };
@@ -138,6 +142,35 @@ public class ClientCreateOperationCommandHandler : IRequestHandler<ClientCreateO
 
             // Commit the transaction
             await transaction.CommitAsync(cancellationToken);
+
+
+
+            var admins = await _identityService.GetAllUsersInRoleAsync(Roles.Administrator);
+
+
+            //Notif and mail
+            var notificationAdminMessage = "A new operation (ID: " + operation.Id + " ) has been created for"+ clientUsername ;
+
+           
+            foreach(var admin in admins)
+            {
+                if (!string.IsNullOrWhiteSpace(admin.Id))
+                    await _notificationService.SendNotificationAsync(admin.Id, notificationAdminMessage, cancellationToken);
+
+                // Send  email
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(admin.Email_Notif) && !string.IsNullOrWhiteSpace(admin.UserName))
+                        await _emailService.SendOperationEmailAsync(admin.Email_Notif, operation.Id, notificationAdminMessage, admin.UserName);
+                }
+                catch (Exception ex)
+                {
+                    // Log the error and notify
+                    _logger.LogError(ex, "Failed to send create Operation email to {Email}", admin.Email_Notif);
+
+                }
+
+            }
 
             _logger.LogInformation("Operation created successfully with Id: {OperationId}", operation.Id);
 

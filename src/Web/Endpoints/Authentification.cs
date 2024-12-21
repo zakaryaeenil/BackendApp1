@@ -1,7 +1,6 @@
 ﻿using System;
+using NejPortalBackend.Application.Common.Features.Auth;
 using NejPortalBackend.Application.Common.Security;
-using NejPortalBackend.Application.Comptes.Commands.CreateCompte;
-using NejPortalBackend.Application.Features.Auth;
 
 namespace NejPortalBackend.Web.Endpoints;
 

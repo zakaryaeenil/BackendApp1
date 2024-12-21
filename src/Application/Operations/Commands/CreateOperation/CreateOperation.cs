@@ -117,7 +117,7 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
             // Create and log the historical record for the creation
             var historique = new Historique
             {
-                Action = $"L'opération numéro : "+ operation.Id +" a été criée par l'equipe : " + userName + " pour le client "+request.ClientId+" : Operation a été crié avec succès.",
+                Action = $"L'opération numéro : "+ operation.Id +" a été criée par : " + userName + " pour le client "+ userNameClient + " : Operation a été criée avec succès.",
                 UserId = _currentUserService.Id,
                 OperationId = operation.Id
             };
@@ -164,6 +164,7 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
             // Commit the transaction
             await transaction.CommitAsync(cancellationToken);
 
+            //Notif and mail
             if(!string.IsNullOrWhiteSpace(operation.ReserverPar))
             {
                 // Send notification
@@ -189,7 +190,6 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
                 }
             }
 
-            // Send notification
             var notificationMessage = "A new operation (ID: "+operation.Id+" ) has been created for you.";
             await _notificationService.SendNotificationAsync(request.ClientId, notificationMessage, cancellationToken);
 
@@ -209,6 +209,10 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
                 _logger.LogError(ex, "Failed to send create Operation email to {Email}", clientEmail);
 
             }
+
+
+
+
             _logger.LogInformation("Operation created successfully with Id: {OperationId}", operation.Id);
 
             return operation.Id;

@@ -109,8 +109,8 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                         isUpdated = true;
                     }
                     if (entity.CodeDossier != request.CodeDossier &&
-                    ((isAgent && isCodeDossierValid && (!isEtatOperationCloture || true)) || // Agent-specific checks
-                     (isAdmin && isCodeDossierValid))                                      // Admin-specific check
+                    (((isAgent && isCodeDossierValid && (!isEtatOperationCloture || true)) || // Agent-specific checks
+                     (isAdmin && isCodeDossierValid)) ||(string.IsNullOrWhiteSpace(request.CodeDossier) && !isEtatOperationCloture) )                                      // Admin-specific check
                  )
                     {
                         entity.CodeDossier = request.CodeDossier;
@@ -147,7 +147,7 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                         // Create and log the historical record for the modification
                         var historique = new Historique
                         {
-                            Action = "L'opération numéro : "+ entity.Id+" a été modifiée par l'equipe : "+ membreUsername + " : Details Operation a été modifié avec succès.",
+                            Action = "L'opération numéro : "+ entity.Id+" a été modifiée par "+ membreUsername + " : Details Operation a été modifié avec succès.",
                             UserId = _currentUserService.Id,
                             OperationId = entity.Id
                         };

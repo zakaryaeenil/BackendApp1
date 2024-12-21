@@ -89,6 +89,7 @@ public class GetDossiersQueryHandler : IRequestHandler<GetDossiersQuery, Paginat
                                                    {
                                                        CodeDossier = g.Key,
                                                        NombreOperations = g.Count(),
+                                                       Devise = _context.Factures.First(f => f.CodeDossier == g.Key).Devise ?? string.Empty,
                                                        NombreFactures = _context.Factures.Count(f => f.CodeDossier == g.Key),
                                                        Desription = string.Join("\n", _context.Factures.Where(f => f.CodeDossier == g.Key).Select(f => f.Description)),
                                                        MontantTotal = _context.Factures.Where(f => f.CodeDossier == g.Key).Sum(f => f.MontantTotal),

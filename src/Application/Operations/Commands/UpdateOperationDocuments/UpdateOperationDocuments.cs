@@ -116,7 +116,7 @@ public class UpdateOperationDocumentsCommandHandler : IRequestHandler<UpdateOper
                         // Create and log the historical record for the modification
                         var historique = new Historique
                         {
-                            Action = $"L'opération numéro : {entity.Id} a été modifiée par l'equipe' {userName}: Documents Operation a été modifié avec succès.",
+                            Action = $"L'opération numéro : {entity.Id} a été modifiée par {userName}: Documents Operation a été modifié avec succès.",
                             UserId = _currentUserService.Id,
                             OperationId = entity.Id
                         };

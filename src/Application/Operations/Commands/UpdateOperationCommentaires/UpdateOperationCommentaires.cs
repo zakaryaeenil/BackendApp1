@@ -65,7 +65,7 @@ public class UpdateOperationCommentairesCommandHandler : IRequestHandler<UpdateO
                 // Create and log the historical record for the modification
                 var historique = new Historique
                 {
-                    Action = $"L'opération numéro : {entity.Id} a été modifiée par l'equipe :  {userName} : Commantaire a été ajouté avec succès.",
+                    Action = $"L'opération numéro : {entity.Id} a été modifiée  {userName} : Commantaire a été ajouté avec succès.",
                     UserId = _currentUserService.Id,
                     OperationId = entity.Id
                 };

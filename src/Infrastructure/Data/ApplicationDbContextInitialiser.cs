@@ -67,6 +67,14 @@ public class ApplicationDbContextInitialiser
 
     public async Task TrySeedAsync()
     {
+        await _context.Notifications.ExecuteDeleteAsync();
+        await _context.Operations.ExecuteDeleteAsync();
+        await _context.Dossiers.ExecuteDeleteAsync();
+        await _context.Clients.ExecuteDeleteAsync();
+
+
+
+
         // Default roles
         var administratorRole = new IdentityRole(Roles.Administrator);
         var agentRole = new IdentityRole(Roles.Agent);
@@ -85,14 +93,10 @@ public class ApplicationDbContextInitialiser
         {
             await _roleManager.CreateAsync(clientRole);
         }
+        await _userManager.Users.ExecuteDeleteAsync();
+        // Default users
+        var administrator = new ApplicationUser { UserName = "Jaouad", Email = "admin2@nejtrans.com",EmailConfirmed = true,Email_Notif = "admin2@nejtrans.com" };
 
-        // Default users
-        var administrator = new ApplicationUser { UserName = "administrator@localhost", Email = "administrator@localhost" };
-
-        // Default users
-        var client = new ApplicationUser { UserName = "client", Email = "client@localhost", CodeRef = "112111" };
-        // Default users
-        var agent = new ApplicationUser { UserName = "agent", Email = "agent@localhost" };
 
         if (_userManager.Users.All(u => u.UserName != administrator.UserName))
         {
@@ -102,25 +106,18 @@ public class ApplicationDbContextInitialiser
                 await _userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
             }
         }
-        if (_userManager.Users.All(u => u.UserName != client.UserName))
-        {
-            await _userManager.CreateAsync(client, "Administrator1!");
-            if (!string.IsNullOrWhiteSpace(clientRole.Name))
-            {
-                await _userManager.AddToRolesAsync(client, new[] { clientRole.Name });
-            }
-        }
-        if (_userManager.Users.All(u => u.UserName != agent.UserName))
-        {
-            await _userManager.CreateAsync(agent, "Administrator1!");
-            if (!string.IsNullOrWhiteSpace(agentRole.Name))
-            {
-                await _userManager.AddToRolesAsync(agent, new[] { agentRole.Name });
-            }
-        }
 
+        Client client = new Client { CodeClient = "112111", Nom = "CAPGEMINI" };
+        Client client2 = new Client { CodeClient = "234091", Nom = "ATOS" };
         Dossier dossier = new Dossier { CodeClient = "112111", CodeDossier = "111111"};
+        Dossier dossier2 = new Dossier { CodeClient = "112111", CodeDossier = "150112" };
+        Dossier dossier3 = new Dossier { CodeClient = "112111", CodeDossier = "333411" };
         await _context.Dossiers.AddAsync(dossier);
+        await _context.Dossiers.AddAsync(dossier2);
+        await _context.Dossiers.AddAsync(dossier3);
+
+        await _context.Clients.AddAsync(client);
+        await _context.Clients.AddAsync(client2);
 
         await _context.SaveChangesAsync();
     }

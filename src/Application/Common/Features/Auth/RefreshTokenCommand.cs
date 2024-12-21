@@ -2,7 +2,7 @@ using NejPortalBackend.Application.Common.Interfaces;
 using NejPortalBackend.Application.Common.Security;
 using NejPortalBackend.Domain.Constants;
 
-namespace NejPortalBackend.Application.Features.Auth;
+namespace NejPortalBackend.Application.Common.Features.Auth;
 
 [Authorize(Roles = Roles.AdminAndAgentAndClient)]
 public record RefreshTokenCommand : IRequest<LoginResponse>
