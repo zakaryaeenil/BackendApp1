@@ -6,7 +6,7 @@ public class OperationFiltersVm
 {
     public IReadOnlyCollection<TypeOperationDto> TypeOperations { get; init; } = Array.Empty<TypeOperationDto>();
     public IReadOnlyCollection<EtatOperationDto> EtatOperations { get; init; } = Array.Empty<EtatOperationDto>();
-    public IReadOnlyCollection<UserDto> ListAgents { get; init; } = Array.Empty<UserDto>();
-    public IReadOnlyCollection<UserDto> ListClients { get; init; } = Array.Empty<UserDto>();
+    public ICollection<UserDto> ListAgents { get; init; } = Array.Empty<UserDto>();
+    public ICollection<UserDto> ListClients { get; init; } = Array.Empty<UserDto>();
     public IReadOnlyCollection<DossierHelpersDto> ListDossierHelpersDto { get; init; } = Array.Empty<DossierHelpersDto>();
 }

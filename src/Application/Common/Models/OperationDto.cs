@@ -1,4 +1,6 @@
 using NejPortalBackend.Domain.Entities;
+using NejPortalBackend.Domain.Enums;
+
 namespace NejPortalBackend.Application.Common.Models;
 public class OperationDto
 {
@@ -9,11 +11,13 @@ public class OperationDto
     public string? CodeDossier { get; init; }
     public string? Regime { get; init; }
 
-    
+    public bool Tr { get; set; }
+    public bool Debours { get; set; }
+    public bool Confirmation_Dedouanement { get; set; }
     public bool EstReserver { get; init; } 
     public string? ReserverPar { get; init; }
 
-    
+    public int OperationPriorite { get; set; }
     public int TypeOperation { get; init; }
     public int EtatOperation { get; init; }
 
@@ -28,6 +32,10 @@ public class OperationDto
         public Mapping()
         {
             CreateMap<Operation, OperationDto>()
+                  .ForMember(d => d.Tr, opt => opt.MapFrom(s => s.TR))
+                    .ForMember(d => d.Debours, opt => opt.MapFrom(s => s.DEBOURS))
+                      .ForMember(d => d.Confirmation_Dedouanement, opt => opt.MapFrom(s => s.CONFIRMATION_DEDOUANEMENT))
+                 .ForMember(dest => dest.OperationPriorite, opt => opt.MapFrom(src => (int)src.OperationPriorite))
                 .ForMember(dest => dest.TypeOperation, opt => opt.MapFrom(src => (int)src.TypeOperation))
                 .ForMember(dest => dest.EtatOperation, opt => opt.MapFrom(src => (int)src.EtatOperation))
                 .ForMember(d => d.LastModified, opt => opt.MapFrom(s => s.LastModified))

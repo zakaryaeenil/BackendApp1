@@ -5,6 +5,7 @@ using NejPortalBackend.Application.Common.Models;
 using NejPortalBackend.Application.Common.Security;
 using NejPortalBackend.Application.Common.Vms;
 using NejPortalBackend.Domain.Constants;
+using NejPortalBackend.Domain.Entities;
 using NejPortalBackend.Domain.Enums;
 using static NejPortalBackend.Application.Common.Models.DashboardHelpers;
 
@@ -42,11 +43,20 @@ public class GetDashboardQueryHandler : IRequestHandler<GetDashboardQuery, Dashb
 
         var userId = _currentUserService.Id;
 
-        var isAgent = await _identityService.IsInRoleAsync(userId, Roles.Agent);
-        var isAdmin = await _identityService.IsInRoleAsync(userId, Roles.Administrator);
+        bool isAgent = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Agent);
+        bool isAdmin = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Administrator);
+        int? typeOperation = await _identityService.GetTypeOperationAsync(_currentUserService.Id);
 
-        var operationsQuery = _context.Operations.AsNoTracking();
-
+        IQueryable<Operation> operationsQuery = _context.Operations.AsNoTracking(); ;
+        // Filter operations by user and criteria
+        if (isAdmin)
+        {
+            operationsQuery = typeOperation != null ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation) : operationsQuery;
+        }
+        if (isAgent)
+        {
+            operationsQuery = typeOperation != null ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation) : throw new UnauthorizedAccessException("User is not authorized.");
+        }
         if (request.Year.HasValue || request.Month.HasValue)
         {
             operationsQuery = operationsQuery

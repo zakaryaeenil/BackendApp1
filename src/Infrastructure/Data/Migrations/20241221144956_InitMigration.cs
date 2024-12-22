@@ -31,12 +31,11 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CodeRef = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Nom = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Email_Notif = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    Prenom = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     HasAccess = table.Column<bool>(type: "bit", nullable: false),
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RefreshTokenExpiryTime = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    TypeOperation = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -142,6 +141,24 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Notifications", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Regime",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CodeRegime = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    TypeOperation = table.Column<int>(type: "int", nullable: false),
+                    Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Regime", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -262,8 +279,12 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                     Regime = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     EstReserver = table.Column<bool>(type: "bit", nullable: false),
                     ReserverPar = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OperationPriorite = table.Column<int>(type: "int", nullable: false),
                     TypeOperation = table.Column<int>(type: "int", nullable: false),
                     EtatOperation = table.Column<int>(type: "int", nullable: false),
+                    TR = table.Column<bool>(type: "bit", nullable: false),
+                    DEBOURS = table.Column<bool>(type: "bit", nullable: false),
+                    CONFIRMATION_DEDOUANEMENT = table.Column<bool>(type: "bit", nullable: false),
                     Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -490,6 +511,9 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Notifications");
+
+            migrationBuilder.DropTable(
+                name: "Regime");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

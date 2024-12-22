@@ -1642,14 +1642,6 @@
             "type": "string",
             "nullable": true
           },
-          "nom": {
-            "type": "string",
-            "nullable": true
-          },
-          "prenom": {
-            "type": "string",
-            "nullable": true
-          },
           "email": {
             "type": "string",
             "nullable": true
@@ -1674,6 +1666,11 @@
           },
           "role": {
             "type": "string",
+            "nullable": true
+          },
+          "typeOperation": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         }
@@ -1813,12 +1810,25 @@
             "type": "string",
             "nullable": true
           },
+          "tr": {
+            "type": "boolean"
+          },
+          "debours": {
+            "type": "boolean"
+          },
+          "confirmation_Dedouanement": {
+            "type": "boolean"
+          },
           "estReserver": {
             "type": "boolean"
           },
           "reserverPar": {
             "type": "string",
             "nullable": true
+          },
+          "operationPriorite": {
+            "type": "integer",
+            "format": "int32"
           },
           "typeOperation": {
             "type": "integer",
@@ -2228,7 +2238,7 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "typeOpration": {
+          "typeOperation": {
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -2329,10 +2339,6 @@
             "type": "string",
             "nullable": true
           },
-          "nom": {
-            "type": "string",
-            "nullable": true
-          },
           "email": {
             "type": "string",
             "nullable": true
@@ -2404,6 +2410,11 @@
           },
           "codeUser": {
             "type": "string",
+            "nullable": true
+          },
+          "typeOperationId": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         }
@@ -2590,11 +2601,6 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "typeOpration": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
           "etatOprations": {
             "type": "array",
             "nullable": true,
@@ -2725,6 +2731,19 @@
           "codeDossier": {
             "type": "string",
             "nullable": true
+          },
+          "operationPrioriteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tr": {
+            "type": "boolean"
+          },
+          "debours": {
+            "type": "boolean"
+          },
+          "confirmatioN_DEDOUANEMENT": {
+            "type": "boolean"
           }
         }
       },

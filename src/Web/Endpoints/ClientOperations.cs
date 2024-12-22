@@ -19,6 +19,7 @@ using NejPortalBackend.Application.Operations.Queries.GetMyOperations;
 using NejPortalBackend.Application.Operations.Queries.GetNotReservedOperations;
 using NejPortalBackend.Application.Operations.Queries.GetOperationDetails;
 using NejPortalBackend.Application.Operations.Queries.GetOperationFilters;
+using NejPortalBackend.Domain.Enums;
 
 namespace NejPortalBackend.Web.Endpoints;
 
@@ -61,18 +62,41 @@ public class ClientOperations : EndpointGroupBase
             {
                 return Results.BadRequest(new { Message = "Invalid typeOperation" });
             }
+            // Validate required form fields
+            if (!int.TryParse(form["operationPrioriteId"], out var operationPrioriteId))
+            {
+                return Results.BadRequest(new { Message = "Invalid operationPrioriteId" });
+            }
+
+
+
+            if (!bool.TryParse(form["tR"], out var TR))
+            {
+                return Results.BadRequest(new { Message = "Invalid TR" });
+            }
+            if (!bool.TryParse(form["dEBOURS"], out var DEBOURS))
+            {
+                return Results.BadRequest(new { Message = "Invalid DEBOURS" });
+            }
+            if (!bool.TryParse(form["cONFIRMATION_DEDOUANEMENT"], out var CONFIRMATION_DEDOUANEMENT))
+            {
+                return Results.BadRequest(new { Message = "Invalid CONFIRMATION_DEDOUANEMENT" });
+            }
 
             var commentaire = form["commentaire"].ToString();
 
 
             // Get uploaded files and ensure there is at least one file
             var files = form.Files;
-
-
+            
             // Create the command for the client operation
             var command = new ClientCreateOperationCommand
             {
                 TypeOperationId = typeOperation,
+                OperationPrioriteId = operationPrioriteId,
+                TR = TR,
+                DEBOURS = DEBOURS,
+                CONFIRMATION_DEDOUANEMENT = CONFIRMATION_DEDOUANEMENT,
                 Commentaire = commentaire,
                 Files = files
             };

@@ -2,15 +2,15 @@
 
 public enum EtatOperation
 {
-        depotDossier = 10,
-        validationDocuments = 11,
-        reserve = 0, //apres decaration insertion automatique
-        ouvert = 1,
-        enCours = 2,
-        traitementDeValeur = 3, // Visite Physique / Visite Intégrale / Visite admis conforme 
-        liquidation = 4,
-        attentePaimement = 5,
-        mainLevee = 6,
-        enCoursFacturation = 7, // condition de toutes les données récupérées 
-        cloture = 8, //après complétude des documents et confirmation du role necessaire
+    depotDossier = 0,
+    enCours = 1,
+    traiter = 2,
+    pesage = 3,
+    visite = 4,
+    envoiValeur = 5,
+    liquidation = 6,
+    sousReserveCautionBancaire = 7,
+    sousResereProductionDocuments = 8,
+    mainLevee = 9,
+    cloture = 10, //après complétude des documents et confirmation du role necessaire
 }

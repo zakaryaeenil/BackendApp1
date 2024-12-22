@@ -16,33 +16,41 @@ namespace NejPortalBackend.Infrastructure.Data.Configurations
 
             builder.Property(d => d.UserId)
                 .IsRequired(); // The UserId is required
-            
             builder.Property(d => d.Bureau)
                 .HasMaxLength(100)
                 .IsRequired(false); // Nullable property
-            
             builder.Property(d => d.CodeDossier)
                 .HasMaxLength(50)
-                .IsRequired(false); // Nullable property
-            
+                .IsRequired(false); // Nullable property           
             builder.Property(d => d.Regime)
                 .HasMaxLength(50)
                 .IsRequired(false); // Nullable property
-            
             builder.Property(d => d.EstReserver)
                 .IsRequired(); // The EstReserver field is required
-            
-            // Configure 'ReserverPar' as nullable
             builder.Property(d => d.ReserverPar)
                 .IsRequired(false); // Nullable field
 
             // Configure relationships
+            builder.Property(d => d.OperationPriorite)
+               .IsRequired(); // Prevent cascading delete
+            // Configure relationships
             builder.Property(d => d.TypeOperation)
                .IsRequired(); // Prevent cascading delete
-
             // Configure relationships
             builder.Property(d => d.EtatOperation)
                .IsRequired(); // Prevent cascading delete
+
+
+            // Configure relationships
+            builder.Property(d => d.TR)
+               .IsRequired(); // Prevent cascading delete
+            // Configure relationships
+            builder.Property(d => d.DEBOURS)
+               .IsRequired(); // Prevent cascading delete
+            // Configure relationships
+            builder.Property(d => d.CONFIRMATION_DEDOUANEMENT)
+               .IsRequired(); // Prevent cascading delete
+
 
             builder.HasMany(d => d.Documents)
                 .WithOne()

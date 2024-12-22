@@ -14,16 +14,11 @@ namespace NejPortalBackend.Infrastructure.Identity.Configurations
                 .HasMaxLength(50)
                 .IsRequired(false); // Nullable field
 
-            builder.Property(user => user.Nom)
-                .HasMaxLength(100)
-                .IsRequired(false); // Nullable field
-
             builder.Property(user => user.Email_Notif)
                 .HasMaxLength(100)
                 .IsRequired(false); // Nullable field
 
-            builder.Property(user => user.Prenom)
-                .HasMaxLength(100)
+            builder.Property(user => user.TypeOperation)
                 .IsRequired(false); // Nullable field
 
             builder.Property(user => user.HasAccess)

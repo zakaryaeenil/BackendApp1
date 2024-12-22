@@ -96,7 +96,7 @@ public class EmailService : IEmailService
         emailTemplate = emailTemplate
             .Replace("{{UserName}}", userName)
             .Replace("{{OperationId}}", operationId.ToString())
-            .Replace("{{ResetPasswordLink}}", message);
+            .Replace("{{Message}}", message);
 
         // Send the email
         await SendEmailAsync(email, "Nej Portal", emailTemplate);

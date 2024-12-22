@@ -118,7 +118,6 @@ public class GetCompteDetailsQueryHandler : IRequestHandler<GetCompteDetailsQuer
             }
 
             userDashVm.Email = user.Email;
-            userDashVm.Nom = user.Nom;
             userDashVm.Role = isAgent ? Roles.Agent : Roles.Client;
             userDashVm.UserName = user.UserName;
             userDashVm.CodeUser = isClient ? user.CodeRef : null;

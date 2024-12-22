@@ -4,4 +4,5 @@ public enum TypeOperation
 {
         Import = 0,
         Export = 1,
+        MAC = 2
 }

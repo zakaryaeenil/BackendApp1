@@ -18,6 +18,12 @@ public record UpdateOperationDetailsCommand : IRequest
     public string? ReserverPar { get; init; }
     public int EtatOperationId { get; init; }
     public string? CodeDossier { get; init; }
+
+    public required int OperationPrioriteId { get; init; }
+
+    public required bool TR { get; init; } 
+    public required bool DEBOURS { get; init; } 
+    public required bool CONFIRMATION_DEDOUANEMENT { get; init; } 
 }
 
 public class UpdateOperationDetailsCommandValidator : AbstractValidator<UpdateOperationDetailsCommand>
@@ -30,6 +36,8 @@ public class UpdateOperationDetailsCommandValidator : AbstractValidator<UpdateOp
               .NotNull().WithMessage("Type is required.");
         RuleFor(v => v.OperationId)
               .NotNull().WithMessage("Operation is required.");
+        RuleFor(v => v.OperationPrioriteId)
+          .NotNull().WithMessage("OperationPrioriteId is required.");
     }
 }
 
@@ -103,7 +111,7 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                     
                     bool isUpdated = false;
 
-                    if (entity.TypeOperation != (TypeOperation)request.TypeOperationId && ((isAgent && !isEtatOperationCloture ) || isAdmin))
+                    if (entity.TypeOperation != (TypeOperation)request.TypeOperationId && isAdmin)
                     {
                         entity.TypeOperation = (TypeOperation)request.TypeOperationId;
                         isUpdated = true;
@@ -111,12 +119,17 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                     if (entity.CodeDossier != request.CodeDossier &&
                     (((isAgent && isCodeDossierValid && (!isEtatOperationCloture || true)) || // Agent-specific checks
                      (isAdmin && isCodeDossierValid)) ||(string.IsNullOrWhiteSpace(request.CodeDossier) && !isEtatOperationCloture) )                                      // Admin-specific check
-                 )
+                     )
+                        {
+                            entity.CodeDossier = request.CodeDossier;
+                            isUpdated = true;
+                        }
+
+                    if (entity.OperationPriorite != (OperationPriorite)request.OperationPrioriteId && ((isAdmin && !isEtatOperationCloture) || isAdmin))
                     {
-                        entity.CodeDossier = request.CodeDossier;
+                        entity.OperationPriorite = (OperationPriorite)request.OperationPrioriteId;
                         isUpdated = true;
                     }
-
                     if (entity.EtatOperation != (EtatOperation)request.EtatOperationId && (((isAgent && !isEtatOperationCloture) || (isAgent && isEtatOperationCloture && isCodeDossierValid)) || isAdmin))
                     {
                         entity.EtatOperation = (EtatOperation)request.EtatOperationId;
@@ -125,6 +138,21 @@ public class UpdateOperationDetailsCommandHandler : IRequestHandler<UpdateOperat
                     if (entity.Bureau != request.Bureau && ((isAgent && !isEtatOperationCloture) || isAdmin))
                     {
                         entity.Bureau = request.Bureau;
+                        isUpdated = true;
+                    }
+                    if (entity.TR != request.TR && ((isAdmin && !isEtatOperationCloture) || isAdmin))
+                    {
+                        entity.TR = request.TR;
+                        isUpdated = true;
+                    }
+                    if (entity.DEBOURS != request.DEBOURS && ((isAdmin && !isEtatOperationCloture) || isAdmin))
+                    {
+                        entity.DEBOURS = request.DEBOURS;
+                        isUpdated = true;
+                    }
+                    if (entity.CONFIRMATION_DEDOUANEMENT != request.CONFIRMATION_DEDOUANEMENT && ((isAdmin && !isEtatOperationCloture) || isAdmin))
+                    {
+                        entity.CONFIRMATION_DEDOUANEMENT = request.CONFIRMATION_DEDOUANEMENT;
                         isUpdated = true;
                     }
                     if (entity.Regime != request.Regime && ((isAgent && !isEtatOperationCloture) || isAdmin))

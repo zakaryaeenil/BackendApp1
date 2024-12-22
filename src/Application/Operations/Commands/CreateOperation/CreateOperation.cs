@@ -15,6 +15,13 @@ public record CreateOperationCommand : IRequest<int>
     public required string ClientId { get; init; }
     public string? AgentId { get; init; }
     public int TypeOperationId { get; init; }
+
+    public required int OperationPrioriteId { get; init; }
+
+    public required bool TR { get; init; } = false;
+    public required bool DEBOURS { get; init; } = false;
+    public required bool CONFIRMATION_DEDOUANEMENT { get; init; } = false;
+
     public string? Commentaire { get; init; }
     public IEnumerable<IFormFile>? Files { get; init; }
 
@@ -28,6 +35,8 @@ public class CreateOperationCommandValidator : AbstractValidator<CreateOperation
                 .NotNull().WithMessage("Type is required.");
         RuleFor(v => v.ClientId).NotEmpty()
                 .NotNull().WithMessage("Client Idantifiant required.");
+        RuleFor(v => v.OperationPrioriteId)
+              .NotNull().WithMessage("OperationPrioriteId is required.");
     }
 }
 
@@ -74,6 +83,14 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
                 throw new InvalidOperationException("Invalid TypeOperation value.");
             }
 
+            // Validate TypeOperation
+            bool isValidOperationPriorite = Enum.IsDefined(typeof(OperationPriorite), request.OperationPrioriteId);
+            if (!isValidOperationPriorite)
+            {
+                _logger.LogWarning("Invalid Operation Priorite value: {OperationPrioriteId}", request.OperationPrioriteId);
+                throw new InvalidOperationException("Invalid Operation Priorite value.");
+            }
+
             // Validate client role
             if (string.IsNullOrWhiteSpace(request.ClientId) || !await _identityService.IsInRoleAsync(request.ClientId, Roles.Client))
             {
@@ -97,11 +114,15 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
             // Create and save the Operation
             var operation = new Operation
             {
+                OperationPriorite = (OperationPriorite)request.OperationPrioriteId,
                 TypeOperation = (TypeOperation)request.TypeOperationId,
                 EtatOperation = EtatOperation.depotDossier,
                 UserId = request.ClientId,
                 ReserverPar = null,
-                EstReserver = false
+                EstReserver = false,
+                TR = request.TR,
+                DEBOURS = request.DEBOURS,
+                CONFIRMATION_DEDOUANEMENT = request.CONFIRMATION_DEDOUANEMENT
             };
             if (!string.IsNullOrWhiteSpace(request.AgentId) && await _identityService.IsInRoleAsync(request.AgentId, Roles.Agent))
             {
@@ -165,7 +186,7 @@ public class CreateOperationCommandHandler : IRequestHandler<CreateOperationComm
             await transaction.CommitAsync(cancellationToken);
 
             //Notif and mail
-            if(!string.IsNullOrWhiteSpace(operation.ReserverPar))
+            if(!string.IsNullOrWhiteSpace(operation.ReserverPar) && operation.ReserverPar != _currentUserService.Id)
             {
                 // Send notification
                 var notificationAgentMessage = "A new operation (ID: " + operation.Id + " ) has been created and afficted to you.";

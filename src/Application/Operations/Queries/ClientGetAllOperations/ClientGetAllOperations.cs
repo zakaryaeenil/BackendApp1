@@ -11,7 +11,7 @@ namespace NejPortalBackend.Application.Operations.Queries.ClientGetAllOperations
 [Authorize(Roles = Roles.Client)]
 public record ClientGetAllOperationsQuery : IRequest<PaginatedList<ClientOperationDto>>
 {
-    public int? TypeGroupe { get; init; }
+    public int? TypeOperation { get; init; }
     public List<int>? EtatOprations { get; init; }
     public string? RechercheId { get; init; }
     public DateTimeOffset? FromDate { get; init; }
@@ -99,10 +99,10 @@ public class ClientGetAllOperationsQueryHandler : IRequestHandler<ClientGetAllOp
                 _logger.LogDebug("Filtered operations to date: {ToDate}", request.ToDate.Value);
             }
 
-            if (request.TypeGroupe.HasValue)
+            if (request.TypeOperation.HasValue)
             {
-                operationsQuery = operationsQuery.Where(o => (int)o.TypeOperation == request.TypeGroupe.Value);
-                _logger.LogDebug("Filtered operations by TypeOperation: {TypeOperation}", request.TypeGroupe.Value);
+                operationsQuery = operationsQuery.Where(o => (int)o.TypeOperation == request.TypeOperation.Value);
+                _logger.LogDebug("Filtered operations by TypeOperation: {TypeOperation}", request.TypeOperation.Value);
             }
 
             if (request.EtatOprations?.Count > 0)

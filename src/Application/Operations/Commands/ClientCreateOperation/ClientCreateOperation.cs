@@ -12,6 +12,12 @@ namespace NejPortalBackend.Application.Operations.Commands.ClientCreateOperation
 public record ClientCreateOperationCommand : IRequest<int>
 {
     public required int TypeOperationId { get; init; }
+    public required int OperationPrioriteId { get; init; }
+
+    public required bool TR { get; init; } = false;
+    public required bool DEBOURS { get; init; } = false;
+    public required bool CONFIRMATION_DEDOUANEMENT { get; init; } = false;
+
     public string? Commentaire { get; init; }
     public IEnumerable<IFormFile>? Files { get; init; }
 }
@@ -22,6 +28,8 @@ public class ClientCreateOperationCommandValidator : AbstractValidator<ClientCre
     {
         RuleFor(v => v.TypeOperationId)
                .NotNull().WithMessage("Type is required.");
+        RuleFor(v => v.OperationPrioriteId)
+               .NotNull().WithMessage("OperationPrioriteId is required.");
     }
 }
 
@@ -71,7 +79,15 @@ public class ClientCreateOperationCommandHandler : IRequestHandler<ClientCreateO
                 _logger.LogWarning("Invalid TypeOperation value: {TypeOperationId}", request.TypeOperationId);
                 throw new InvalidOperationException("Invalid TypeOperation value.");
             }
-          
+
+            // Validate TypeOperation
+            bool isValidOperationPriorite = Enum.IsDefined(typeof(OperationPriorite), request.OperationPrioriteId);
+            if (!isValidTypeOperation)
+            {
+                _logger.LogWarning("Invalid Operation Priorite value: {OperationPrioriteId}", request.OperationPrioriteId);
+                throw new InvalidOperationException("Invalid Operation Priorite value.");
+            }
+
             var clientUsername = await _identityService.GetUserNameAsync(_currentUserService.Id);
             if (string.IsNullOrWhiteSpace(clientUsername))
             {
@@ -83,9 +99,13 @@ public class ClientCreateOperationCommandHandler : IRequestHandler<ClientCreateO
             {
                 TypeOperation = (TypeOperation)request.TypeOperationId,
                 EtatOperation = EtatOperation.depotDossier,
+                OperationPriorite = (OperationPriorite)request.OperationPrioriteId,
                 UserId = _currentUserService.Id,
                 ReserverPar = null,
-                EstReserver = false
+                EstReserver = false,
+                TR = request.TR,
+                DEBOURS = request.DEBOURS,
+                CONFIRMATION_DEDOUANEMENT = request.CONFIRMATION_DEDOUANEMENT
             };
 
             await _context.Operations.AddAsync(operation, cancellationToken);

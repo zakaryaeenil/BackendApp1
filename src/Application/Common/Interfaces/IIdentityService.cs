@@ -6,6 +6,7 @@ namespace NejPortalBackend.Application.Common.Interfaces;
 public interface IIdentityService
 {
     Task<string?> GetUserNameAsync(string userId);
+    Task<int?> GetTypeOperationAsync(string userId);
     Task<string?> GetCodeClientAsync(string userId);
     Task<string?> GetUserNameByCodeClientAsync(string codeRef);
     Task<string?> GetUserEmailNotifAsync(string userId);
@@ -14,7 +15,7 @@ public interface IIdentityService
 
     Task<bool> AuthorizeAsync(string userId, string policyName);
 
-    Task<IReadOnlyCollection<UserDto>> GetAllUsersInRoleAsync(string role);
+    Task<ICollection<UserDto>> GetAllUsersInRoleAsync(string role);
     Task<int> GetUserInRoleCount(string role);
     Task<UserDto?> GetUserByIdAsync(string? id, CancellationToken cancellationToken = default);
 
@@ -24,7 +25,7 @@ public interface IIdentityService
     Task<Result> ResetPasswordAsync(string email,string token,string newPassword,CancellationToken cancellationToken = default);
     Task<Result> ForgotPasswordAsync(string email);
 
-    Task<(Result Result, string UserId)> CreateUserAsync(string userName,string password,string email,string? phoneNumber,string? codeUser,string notif_email,CancellationToken cancellationToken = default);
+    Task<(Result Result, string UserId)> CreateUserAsync(string userName,string password,string email,int? typeOperation,string? phoneNumber,string? codeUser,string notif_email,CancellationToken cancellationToken = default);
     Task<(Result Result, string UserId)> UpdateUserAsync(string userId, string userName, string email, string emailNotif, string? phoneNumber, string? codeUser, bool hasAccess);
     Task<(Result Result, string UserId)> ChangePasswordAsync(string userId, string oldPassword, string newPassword, string confirmNewPassword);
 }

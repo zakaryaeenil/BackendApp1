@@ -7,7 +7,6 @@ public class CompteDetailsVm
 {
     public string? UserName { get; set; }
     public string? CodeUser { get; set; }
-    public string? Nom { get; set; }
     public string? Email { get; set; }
     public string? Role { get; set; }
     public int NbrTotalOperations { get; set; } = 0;

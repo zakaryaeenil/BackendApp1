@@ -4,6 +4,7 @@ using NejPortalBackend.Application.Common.Mappings;
 using NejPortalBackend.Application.Common.Models;
 using NejPortalBackend.Application.Common.Security;
 using NejPortalBackend.Domain.Constants;
+using NejPortalBackend.Domain.Entities;
 using NejPortalBackend.Domain.Enums;
 
 namespace NejPortalBackend.Application.Operations.Queries.GetMyOperations;
@@ -11,7 +12,6 @@ namespace NejPortalBackend.Application.Operations.Queries.GetMyOperations;
 [Authorize(Roles = Roles.Agent)]
 public record GetMyOperationsQuery : IRequest<PaginatedList<OperationDto>>
 {
-    public int? TypeOpration { get; init; }
     public IList<int>? EtatOprations { get; init; }
     public IList<string>? Clients { get; init; }
     public string? RechercheId { get; init; }
@@ -78,8 +78,11 @@ public class GetMyOperationsQueryHandler : IRequestHandler<GetMyOperationsQuery,
 
         try
         {
+            int? typeOperation = await _identityService.GetTypeOperationAsync(_currentUserService.Id);
 
-            var operationsQuery =
+            IQueryable<Operation> operationsQuery = _context.Operations.AsNoTracking(); ;
+
+            operationsQuery =
                     !string.IsNullOrWhiteSpace(request.RechercheId)
            ?
            _context.Operations
@@ -89,6 +92,9 @@ public class GetMyOperationsQueryHandler : IRequestHandler<GetMyOperationsQuery,
            _context.Operations
             .Where(o => o.ReserverPar == _currentUserService.Id && o.EtatOperation != EtatOperation.cloture)
           .AsNoTracking();
+
+            operationsQuery = typeOperation != null ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation) : throw new UnauthorizedAccessException("User is not authorized.");
+
 
             // Filter operations by user and criteria
             if (!string.IsNullOrWhiteSpace(request.RechercheId))
@@ -107,12 +113,6 @@ public class GetMyOperationsQueryHandler : IRequestHandler<GetMyOperationsQuery,
             {
                 operationsQuery = operationsQuery.Where(o => o.Created <= request.ToDate.Value);
                 _logger.LogDebug("Filtered operations to date: {ToDate}", request.ToDate.Value);
-            }
-
-            if (request.TypeOpration.HasValue)
-            {
-                operationsQuery = operationsQuery.Where(o => (int)o.TypeOperation == request.TypeOpration.Value);
-                _logger.LogDebug("Filtered operations by TypeOperation: {TypeOperation}", request.TypeOpration.Value);
             }
 
             if (request.EtatOprations?.Count > 0)

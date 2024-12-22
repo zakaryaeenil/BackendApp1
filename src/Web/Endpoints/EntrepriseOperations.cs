@@ -97,7 +97,27 @@ public class EntrepriseOperations : EndpointGroupBase
 
             // Get uploaded files and ensure there is at least one file
             var files = form.Files;
-            
+
+            // Validate required form fields
+            if (!int.TryParse(form["operationPrioriteId"], out var operationPrioriteId))
+            {
+                return Results.BadRequest(new { Message = "Invalid operationPrioriteId" });
+            }
+
+
+
+            if (!bool.TryParse(form["tr"], out var TR))
+            {
+                return Results.BadRequest(new { Message = "Invalid TR" });
+            }
+            if (!bool.TryParse(form["debours"], out var DEBOURS))
+            {
+                return Results.BadRequest(new { Message = "Invalid DEBOURS" });
+            }
+            if (!bool.TryParse(form["confirmation_dedouanement"], out var CONFIRMATION_DEDOUANEMENT))
+            {
+                return Results.BadRequest(new { Message = "Invalid CONFIRMATION_DEDOUANEMENT" });
+            }
 
             // Create the command for the client operation
             var command = new CreateOperationCommand
@@ -106,7 +126,11 @@ public class EntrepriseOperations : EndpointGroupBase
                 AgentId = agent,
                 TypeOperationId = typeOperation,
                 Commentaire = commentaire,
-                Files = files
+                Files = files,
+                OperationPrioriteId = operationPrioriteId,
+                TR = TR,
+                DEBOURS = DEBOURS,
+                CONFIRMATION_DEDOUANEMENT = CONFIRMATION_DEDOUANEMENT,
             };
 
             // Send command to the handler and return the result

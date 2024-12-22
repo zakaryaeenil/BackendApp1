@@ -60,8 +60,24 @@ public class GetOperationFiltersQueryHandler : IRequestHandler<GetOperationFilte
                 .Cast<TypeOperation>()
                 .Select(p => new TypeOperationDto { Value = (int)p, Name = p.ToString() })
                 .ToList();
-            
+
+
+            bool isAgent = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Agent);
+            bool isAdmin = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Administrator);
+
+            int? typeOperation = await _identityService.GetTypeOperationAsync(_currentUserService.Id);
+
             var listAgents = await _identityService.GetAllUsersInRoleAsync(Roles.Agent);
+            if (isAdmin)
+            {
+                listAgents = typeOperation != null ? listAgents.Where(o =>o.TypeOperation != null && (int)o.TypeOperation == typeOperation).ToList() : listAgents;
+                typeOperations = typeOperation != null ? typeOperations.Where(o =>  (int)o.Value == typeOperation).ToList() : typeOperations;
+            }
+            if (isAgent)
+            {
+                listAgents = typeOperation != null ? listAgents.Where(o => o.TypeOperation != null && (int)o.TypeOperation == typeOperation).ToList() : throw new UnauthorizedAccessException("User is not authorized.");
+                typeOperations = typeOperation != null ? typeOperations.Where(o => (int)o.Value == typeOperation).ToList() : throw new UnauthorizedAccessException("User is not authorized.");
+            }
             var listClients = await _identityService.GetAllUsersInRoleAsync(Roles.Client);
 
             //

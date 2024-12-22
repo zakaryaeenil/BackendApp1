@@ -20,9 +20,14 @@ public class Operation : BaseAuditableEntity
         }
     }
     public string? ReserverPar { get; set; }
+
+    public required OperationPriorite OperationPriorite { get; set; }
     public required TypeOperation TypeOperation { get; set; } 
     public required EtatOperation EtatOperation { get; set; }
 
+    public bool TR { get; set; } 
+    public bool DEBOURS { get; set; }
+    public bool CONFIRMATION_DEDOUANEMENT { get; set; }
     public ICollection<Document> Documents { get;  set; } = new List<Document>();
     public ICollection<Commentaire> Commentaires { get;  set; } = new List<Commentaire>();
     public ICollection<Historique> Historiques { get;  set; } = new List<Historique>();

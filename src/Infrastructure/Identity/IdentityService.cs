@@ -15,6 +15,7 @@ using System.Text;
 using Microsoft.Extensions.Options;
 using NejPortalBackend.Infrastructure.Configs;
 using System.Data;
+using NejPortalBackend.Domain.Enums;
 
 namespace NejPortalBackend.Infrastructure.Identity;
 
@@ -52,12 +53,18 @@ public class IdentityService : IIdentityService
         _context = context;
         _signInManager = signInManager;
     }
-
+    
     public async Task<string?> GetUserNameAsync(string userId)
     {
         var user = await _userManager.FindByIdAsync(userId);
 
         return user?.UserName;
+    }
+    public async Task<int?> GetTypeOperationAsync(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+
+        return (int?)(user?.TypeOperation);
     }
     public async Task<string?> GetUserEmailNotifAsync(string userId)
     {
@@ -87,10 +94,12 @@ public class IdentityService : IIdentityService
     string userName,
     string password,
     string email,
+    int? typeOperation,
     string? phoneNumber,
     string? codeUser,
     string notif_email,
-    CancellationToken cancellationToken = default)
+    CancellationToken cancellationToken = default
+    )
     {
         // Check if a user with the same email already exists
         var existingUserWithEmail = await _userManager.FindByEmailAsync(email);
@@ -105,7 +114,6 @@ public class IdentityService : IIdentityService
         {
             return (Result.Failure(new List<string> { "User with this username already exists." }), string.Empty);
         }
-
         // Initialize a new Identity user
         var user = new ApplicationUser
         {
@@ -115,7 +123,8 @@ public class IdentityService : IIdentityService
             EmailConfirmed = true,
             LockoutEnabled = true,
             Email_Notif = notif_email,
-            HasAccess = true
+            HasAccess = true,
+            TypeOperation= (TypeOperation?)typeOperation
         };
        
         bool codeUsed = _userManager.Users.Where(u => u.Id != user.Id && u.CodeRef == codeUser).Count() >= 1 ? true : false;
@@ -132,6 +141,7 @@ public class IdentityService : IIdentityService
         else if (!string.IsNullOrEmpty(codeUser))
         {
             user.CodeRef = codeUser;
+            user.TypeOperation = null;
         }
         // Create the user
         var result = await _userManager.CreateAsync(user, password);
@@ -200,7 +210,7 @@ public class IdentityService : IIdentityService
     }
 
 
-    public async Task<IReadOnlyCollection<UserDto>> GetAllUsersInRoleAsync(string role)
+    public async Task<ICollection<UserDto>> GetAllUsersInRoleAsync(string role)
     {
         // Fetch users assigned to the Client role
         var usersInRole = await _userManager.GetUsersInRoleAsync(role);
@@ -217,6 +227,7 @@ public class IdentityService : IIdentityService
             UserName = user.UserName,
             PhoneNumber = user.PhoneNumber,
             Email = user.Email,
+            TypeOperation= (int?)user.TypeOperation,
             Role= isClient ? Roles.Client : Roles.Agent,
             EmailConfirmed = user.EmailConfirmed,
             HasAccess = user.HasAccess
@@ -401,9 +412,14 @@ public class IdentityService : IIdentityService
     {
         new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
         new Claim(ClaimTypes.Name, user.UserName ?? string.Empty),
-        new Claim(ClaimTypes.NameIdentifier, user.Id)
-    };
+        new Claim(ClaimTypes.NameIdentifier, user.Id),
 
+        };
+        // Add the TypeOperation claim if it exists
+        if (user.TypeOperation.HasValue)
+        {
+            claims.Add(new Claim("TypeOperation", user.TypeOperation.Value.ToString()));
+        }
         // Add roles to claims
         claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
@@ -512,8 +528,6 @@ public class IdentityService : IIdentityService
             {
                 Id = user.Id,
                 CodeRef = user.CodeRef,
-                Nom = user.Nom,
-                Prenom = user.Prenom,
                 Email = user.Email,
                 Email_Notif = user.Email_Notif,
                 HasAccess = user.HasAccess,

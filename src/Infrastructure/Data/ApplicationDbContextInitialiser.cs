@@ -95,7 +95,19 @@ public class ApplicationDbContextInitialiser
         }
         await _userManager.Users.ExecuteDeleteAsync();
         // Default users
-        var administrator = new ApplicationUser { UserName = "Jaouad", Email = "admin2@nejtrans.com",EmailConfirmed = true,Email_Notif = "admin2@nejtrans.com" };
+        var sadministrator = new ApplicationUser { UserName = "superAdmin", Email = "elnilzakarya@gmail.com",EmailConfirmed = true,Email_Notif = "elnilzakarya@gmail.com" };
+
+
+        if (_userManager.Users.All(u => u.UserName != sadministrator.UserName))
+        {
+            await _userManager.CreateAsync(sadministrator, "Administrator1!");
+            if (!string.IsNullOrWhiteSpace(administratorRole.Name))
+            {
+                await _userManager.AddToRolesAsync(sadministrator, new[] { administratorRole.Name });
+            }
+        }
+        // Default users
+        var administrator = new ApplicationUser { UserName = "ImportAdmin", Email = "admin2@nejtrans.com", EmailConfirmed = true, Email_Notif = "admin2@nejtrans.com",TypeOperation = Domain.Enums.TypeOperation.Import };
 
 
         if (_userManager.Users.All(u => u.UserName != administrator.UserName))
@@ -106,12 +118,25 @@ public class ApplicationDbContextInitialiser
                 await _userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
             }
         }
+        // Default users
+        var qadministrator = new ApplicationUser { UserName = "ExportAdmin", Email = "anas.jamali0507@gmail.com", EmailConfirmed = true, Email_Notif = "anas.jamali0507@gmail.com\"", TypeOperation = Domain.Enums.TypeOperation.Export };
 
+
+        if (_userManager.Users.All(u => u.UserName != qadministrator.UserName))
+        {
+            await _userManager.CreateAsync(qadministrator, "Administrator1!");
+            if (!string.IsNullOrWhiteSpace(administratorRole.Name))
+            {
+                await _userManager.AddToRolesAsync(qadministrator, new[] { administratorRole.Name });
+            }
+        }
         Client client = new Client { CodeClient = "112111", Nom = "CAPGEMINI" };
         Client client2 = new Client { CodeClient = "234091", Nom = "ATOS" };
+
         Dossier dossier = new Dossier { CodeClient = "112111", CodeDossier = "111111"};
         Dossier dossier2 = new Dossier { CodeClient = "112111", CodeDossier = "150112" };
         Dossier dossier3 = new Dossier { CodeClient = "112111", CodeDossier = "333411" };
+
         await _context.Dossiers.AddAsync(dossier);
         await _context.Dossiers.AddAsync(dossier2);
         await _context.Dossiers.AddAsync(dossier3);

@@ -496,6 +496,9 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("CONFIRMATION_DEDOUANEMENT")
+                        .HasColumnType("bit");
+
                     b.Property<string>("CodeDossier")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -505,6 +508,9 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("DEBOURS")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("EstReserver")
                         .HasColumnType("bit");
@@ -518,12 +524,18 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("OperationPriorite")
+                        .HasColumnType("int");
+
                     b.Property<string>("Regime")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ReserverPar")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TR")
+                        .HasColumnType("bit");
 
                     b.Property<int>("TypeOperation")
                         .HasColumnType("int");
@@ -537,6 +549,39 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Operations");
+                });
+
+            modelBuilder.Entity("NejPortalBackend.Domain.Entities.Regime", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CodeRegime")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTimeOffset>("Created")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset>("LastModified")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TypeOperation")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Regime");
                 });
 
             modelBuilder.Entity("NejPortalBackend.Infrastructure.Identity.ApplicationUser", b =>
@@ -575,10 +620,6 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Nom")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -596,10 +637,6 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Prenom")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("RefreshToken")
                         .HasColumnType("nvarchar(max)");
 
@@ -611,6 +648,9 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
+
+                    b.Property<int?>("TypeOperation")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)

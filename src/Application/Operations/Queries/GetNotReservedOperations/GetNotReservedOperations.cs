@@ -4,6 +4,7 @@ using NejPortalBackend.Application.Common.Mappings;
 using NejPortalBackend.Application.Common.Models;
 using NejPortalBackend.Application.Common.Security;
 using NejPortalBackend.Domain.Constants;
+using NejPortalBackend.Domain.Entities;
 using NejPortalBackend.Domain.Enums;
 
 namespace NejPortalBackend.Application.Operations.Queries.GetNotReservedOperations;
@@ -11,7 +12,7 @@ namespace NejPortalBackend.Application.Operations.Queries.GetNotReservedOperatio
 [Authorize(Roles = Roles.AdminAndAgent)]
 public record GetNotReservedOperationsQuery : IRequest<PaginatedList<OperationDto>>
 {
-     public int? TypeOpration { get; init; }
+    public int? TypeOpration { get; init; }
     public IList<int>? EtatOprations { get; init; }
     public IList<string>? Clients { get; init; }
     public string? RechercheId { get; init; }
@@ -78,16 +79,29 @@ public class GetNotReservedOperationsQueryHandler : IRequestHandler<GetNotReserv
 
         try
         {
+            bool isAgent = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Agent);
+            bool isAdmin = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Administrator);
+            int? typeOperation = await _identityService.GetTypeOperationAsync(_currentUserService.Id);
 
-            var operationsQuery = !string.IsNullOrWhiteSpace(request.RechercheId)
-            ?
-            _context.Operations
-            .Where(o => !o.EstReserver && o.EtatOperation != EtatOperation.cloture && o.Id.ToString().Contains(request.RechercheId))
-            .AsNoTracking()
-            :
-            _context.Operations
-            .Where(o => !o.EstReserver && o.EtatOperation != EtatOperation.cloture)
-            .AsNoTracking();
+            IQueryable<Operation> operationsQuery = _context.Operations.AsNoTracking(); ;
+            // Filter operations by user and criteria
+            if (isAdmin)
+            {
+                operationsQuery = typeOperation != null ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation) : operationsQuery;
+            }
+            if (isAgent)
+            {
+                operationsQuery = typeOperation != null ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation) : throw new UnauthorizedAccessException("User is not authorized.");
+            }
+             operationsQuery = !string.IsNullOrWhiteSpace(request.RechercheId)
+                                    ?
+                                    operationsQuery
+                                    .Where(o => !o.EstReserver && o.EtatOperation != EtatOperation.cloture && o.Id.ToString().Contains(request.RechercheId))
+                                    .AsNoTracking()
+                                    :
+                                    operationsQuery
+                                    .Where(o => !o.EstReserver && o.EtatOperation != EtatOperation.cloture)
+                                    .AsNoTracking();
 
             // Filter operations by user and criteria
             if (!string.IsNullOrWhiteSpace(request.RechercheId))

@@ -83,9 +83,19 @@ public class GetAllOperationsQueryHandler : IRequestHandler<GetAllOperationsQuer
         {
             bool isAgent = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Agent);
             bool isAdmin = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Administrator);
+            int? typeOperation = await _identityService.GetTypeOperationAsync(_currentUserService.Id);
 
             IQueryable<Operation> operationsQuery = _context.Operations.AsNoTracking();
             // Filter operations by user and criteria
+            if(isAdmin)
+            {
+                operationsQuery = typeOperation != null ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation) : operationsQuery;
+            }
+            if(isAgent)
+            {
+                operationsQuery = typeOperation != null ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation) : throw new UnauthorizedAccessException("User is not authorized.");
+            }
+
             if (!string.IsNullOrWhiteSpace(request.RechercheId))
             {
                 operationsQuery = operationsQuery.Where(o => o.Id.ToString().Contains(request.RechercheId));
@@ -104,7 +114,7 @@ public class GetAllOperationsQueryHandler : IRequestHandler<GetAllOperationsQuer
                 _logger.LogDebug("Filtered operations to date: {ToDate}", request.ToDate.Value);
             }
 
-            if (request.TypeOpration.HasValue)
+            if (request.TypeOpration.HasValue && isAdmin && typeOperation == null)
             {
                 operationsQuery = operationsQuery.Where(o => (int)o.TypeOperation == request.TypeOpration.Value);
                 _logger.LogDebug("Filtered operations by TypeOperation: {TypeOperation}", request.TypeOpration.Value);
