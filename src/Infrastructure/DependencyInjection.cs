@@ -145,7 +145,8 @@ public static class DependencyInjection
         {
             options.AddPolicy("AllowSpecificOrigins", policyBuilder =>
             {
-                policyBuilder.WithOrigins("http://localhost:4200","http://localhost:4300") // Add the Angular app's URL here
+                policyBuilder.WithOrigins("https://calm-beach-043458403.4.azurestaticapps.net",
+                        "http://localhost:4300") // Add the Angular app's URL here
                              .AllowAnyHeader()
                              .AllowAnyMethod()
                              .AllowCredentials();
