@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using NejPortalBackend.Infrastructure.Configs;
 using NejPortalBackend.Infrastructure.Services;
+using System.Security.Claims;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -76,6 +77,25 @@ public static class DependencyInjection
                                                  }
 
                                                  return Task.CompletedTask;
+                                             },
+                                             OnTokenValidated = async context =>
+                                             {
+                                                 var userManager = context.HttpContext.RequestServices.GetRequiredService<UserManager<ApplicationUser>>();
+                                                 var userId = context.Principal?.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                                                 if (userId == null)
+                                                 {
+                                                     context.Fail("Invalid token");
+                                                     return;
+                                                 }
+
+                                                 var user = await userManager.FindByIdAsync(userId);
+
+                                                 if (user == null || user.SecurityStamp != context.Principal?.FindFirstValue("SecurityStamp"))
+                                                 {
+                                                     context.Fail("Invalid token");
+                                                     return;
+                                                 }
                                              }
                                          };
                                      });

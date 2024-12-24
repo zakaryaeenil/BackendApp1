@@ -23,7 +23,7 @@ namespace NejPortalBackend.Infrastructure.Data.Configurations
                 .IsRequired(false); // Nullable field for file size
 
             builder.Property(d => d.TypeFichier)
-                .HasMaxLength(50) // Limit the file type string length
+                .HasMaxLength(100) // Limit the file type string length
                 .IsRequired(false); // Nullable field for file type (MIME/extension)
 
             builder.Property(d => d.EstAccepte)

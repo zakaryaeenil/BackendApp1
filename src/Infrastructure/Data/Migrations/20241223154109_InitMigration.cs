@@ -343,7 +343,7 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                     EstAccepte = table.Column<bool>(type: "bit", nullable: false),
                     CheminFichier = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     TailleFichier = table.Column<long>(type: "bigint", nullable: true),
-                    TypeFichier = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    TypeFichier = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),

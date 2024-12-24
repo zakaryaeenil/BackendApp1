@@ -413,6 +413,7 @@ public class IdentityService : IIdentityService
         new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
         new Claim(ClaimTypes.Name, user.UserName ?? string.Empty),
         new Claim(ClaimTypes.NameIdentifier, user.Id),
+        new Claim("SecurityStamp", user.SecurityStamp ?? string.Empty) // Add SecurityStamp
 
         };
         // Add the TypeOperation claim if it exists
@@ -424,21 +425,23 @@ public class IdentityService : IIdentityService
         claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
         // Create the token descriptor
+        // Create token descriptor and sign
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddHours(12), // Adjust token expiry as needed
-            SigningCredentials = credentials,
+            Expires = DateTime.UtcNow.AddHours(12),
+            SigningCredentials = new SigningCredentials(
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecretKey"] ?? string.Empty)),
+                SecurityAlgorithms.HmacSha256),
             Issuer = _configuration["JwtSettings:Issuer"],
             Audience = audience
         };
 
         // Generate the token
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var token = tokenHandler.CreateToken(tokenDescriptor);
 
         _logger.LogInformation("JWT token generated for user {Email} with roles {Roles}", user.Email, string.Join(", ", roles));
-        return tokenHandler.WriteToken(token);
+         return new JwtSecurityTokenHandler().WriteToken(new JwtSecurityTokenHandler().CreateToken(tokenDescriptor));
+
     }
     private async Task SaveRefreshTokenAsync(ApplicationUser user, string refreshToken)
     {
@@ -467,6 +470,7 @@ public class IdentityService : IIdentityService
         var resetPasswordResult = await _userManager.ResetPasswordAsync(user, token, newPassword);
         if (!resetPasswordResult.Succeeded)
         {
+
             var errors = resetPasswordResult.Errors.Select(e => e.Description).ToList();
 
             // Check if the error is due to token expiration
@@ -477,6 +481,8 @@ public class IdentityService : IIdentityService
 
             return Result.Failure(errors);
         }
+        // Refresh the sign-in token to ensure a new password invalidates old JWTs
+        await InvalidateOldTokensAndGenerateNewAsync(user);
 
         return Result.Success();
     }
@@ -613,7 +619,7 @@ public class IdentityService : IIdentityService
         if (changePasswordResult.Succeeded)
         {
             // Refresh the sign-in token to ensure a new password invalidates old JWTs
-            await _signInManager.RefreshSignInAsync(user);
+            await InvalidateOldTokensAndGenerateNewAsync(user);
 
             return (Result.Success(),string.Empty);
         }
@@ -624,5 +630,19 @@ public class IdentityService : IIdentityService
             return (Result.Failure(errors),string.Empty);
         }
     }
+    private async Task InvalidateOldTokensAndGenerateNewAsync(ApplicationUser user)
+    {
+        // Invalidate the current refresh token
+        user.RefreshToken = GenerateRefreshToken();
+        user.RefreshTokenExpiryTime = DateTimeOffset.UtcNow.AddDays(7); // Example: Set the new expiry to 7 days
+
+        // Update the user in the database
+        var result = await _userManager.UpdateAsync(user);
+        if (!result.Succeeded)
+        {
+            throw new Exception("Failed to update user refresh token.");
+        }
+    }
+
 
 }

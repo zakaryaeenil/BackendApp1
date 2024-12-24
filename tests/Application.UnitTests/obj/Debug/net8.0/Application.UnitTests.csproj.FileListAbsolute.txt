@@ -1,0 +1,3 @@
+/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/tests/Application.UnitTests/obj/Debug/net8.0/Application.UnitTests.csproj.AssemblyReference.cache
+/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/tests/Application.UnitTests/obj/Debug/net8.0/Application.UnitTests.GeneratedMSBuildEditorConfig.editorconfig
+/Users/zakaryaeenil/Desktop/nejtrans/NejPortalBackend/tests/Application.UnitTests/obj/Debug/net8.0/Application.UnitTests.AssemblyInfoInputs.cache

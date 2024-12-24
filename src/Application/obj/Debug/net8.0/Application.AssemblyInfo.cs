@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NejPortalBackend.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11caa26f6672abfb2b1f3fbfb0fab15132eabb74")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e89b4766537a58129c009beb67487f49f0125b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("NejPortalBackend.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NejPortalBackend.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

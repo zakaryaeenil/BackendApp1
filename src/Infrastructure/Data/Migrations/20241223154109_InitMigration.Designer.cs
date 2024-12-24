@@ -12,7 +12,7 @@ using NejPortalBackend.Infrastructure.Data;
 namespace NejPortalBackend.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241221144956_InitMigration")]
+    [Migration("20241223154109_InitMigration")]
     partial class InitMigration
     {
         /// <inheritdoc />
@@ -277,8 +277,8 @@ namespace NejPortalBackend.Infrastructure.Data.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("TypeFichier")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
