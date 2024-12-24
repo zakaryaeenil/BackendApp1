@@ -9,7 +9,7 @@ namespace NejPortalBackend.Application.UnitTests.Common.Behaviours;
 
 public class RequestLoggerTests
 {
-    private Mock<ILogger<CreateTodoItemCommand>> _logger = null!;
+    private Mock<ILogger<Cereate>> _logger = null!;
     private Mock<IUser> _user = null!;
     private Mock<IIdentityService> _identityService = null!;
 
