@@ -1,4 +1,4 @@
-﻿using NejPortalBackend.Domain.Constants;
+using NejPortalBackend.Domain.Constants;
 using NejPortalBackend.Infrastructure.Data;
 using NejPortalBackend.Infrastructure.Identity;
 using MediatR;
@@ -11,7 +11,7 @@ namespace NejPortalBackend.Application.FunctionalTests;
 [SetUpFixture]
 public partial class Testing
 {
-    private static ITestDatabase _database;
+    private static ITestDatabase? _database;
     private static CustomWebApplicationFactory _factory = null!;
     private static IServiceScopeFactory _scopeFactory = null!;
     private static string? _userId;
@@ -21,7 +21,7 @@ public partial class Testing
     {
         _database = await TestDatabaseFactory.CreateAsync();
 
-        _factory = new CustomWebApplicationFactory(_database.GetConnection());
+        _factory = new CustomWebApplicationFactory(_database?.GetConnection() ?? throw new InvalidOperationException("Database connection is not available."));
 
         _scopeFactory = _factory.Services.GetRequiredService<IServiceScopeFactory>();
     }
@@ -97,7 +97,10 @@ public partial class Testing
     {
         try
         {
-            await _database.ResetAsync();
+            if (_database != null)
+            {
+                await _database.ResetAsync();
+            }
         }
         catch (Exception) 
         {
@@ -140,7 +143,10 @@ public partial class Testing
     [OneTimeTearDown]
     public async Task RunAfterAnyTests()
     {
-        await _database.DisposeAsync();
+        if (_database != null)
+        {
+            await _database.DisposeAsync();
+        }
         await _factory.DisposeAsync();
     }
 }
