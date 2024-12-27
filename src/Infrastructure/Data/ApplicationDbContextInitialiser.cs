@@ -119,7 +119,7 @@ public class ApplicationDbContextInitialiser
             }
         }
         // Default users
-        var qadministrator = new ApplicationUser { UserName = "ExportAdmin", Email = "anas.jamali0507@gmail.com", EmailConfirmed = true, Email_Notif = "anas.jamali0507@gmail.com\"", TypeOperation = Domain.Enums.TypeOperation.Export };
+        var qadministrator = new ApplicationUser { UserName = "ExportAdmin", Email = "admin3@nejtrans.com", EmailConfirmed = true, Email_Notif = "admin3@nejtrans.com", TypeOperation = Domain.Enums.TypeOperation.Export };
 
 
         if (_userManager.Users.All(u => u.UserName != qadministrator.UserName))
