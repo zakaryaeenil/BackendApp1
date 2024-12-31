@@ -15,8 +15,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   sku: sku
   kind: kind
   properties: {
-    reserved: reserved,
-    elasticScaleEnabled : true
+    reserved: reserved
   }
 }
 
