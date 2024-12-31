@@ -1514,6 +1514,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "nbrTotalMACOperations": {
+            "type": "integer",
+            "format": "int32"
+          },
           "nbrTotalExportOperations": {
             "type": "integer",
             "format": "int32"

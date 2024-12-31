@@ -68,7 +68,7 @@ public class Authentification : EndpointGroupBase
 
             if (!result.Succeeded)
             {
-                return Results.BadRequest(string.Join("\n",result.Errors?? Array.Empty<string>()));
+                return Results.BadRequest(string.Join("\n",result.Errors?? []));
             }
 
             return Results.Ok();

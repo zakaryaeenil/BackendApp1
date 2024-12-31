@@ -12,6 +12,7 @@ public class DashboardVm
         public int NbrNotReservedOperations { get; set; } = 0;
         public int NbrEncoursOperations { get; set; } = 0;
         public int NbrTotalImportOperations { get; set; } = 0;
+        public int NbrTotalMACOperations { get; set; } = 0;
         public int NbrTotalExportOperations { get; set; } = 0;
         public int NbrTotalFactures { get; set; } = 0;
     // Use List<T> instead of IReadOnlyCollection<T>

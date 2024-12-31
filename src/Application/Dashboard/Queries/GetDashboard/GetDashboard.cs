@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using Microsoft.Extensions.Logging;
 using NejPortalBackend.Application.Common.Interfaces;
 using NejPortalBackend.Application.Common.Models;
 using NejPortalBackend.Application.Common.Security;
@@ -12,51 +11,44 @@ using static NejPortalBackend.Application.Common.Models.DashboardHelpers;
 namespace NejPortalBackend.Application.Dashboard.Queries.GetDashboard;
 
 [Authorize(Roles = Roles.AdminAndAgent)]
-public record GetDashboardQuery : IRequest<DashboardVm>
+public record GetDashboardQuery(int? Year, int? Month) : IRequest<DashboardVm>;
+
+
+public class GetDashboardQueryHandler(
+    IApplicationDbContext context,
+    IUser currentUserService,
+    IIdentityService identityService)
+    : IRequestHandler<GetDashboardQuery, DashboardVm>
 {
-    public int? Year { get; init; }
-    public int? Month { get; init; }
-}
 
-
-public class GetDashboardQueryHandler : IRequestHandler<GetDashboardQuery, DashboardVm>
-{
-    private readonly IApplicationDbContext _context;
-    private readonly IIdentityService _identityService;
-    private readonly IUser _currentUserService;
-    private readonly IFileService _fileService;
-    private readonly ILogger<GetDashboardQueryHandler> _logger;
-
-    public GetDashboardQueryHandler(IApplicationDbContext context, IUser currentUserService, IIdentityService identityService, IFileService fileService, ILogger<GetDashboardQueryHandler> logger)
-    {
-        _context = context;
-        _currentUserService = currentUserService;
-        _identityService = identityService;
-        _fileService = fileService;
-        _logger = logger;
-    }
 
     public async Task<DashboardVm> Handle(GetDashboardQuery request, CancellationToken cancellationToken)
     {
-        if (string.IsNullOrWhiteSpace(_currentUserService.Id))
+        if (string.IsNullOrWhiteSpace(currentUserService.Id))
             throw new UnauthorizedAccessException();
 
-        var userId = _currentUserService.Id;
+        var userId = currentUserService.Id;
 
-        bool isAgent = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Agent);
-        bool isAdmin = await _identityService.IsInRoleAsync(_currentUserService.Id, Roles.Administrator);
-        int? typeOperation = await _identityService.GetTypeOperationAsync(_currentUserService.Id);
+        bool isAgent = await identityService.IsInRoleAsync(currentUserService.Id, Roles.Agent);
+        bool isAdmin = await identityService.IsInRoleAsync(currentUserService.Id, Roles.Administrator);
+        int? typeOperation = await identityService.GetTypeOperationAsync(currentUserService.Id);
 
-        IQueryable<Operation> operationsQuery = _context.Operations.AsNoTracking(); ;
+        IQueryable<Operation> operationsQuery = context.Operations.AsNoTracking();
         // Filter operations by user and criteria
         if (isAdmin)
         {
-            operationsQuery = typeOperation != null ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation) : operationsQuery;
+            operationsQuery = typeOperation != null
+                ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation)
+                : operationsQuery;
         }
+
         if (isAgent)
         {
-            operationsQuery = typeOperation != null ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation) : throw new UnauthorizedAccessException("User is not authorized.");
+            operationsQuery = typeOperation != null
+                ? operationsQuery.Where(o => (int)o.TypeOperation == typeOperation)
+                : throw new UnauthorizedAccessException("User is not authorized.");
         }
+
         if (request.Year.HasValue || request.Month.HasValue)
         {
             operationsQuery = operationsQuery
@@ -71,13 +63,14 @@ public class GetDashboardQueryHandler : IRequestHandler<GetDashboardQuery, Dashb
         adminDashVm = isAdmin
             ? await GetDashboardAdminData(request, operationsQuery, adminDashVm, cancellationToken)
             : isAgent
-            ? await GetDashboardAgentData(request, userId, operationsQuery, adminDashVm, cancellationToken)
-            : throw new UnauthorizedAccessException();
+                ? await GetDashboardAgentData(userId, operationsQuery, adminDashVm, cancellationToken)
+                : throw new UnauthorizedAccessException();
 
         return adminDashVm;
     }
 
-    private static async Task<DashboardVm> GetDashboardAgentData(GetDashboardQuery request, string userId, IQueryable<Domain.Entities.Operation> operationsQuery, DashboardVm adminDashVm, CancellationToken cancellationToken)
+    private static async Task<DashboardVm> GetDashboardAgentData(string userId, IQueryable<Operation> operationsQuery,
+        DashboardVm adminDashVm, CancellationToken cancellationToken)
     {
         var agentOperationsQuery = operationsQuery.Where(o => o.ReserverPar == userId);
 
@@ -99,10 +92,14 @@ public class GetDashboardQueryHandler : IRequestHandler<GetDashboardQuery, Dashb
             .Where(o => o.TypeOperation == TypeOperation.Import)
             .CountAsync(cancellationToken);
 
+        adminDashVm.NbrTotalMACOperations = await agentOperationsQuery
+            .Where(o => o.TypeOperation == TypeOperation.MAC)
+            .CountAsync(cancellationToken);
+
         var etatOperationsList = Enum.GetValues(typeof(EtatOperation))
-         .Cast<EtatOperation>()
-         .Select(p => new EtatOperationDto { Value = (int)p, Name = p.ToString() })
-         .ToList();
+            .Cast<EtatOperation>()
+            .Select(p => new EtatOperationDto { Value = (int)p, Name = p.ToString() })
+            .ToList();
         foreach (EtatOperationDto etat in etatOperationsList)
         {
             // Count the number of clientOperationsQuery where the type matches the current enum value
@@ -111,18 +108,15 @@ public class GetDashboardQueryHandler : IRequestHandler<GetDashboardQuery, Dashb
                 .CountAsync(cancellationToken);
 
             // Add the result to the DTO list
-            adminDashVm.OperationEtatDtos.Add(new OperationEtatDto
-            {
-                Etat = etat.Name,
-                NumberOfOperations = count
-            });
+            adminDashVm.OperationEtatDtos.Add(new OperationEtatDto { Etat = etat.Name, NumberOfOperations = count });
         }
 
         return adminDashVm;
     }
-    private async Task<DashboardVm> GetDashboardAdminData(GetDashboardQuery request, IQueryable<Domain.Entities.Operation> operationsQuery, DashboardVm adminDashVm, CancellationToken cancellationToken)
+
+    private async Task<DashboardVm> GetDashboardAdminData(GetDashboardQuery request, IQueryable<Operation> operationsQuery, DashboardVm adminDashVm, CancellationToken cancellationToken)
     {
-        var factureQuery = _context.Factures.AsQueryable();
+        var factureQuery = context.Factures.AsQueryable();
         if (request.Year.HasValue)
         {
 
@@ -138,13 +132,13 @@ public class GetDashboardQueryHandler : IRequestHandler<GetDashboardQuery, Dashb
                 .ToList();
 
             // Fetch operations data for the specific year and group by month
-            var operationsByMonth = await _context.Operations
+            var operationsByMonth = await context.Operations
                 .Where(o => o.Created.Year == request.Year.Value)
                 .GroupBy(o => o.Created.Month)
                 .Select(g => new ChartOperationByYear
                 {
                     Month = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(g.Key),
-                    NumberTotalOfOperations = g.Count(),
+                    NumberTotalOfOperations =  g.Count()  ,
                     NumberImportOfOperations = g.Count(o => o.TypeOperation == TypeOperation.Import),
                     NumberExportOfOperations = g.Count(o => o.TypeOperation == TypeOperation.Export)
                 })
@@ -190,9 +184,9 @@ public class GetDashboardQueryHandler : IRequestHandler<GetDashboardQuery, Dashb
             .Where(o => o.EtatOperation != EtatOperation.cloture)
             .CountAsync(cancellationToken);
 
-        adminDashVm.NbrTotalAgents = await _identityService.GetUserInRoleCount(Roles.Agent);
+        adminDashVm.NbrTotalAgents = await identityService.GetUserInRoleCount(Roles.Agent);
 
-        adminDashVm.NbrTotalClients = await _identityService.GetUserInRoleCount(Roles.Client);
+        adminDashVm.NbrTotalClients = await identityService.GetUserInRoleCount(Roles.Client);
 
 
         adminDashVm.NbrTotalExportOperations = await operationsQuery
@@ -202,7 +196,11 @@ public class GetDashboardQueryHandler : IRequestHandler<GetDashboardQuery, Dashb
         adminDashVm.NbrTotalImportOperations = await operationsQuery
             .Where(o => o.TypeOperation == TypeOperation.Import)
             .CountAsync(cancellationToken);
-
+        
+        adminDashVm.NbrTotalMACOperations = await operationsQuery
+            .Where(o => o.TypeOperation == TypeOperation.MAC)
+            .CountAsync(cancellationToken);
+        
         var etatOperationsList = Enum.GetValues(typeof(EtatOperation))
              .Cast<EtatOperation>()
              .Select(p => new EtatOperationDto { Value = (int)p, Name = p.ToString() })

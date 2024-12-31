@@ -63,7 +63,7 @@ public class EmailService : IEmailService
     }
     public async Task SendResetPasswordEmailAsync(string email, string resetPasswordLink, string userName)
     {
-        var templatePath = Path.Combine(_environment.ContentRootPath, _emailSettings.WelcomeTemplatePath);
+        var templatePath = Path.Combine(_environment.ContentRootPath, _emailSettings.ResetPasswordTemplatePath);
 
         if (!File.Exists(templatePath))
         {
@@ -75,7 +75,7 @@ public class EmailService : IEmailService
 
         emailTemplate = emailTemplate
             .Replace("{{UserName}}", userName)
-            .Replace("{{Email}}", email)
+            .Replace("{{UserEmail}}", email)
             .Replace("{{ResetPasswordLink}}", resetPasswordLink);
 
         // Send the email
